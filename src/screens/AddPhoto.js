@@ -1,91 +1,91 @@
 import React, { Component } from 'react';
 import {
-  View,
-  Text,
-  TouchableHighlight,
-  StyleSheet,
-  TextInput,
-  Alert
+    View,
+    Text,
+    TouchableHighlight,
+    StyleSheet,
+    TextInput,
+    Alert
 } from 'react-native';
 
 import { db } from '../config';
 
 let addPhoto = photo => {
-  db.ref('/photos').push({
+db.ref('/photos').push({
     name: photo
-  });
+});
 };
 
 export default class AddPhoto extends Component {
-  state = {
-    name: ''
-  };
+    state = {
+        name: ''
+    };
 
-  handleChange = e => {
-    this.setState({
-      name: e.nativeEvent.text
-    });
-  };
-  handleSubmit = () => {
-    addPhoto(this.state.name);
-    Alert.alert('Photo saved successfully');
-  };
+    handleChange = e => {
+        this.setState({
+        name: e.nativeEvent.text
+        });
+    };
+    handleSubmit = () => {
+        addPhoto(this.state.name);
+        Alert.alert('Photo saved successfully');
+    };
 
-  render() {
-    return (
-      <View style={styles.main}>
-        <Text style={styles.title}>Add Photo</Text>
-        <TextInput style={styles.photoInput} onChange={this.handleChange} />
-        <TouchableHighlight
-          style={styles.button}
-          underlayColor="white"
-          onPress={this.handleSubmit}
-        >
-          <Text style={styles.buttonText}>Add</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+    render() {
+        return (
+        <View style={styles.main}>
+            <Text style={styles.title}>Add Photo</Text>
+            <TextInput style={styles.photoInput} onChange={this.handleChange} />
+            <TouchableHighlight
+                style={styles.button}
+                underlayColor="white"
+                onPress={this.handleSubmit}
+            >
+                <Text style={styles.buttonText}>Add</Text>
+            </TouchableHighlight>
+        </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    padding: 30,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor: '#6565fc'
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 25,
-    textAlign: 'center'
-  },
-  photoInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 5,
-    fontSize: 23,
-    borderWidth: 1,
-    borderColor: 'white',
-    borderRadius: 8,
-    color: 'white'
-  },
-  buttonText: {
-    fontSize: 18,
-    color: '#111',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  }
+    main: {
+        flex: 1,
+        padding: 30,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        backgroundColor: '#6565fc'
+    },
+    title: {
+        marginBottom: 20,
+        fontSize: 25,
+        textAlign: 'center'
+    },
+    photoInput: {
+        height: 50,
+        padding: 4,
+        marginRight: 5,
+        fontSize: 23,
+        borderWidth: 1,
+        borderColor: 'white',
+        borderRadius: 8,
+        color: 'white'
+    },
+    buttonText: {
+        fontSize: 18,
+        color: '#111',
+        alignSelf: 'center'
+    },
+    button: {
+        height: 45,
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 8,
+        marginBottom: 10,
+        marginTop: 10,
+        alignSelf: 'stretch',
+        justifyContent: 'center'
+    }
 });
