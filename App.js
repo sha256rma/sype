@@ -1,40 +1,46 @@
-import 'react-native-gesture-handler';
-import React, { Component } from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import Home from './src/screens/Home';
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import AddPhoto from './src/screens/AddPhoto';
-import List from './src/screens/List';
+import FeedScreen from '@screens/app/FeedScreen';
+import ChatScreen from '@screens/app/ChatScreen';
+import ProfileScreen from '@screens/app/ProfileScreen';
+import CameraScreen from '@screens/app/CameraScreen';
 
-
-const Stack = createStackNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        
-        <Stack.Screen 
-          name="Home" 
-          component={Home}
-          options={{ title: 'Welcome!' }}
-        />
+    return (
+        <NavigationContainer>
+            <StatusBar backgroundColor={'powderblue'} barStyle="light-content"/>
+            <Tab.Navigator
+                initialRouteName="Feed"
+                tabBarOptions={{
+                    activeTintColor: 'black',
+                    labelStyle: { fontSize: 12 },
+                    style: { backgroundColor: 'powderblue' },
+                }}
+            >
+                <Tab.Screen
+                    name="Chat"
+                    component={ChatScreen}
+                    options={{ tabBarLabel: 'Chat' }}
+                />
+                <Tab.Screen
+                    name="Feed"
+                    component={FeedScreen}
+                    options={{ tabBarLabel: 'Feed' }}
+                />
 
-        <Stack.Screen 
-          name="AddPhoto" 
-          component={AddPhoto}
-          options={{ title: 'Take a picture' }}
-        />
-
-        <Stack.Screen 
-          name="List" 
-          component={List}
-          options={{ title: 'List of Images' }}
-        />        
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+                <Tab.Screen
+                    name="Profile"
+                    component={ProfileScreen}
+                    options={{ tabBarLabel: 'Profile' }}
+                />
+            </Tab.Navigator>
+        </NavigationContainer>
+    );
 }
 
 export default App;
