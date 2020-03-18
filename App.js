@@ -1,8 +1,8 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Platform, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import FeedScreen from '@screens/app/FeedScreen';
 import ChatScreen from '@screens/app/ChatScreen';
 import ProfileScreen from '@screens/app/ProfileScreen';
@@ -12,8 +12,8 @@ const Tab = createMaterialTopTabNavigator();
 
 function App() {
     return (
-        <NavigationContainer>
-            <StatusBar backgroundColor={'powderblue'} barStyle="light-content"/>
+        <NavigationContainer >
+            <StatusBar backgroundColor={'powderblue'} barStyle="light-content" />
             <Tab.Navigator
                 initialRouteName="Feed"
                 tabBarOptions={{
@@ -21,6 +21,7 @@ function App() {
                     labelStyle: { fontSize: 12 },
                     style: { backgroundColor: 'powderblue' },
                 }}
+                style={Platform.OS = 'ios' ? { paddingTop: Dimensions.get('window').height * .035 } : {}}
             >
                 <Tab.Screen
                     name="Chat"
@@ -39,7 +40,7 @@ function App() {
                     options={{ tabBarLabel: 'Profile' }}
                 />
             </Tab.Navigator>
-        </NavigationContainer>
+        </NavigationContainer >
     );
 }
 

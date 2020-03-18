@@ -6,7 +6,6 @@
  */
 
 #import "AppDelegate.h"
-
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -30,7 +29,11 @@
   [self.window makeKeyAndVisible];
   RNScreenshotDetector* screenshotDetector = [[RNScreenshotDetector alloc] init];
   [screenshotDetector setupAndListen:rootView.bridge];
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> d96482606ae2fba831248ca3a67e421dda631a7c
   return YES;
 }
 
