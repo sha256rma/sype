@@ -1,8 +1,7 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, Platform, Dimensions} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-
 import FeedScreen from '@screens/app/FeedScreen';
 import ChatScreen from '@screens/app/ChatScreen';
 import ProfileScreen from '@screens/app/ProfileScreen';
@@ -19,7 +18,12 @@ function App() {
           activeTintColor: 'black',
           labelStyle: {fontSize: 12},
           style: {backgroundColor: 'powderblue'},
-        }}>
+        }}
+        style={
+          (Platform.OS = 'ios'
+            ? {paddingTop: Dimensions.get('window').height * 0.035}
+            : {})
+        }>
         <Tab.Screen
           name="Chat"
           component={ChatScreen}
