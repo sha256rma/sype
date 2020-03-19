@@ -10,10 +10,10 @@ export default class FeedScreen extends React.Component {
 
   // renders each post function
   renderPosts = element => {
-    const {img, caption, likes, saves, comments, username} = element.item;
+    const {img} = element.item;
     return (
       <Card>
-        <Card.Cover source={{uri: img}} style={{height: '90%'}} />
+        <Card.Cover source={{uri: img}} style={styles.card} />
         <Card.Content>
           <Caption>caption</Caption>
         </Card.Content>
@@ -82,5 +82,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  card: {
+    height: '90%',
   },
 });
