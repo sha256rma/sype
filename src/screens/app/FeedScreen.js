@@ -4,15 +4,12 @@ import { Card, Caption, IconButton } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import moment from "moment";
 import Comments from "react-native-comments";
+import LikeButton from './Components/LikeButton/LikeButton'
+import SaveButton from './Components/SaveButton/SaveButton'
 
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
-
-    }
-    // handle like button. Will be working with denny to ensure this works
-    handleLikeClick = () => {
-        
     }
     extractUsername(c) {
         try {
@@ -89,7 +86,6 @@ export default class FeedScreen extends React.Component {
     // renders each post function. Each post is a card with a cover(the image) and content. Content for now has a caption with the username and 2 buttons
     renderPosts = element => {
         const { img, caption, likes, saves,likeStatusIcon, saveStatusIcon, comments, username } = element.item;
-        console.log("comments is ", comments);
         return (
             <Card>
                 <Card.Cover source={{ uri: img }} style={{ height: '40%' }} />
@@ -104,20 +100,8 @@ export default class FeedScreen extends React.Component {
                     <View>
                         <Caption><Text>{username} : </Text>{caption}</Caption>
                         <View style={styles.buttonContainer}>
-                            <IconButton
-                                //style={styles.likeButton}
-                                icon={likeStatusIcon}
-                                color="red"
-                                size={20}
-                                onPress={this.handleLikeClick}
-                            />
-                            <IconButton
-                            //style={styles.saveButton}
-                                icon={saveStatusIcon}
-                                style={styles.button}
-                                size={20}
-                                onPress={this.handleLikeClick}
-                            />  
+                            <LikeButton></LikeButton>
+                            <SaveButton></SaveButton>
                         </View>
                     <Comments
                         data={comments}
