@@ -473,8 +473,7 @@ export default class CommentsPost extends React.Component{
             "email": "Jeffery@juwan.us",
             "body": "repudiandae repellat quia\nsequi est dolore explicabo nihil et\net sit et\net praesentium iste atque asperiores tenetur"
             }
-        }
-     ];
+        };
         handleLikeClick = () => {
 
         }
