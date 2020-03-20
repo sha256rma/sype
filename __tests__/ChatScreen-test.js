@@ -13,7 +13,7 @@
 //   renderer.create(<App />);
 // });
 
-__tests__/Intro-test.js
+// __tests__/Intro-test.js
 import 'react-native';
 import React from 'react';
 import ChatScreen from '@screens/app/ChatScreen';
