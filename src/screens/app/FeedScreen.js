@@ -4,7 +4,6 @@ import { Card, Caption, IconButton } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import SaveButton from './Components/SaveButton/SaveButton'
-import CommentsPost from './Components/CommentsPost/CommentsPost';
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
