@@ -30,7 +30,6 @@ export default class FeedScreen extends React.Component {
                             <LikeButton></LikeButton>
                             <SaveButton></SaveButton>
                         </View>
-                        <CommentsPost></CommentsPost>
                     </View>
                 </ScrollView>
             </Card.Content>
