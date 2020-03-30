@@ -53,8 +53,6 @@ export default class FeedScreen extends React.Component {
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
-                likeStatusIcon: "heart-outline",
-                saveStatusIcon: "content-save-outline",
                 saves: 0,
                 username: 'gabriela'
             },
@@ -62,8 +60,6 @@ export default class FeedScreen extends React.Component {
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
-                likeStatusIcon: "heart-outline", 
-                saveStatusIcon: "content-save-outline",
                 saves: 0,
                 username: 'gabriela'
             },
@@ -71,8 +67,6 @@ export default class FeedScreen extends React.Component {
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
-                likeStatusIcon: "heart-outline",
-                saveStatusIcon: "content-save-outline",
                 saves: 0,
                 username: 'gabriela'
             }
