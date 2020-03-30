@@ -3,7 +3,10 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Card, Caption, IconButton } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
-import SaveButton from './Components/SaveButton/SaveButton'
+import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
+import SettingsButtonVertical from './Components/SettingsButtonVertical/SettingsButtonVertical'
+
+//import Comments from 'react-native-comments'
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -12,10 +15,13 @@ export default class FeedScreen extends React.Component {
     
     // renders each post function. Each post is a card with a cover(the image) and content. Content for now has a caption with the username and 2 buttons
     renderPosts = element => {
-        const { img, caption, likes, saves,likeStatusIcon, saveStatusIcon, comments, username } = element.item;
+        const { img, caption, username } = element.item;
         return (
             <Card>
                 <Card.Cover source={{ uri: img }} style={{ height: '70%' }} />
+                <View style={{position: 'absolute', right:0}}>
+                    <SettingsButtonVertical></SettingsButtonVertical>
+                </View>
                 <Card.Content>
                 <ScrollView
                     keyboardShouldPersistTaps="always"
@@ -28,9 +34,11 @@ export default class FeedScreen extends React.Component {
                         <Caption><Text>{username} : </Text>{caption}</Caption>
                         <View style={styles.buttonContainer}>
                             <LikeButton></LikeButton>
-                            <SaveButton></SaveButton>
+                            <BookmarkButton></BookmarkButton>
                         </View>
                     </View>
+                    
+
                 </ScrollView>
             </Card.Content>
             </Card>

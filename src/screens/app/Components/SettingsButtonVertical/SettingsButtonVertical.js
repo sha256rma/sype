@@ -2,22 +2,22 @@ import {IconButton } from 'react-native-paper';
 import React from 'react'
 import styles from './styles';
 
-export default class SaveButton extends React.Component{
+export default class SettingsButtonVertical extends React.Component{
     state = {
         iconSize : 20,
-        saveStatusIcon: "content-save-outline"
+        settingsButtonVerticalIcon: "dots-vertical"
     }
 
     
     render() {
-        handleSaveClick = () => {
+        handleSettingsClick = () => {
 
         }
     return(     
         <IconButton                         
-            icon={this.state.saveStatusIcon}
+            icon={this.state.settingsButtonVerticalIcon}
             size={this.state.iconSize}
-            onPress={this.handleSaveClick}
+            onPress={this.handleSettingsClick}
         />  
       )
     } 
