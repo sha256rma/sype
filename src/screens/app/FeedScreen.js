@@ -1,86 +1,100 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Card, Caption} from 'react-native-paper';
+import { View, StyleSheet, Alert } from 'react-native';
+import { Card, Caption } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
+import * as ScreenshotDetector from 'react-native-screenshot-detect';
+
 
 export default class FeedScreen extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            testText: 'no working'
+        }
+    }
 
-  // renders each post function
-  renderPosts = element => {
-    const {img, caption, likes, saves, comments, username} = element.item;
-    return (
-      <Card>
-        <Card.Cover source={{uri: img}} style={{height: '90%'}} />
-        <Card.Content>
-          <Caption>caption</Caption>
-        </Card.Content>
-      </Card>
-    );
-  };
+    // renders each post function
+    renderPosts = element => {
+        const { img, caption, likes, saves, comments, username } = element.item;
+        return (
+            <Card>
+                <Card.Cover source={{ uri: img }} style={{ height: '90%' }} />
+                <Card.Content>
+                    <Caption>capasationeew nessswww ${this.state.testText}</Caption>
+                </Card.Content>
+            </Card>
+        );
+    };
 
-  render() {
-    const posts = [
-      {
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        comments: [
-          'youre fucking bot',
-          'dumb fucking infected bitch',
-          'bobs and vagen pls',
-        ],
-        username: 'gabriela',
-      },
-      {
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        comments: [
-          'youre fucking bot',
-          'dumb fucking infected bitch',
-          'bobs and vagen pls',
-        ],
-        username: 'gabriela',
-      },
-      {
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        comments: [
-          'youre fucking bot',
-          'dumb fucking infected bitch',
-          'bobs and vagen pls',
-        ],
-        username: 'gabriela',
-      },
-    ];
-    return (
-      <View style={styles.container}>
-        <Carousel
-          layout={'tinder'}
-          data={posts}
-          renderItem={this.renderPosts}
-          sliderWidth={500}
-          itemWidth={400}
-        />
-      </View>
-    );
-  }
+    componentDidMount = () => {
+        this.eventEmitter = ScreenshotDetector.subscribe(() => { console.log('screenshotted'); this.setState({ testText: 'yes working' }) });
+    }
+
+    componentWillUnmount = () => {
+        ScreenshotDetector.unsubscribe(this.eventEmitter);
+    }
+
+    render() {
+        console.log('render');
+        const posts = [
+            {
+                img:
+                    'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+                caption: 'Quarantine selfie #corona',
+                likes: 2,
+                saves: 0,
+                comments: [
+                    'youre fucking bot',
+                    'dumb fucking infected bitch',
+                    'bobs and vagen pls',
+                ],
+                username: 'gabriela',
+            },
+            {
+                img:
+                    'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+                caption: 'Quarantine selfie #corona',
+                likes: 2,
+                saves: 0,
+                comments: [
+                    'youre fucking bot',
+                    'dumb fucking infected bitch',
+                    'bobs and vagen pls',
+                ],
+                username: 'gabriela',
+            },
+            {
+                img:
+                    'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+                caption: 'Quarantine selfie #corona',
+                likes: 2,
+                saves: 0,
+                comments: [
+                    'youre fucking bot',
+                    'dumb fucking infected bitch',
+                    'bobs and vagen pls',
+                ],
+                username: 'gabriela',
+            },
+        ];
+        return (
+            <View style={styles.container}>
+                <Carousel
+                    layout={'tinder'}
+                    data={posts}
+                    renderItem={this.renderPosts}
+                    sliderWidth={500}
+                    itemWidth={400}
+                />
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
