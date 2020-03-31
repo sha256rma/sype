@@ -11,7 +11,6 @@
 #import <React/RCTRootView.h>
 #import <RNScreenshotDetector/RNScreenshotDetector.h>
 
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,7 +29,6 @@
   [self.window makeKeyAndVisible];
   RNScreenshotDetector* screenshotDetector = [[RNScreenshotDetector alloc] init];
   [screenshotDetector setupAndListen:rootView.bridge];
-  
   return YES;
 }
 

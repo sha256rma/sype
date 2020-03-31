@@ -17,7 +17,7 @@ export default class CameraScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Camera Screen</Text>
+        <Text>Camera Screen </Text>
       </View>
     );
   }
