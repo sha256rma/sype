@@ -1,26 +1,25 @@
-import {IconButton } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 import React from 'react'
 import styles from './styles';
 
-export default class LikeButton extends React.Component{
-    state = {
-        iconSize : 20,
-        likeIconColor : 'red',
-        unlikeStatusIcon: "heart-outline",
-        likeStatusIcon: 'heart'
+export default class LikeButton extends React.Component {
+    constructor(props) {
+        super(props);
     }
+
+    handleLikeClick = () => {
+
+    }
+
     render() {
-        handleLikeClick = () => {
-            
-        }
-    return(
-          
-        <IconButton
-            icon={this.state.unlikeStatusIcon}
-            size={this.state.iconSize}
-            color={this.state.likeIconColor}
-            onPress={this.handleLikeClick}
-        />
-      )
-    } 
+
+        return (
+            <IconButton
+                icon={this.props.isLiked ? 'heart' : 'heart-outline'}
+                size={25}
+                color={this.props.isLiked ? 'red' : 'grey'}
+                onPress={this.handleLikeClick}
+            />
+        )
+    }
 }

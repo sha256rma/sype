@@ -1,25 +1,24 @@
-import {IconButton } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 import React from 'react'
 import styles from './styles';
 
-export default class BookmarkButton extends React.Component{
-    state = {
-        iconSize : 20,
-        unbookmarkedIcon: "bookmark-outline",
-        bookmarkedIcon : "bookmark"
+export default class BookmarkButton extends React.Component {
+    constructor(props) {
+        super(props);
     }
 
-    
-    render() {
-        handleSaveClick = () => {
+    handleSaveClick = () => {
 
-        }
-    return(     
-        <IconButton                         
-            icon={this.state.unbookmarkedIcon}
-            size={this.state.iconSize}
-            onPress={this.handleSaveClick}
-        />  
-      )
-    } 
+    }
+
+    render() {
+        return (
+            <IconButton
+                icon={this.props.isBookmarked ? 'bookmark' : 'bookmark-outline'}
+                size={25}
+                color={this.props.isBookmarked ? 'black' : 'grey'}
+                onPress={this.handleSaveClick}
+            />
+        )
+    }
 }

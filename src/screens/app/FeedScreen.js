@@ -1,44 +1,54 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { Card, Caption, Avatar } from 'react-native-paper';
+import { View, Text, StyleSheet, ScrollView, Dimensions, StatusBar } from 'react-native';
+import { Card, Caption, Avatar, Title, Divider, Subheading } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
 import SettingsButtonVertical from './Components/SettingsButtonVertical/SettingsButtonVertical'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 // import {Comments} from './Components/Comments/Comments'
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+        }
     }
 
 
     // renders each post function. Each post is a card with a cover(the image) and content. Content for now has a caption with the username and 2 buttons
     renderPosts = element => {
-        const { img, caption, username, comments } = element.item;
+        const { img, caption, username, comments, likes, likers, bookmarkers } = element.item;
+        const uid = 'dennyliang'; // this is the acc im logged on
+        const isLiked = likers[uid] == true ? true : false; // if i liked it
+        const isBookmarked = bookmarkers[uid] == true ? true : false;
         return (
-            <Card>
-                <Card.Cover source={{ uri: img }} style={{ height: '70%' }} />
-                <View style={{ position: 'absolute', right: 0 }}>
-                    <SettingsButtonVertical></SettingsButtonVertical>
+            <Card style={{ height: '100%', width: '100%' }} >
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10, justifyContent: 'space-between' }} >
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                        <Avatar.Image size={24} source={{ uri: img }} />
+                        <Title style={{ marginHorizontal: 10 }} >{username}</Title>
+                    </View>
+                    <SettingsButtonVertical />
                 </View>
+                <Card.Cover source={{ uri: img }} style={{ height: '50%', width: '100%' }} />
                 <Card.Content>
-                    <ScrollView
-                        keyboardShouldPersistTaps="always"
-                        onScroll={event => {
-                            this.scrollIndex = event.nativeEvent.contentOffset.y;
-                        }}
-                        ref={"scrollView"}
-                    >
-                        <View>
-                            <Caption><Text>{username} : </Text>{caption}</Caption>
-                            <View style={styles.buttonContainer}>
-                                <LikeButton></LikeButton>
-                                <BookmarkButton></BookmarkButton>
-                            </View>
+                    <View style={styles.rowContainer}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                            <LikeButton isLiked={isLiked} ></LikeButton>
+                            <Text style={{ fontSize: 18 }} >{likes}</Text>
                         </View>
-
-
-                    </ScrollView>
+                        <View style={{ borderLeftWidth: .5, marginLeft: 17, height: 30, borderColor: 'grey' }} />
+                        <BookmarkButton isBookmarked={isBookmarked} ></BookmarkButton>
+                    </View>
+                    <Divider style={{ marginBottom: 5 }} />
+                    <View >
+                        <Subheading style={{ textAlignVertical: 'center' }} >
+                            <Text style={{ fontWeight: 'bold' }} >{username}</Text>  <Text style={{ textAlignVertical: 'center', flexWrap: 'wrap' }} >{caption}</Text>
+                        </Subheading>
+                        <TouchableWithoutFeedback onPress={() => console.log('go to view comments')} >
+                            <Caption style={{ fontSize: 14 }} >View All {comments.length} Comment{comments.length <= 1 ? '' : 's'}</Caption>
+                        </TouchableWithoutFeedback>
+                    </View>
                 </Card.Content>
             </Card>
         );
@@ -50,7 +60,7 @@ export default class FeedScreen extends React.Component {
         const posts = [
             {
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-                caption: 'Quarantine selfie #corona',
+                caption: 'Quarantine selfie #coronasa dsajl as lnsaln aln flsan lsan lfaslf fnasl nfals nlsan lsan lasn lfasn lfasnf lan',
                 likes: 2,
                 saves: 0,
                 comments: [
@@ -60,7 +70,13 @@ export default class FeedScreen extends React.Component {
                         comment: 'Slay girllll!!!'
                     }
                 ],
-                username: 'gabriela'
+                username: 'gabriela',
+                likers: {
+                    dennyliang: true
+                },
+                bookmarkers: {
+                    dennyliang: true
+                }
             },
             {
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
@@ -74,7 +90,12 @@ export default class FeedScreen extends React.Component {
                         comment: 'Slay girllll!!!'
                     }
                 ],
-                username: 'gabriela'
+                username: 'gabriela',
+                likers: {
+                    dennyliang: true
+                },
+                bookmarkers: {
+                }
             },
             {
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
@@ -88,17 +109,26 @@ export default class FeedScreen extends React.Component {
                         comment: 'Slay girllll!!!'
                     }
                 ],
-                username: 'gabriela'
+                username: 'gabriela',
+                likers: {
+                    dennyliang: true
+                },
+                bookmarkers: {
+                    dennyliang: true
+                }
             }
         ]
         return (
             <View style={styles.container}>
                 <Carousel
+                    vertical={true}
                     layout={'tinder'}
                     data={posts}
                     renderItem={this.renderPosts}
-                    sliderWidth={500}
-                    itemWidth={400}
+                    itemWidth={Dimensions.get('window').width}
+                    sliderWidth={Dimensions.get('window').width}
+                    itemHeight={Dimensions.get('window').height}
+                    sliderHeight={Dimensions.get('window').height * .9}
                 />
             </View>
         );
@@ -119,11 +149,10 @@ const Comments = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
     },
-    buttonContainer: {
-        flexDirection: 'row'
+    rowContainer: {
+        flexDirection: 'row',
+        alignItems: 'center'
     },
 })
 
