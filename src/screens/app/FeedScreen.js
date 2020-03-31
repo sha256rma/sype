@@ -1,21 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { Card, Caption, IconButton } from 'react-native-paper';
+import { Card, Caption, Avatar} from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
 import SettingsButtonVertical from './Components/SettingsButtonVertical/SettingsButtonVertical'
-
-//import Comments from 'react-native-comments'
+// import {Comments} from './Components/Comments/Comments'
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
     }
-   
+    
     
     // renders each post function. Each post is a card with a cover(the image) and content. Content for now has a caption with the username and 2 buttons
     renderPosts = element => {
-        const { img, caption, username } = element.item;
+        const { img, caption, username, comments } = element.item;
         return (
             <Card>
                 <Card.Cover source={{ uri: img }} style={{ height: '70%' }} />
@@ -54,6 +53,13 @@ export default class FeedScreen extends React.Component {
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
                 saves: 0,
+                comments : [
+                    {
+                        userName: 'Model1234',
+                        userImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                        comment: 'Slay girllll!!!'
+                    }
+                ],
                 username: 'gabriela'
             },
             {
@@ -61,6 +67,13 @@ export default class FeedScreen extends React.Component {
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
                 saves: 0,
+                comments : [
+                    {
+                        userName: 'Model1234',
+                        userImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                        comment: 'Slay girllll!!!'
+                    }
+                ],
                 username: 'gabriela'
             },
             {
@@ -68,6 +81,13 @@ export default class FeedScreen extends React.Component {
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
                 saves: 0,
+                comments : [
+                    {
+                        userName: 'Model1234',
+                        userImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                        comment: 'Slay girllll!!!'
+                    }
+                ],
                 username: 'gabriela'
             }
         ]
@@ -84,6 +104,17 @@ export default class FeedScreen extends React.Component {
         );
     }
 }
+const Comments = (props) => {
+    return (
+        <View style={styles.commentContainer}>
+            <Avatar.Image size={this.state.commentImageSize} source={{uri:this.props.data.userImage}}/>
+            <Text style={{fontWeight: 'bold'}}>{this.props.data.userName}</Text> 
+            <Text>: {this.props.data.comment}</Text>
+    </View>
+
+    );
+}
+
 //styles for our elements. container is used for our carousel. buttonContainer is used for our buttons, to put them in one row.
 const styles = StyleSheet.create({
     container: {
