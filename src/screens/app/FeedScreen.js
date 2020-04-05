@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { Card, Avatar, Title, Divider } from 'react-native-paper';
+import { Card, Avatar, Title, Divider, Subheading } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'

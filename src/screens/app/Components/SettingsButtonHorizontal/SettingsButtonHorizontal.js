@@ -15,7 +15,7 @@ export default class SettingsButtonHorizontal extends React.Component {
         }
         return (
             <IconButton
-                icon={this.state.settingsButtonHorizontallIcon}
+                icon={this.state.settingsButtonHorizontalIcon}
                 size={this.state.iconSize}
                 onPress={this.handleSettingsClick}
             />
