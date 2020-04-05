@@ -5,7 +5,7 @@ import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
 import CommentsTouchBox from './Components/CommentsTouchBox/CommentsTouchBox'
-import SettingsButtonVertical from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal'
+import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal'
 import UserCaption from './Components/UserCaption/UserCaption'
 export default class FeedScreen extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ export default class FeedScreen extends React.Component {
                         <Avatar.Image size={24} source={{ uri: img }} />
                         <Title style={{ marginHorizontal: 10 }} >{username}</Title>
                     </View>
-                    <SettingsButtonVertical />
+                    <SettingsButtonHorizontal />
                 </View>
                 <Card.Cover source={{ uri: img }} style={{ height: '50%', width: '100%' }} />
                 <Card.Content>
