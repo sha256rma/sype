@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { Card, Avatar, Title, Divider, Subheading } from 'react-native-paper';
+import { Card, Avatar, Title, Divider } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
 import CommentsTouchBox from './Components/CommentsTouchBox/CommentsTouchBox'
 import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal'
 import UserCaption from './Components/UserCaption/UserCaption'
+import ProfileAvatar from './Components/ProfileAvatar/ProfileAvatar'
+
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -24,10 +26,7 @@ export default class FeedScreen extends React.Component {
         return (
             <Card style={{ height: '100%', width: '100%' }} >
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10, justifyContent: 'space-between' }} >
-                    <View style={styles.rowContainer} >
-                        <Avatar.Image size={24} source={{ uri: img }} />
-                        <Title style={{ marginHorizontal: 10 }} >{username}</Title>
-                    </View>
+                    <ProfileAvatar username={username} img={img}/>
                     <SettingsButtonHorizontal />
                 </View>
                 <Card.Cover source={{ uri: img }} style={{ height: '50%', width: '100%' }} />
