@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Dimensions, StatusBar } from 'react-native';
-import { Card, Caption, Avatar, Title, Divider, Subheading } from 'react-native-paper';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { Card, Avatar, Title, Divider } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
+import CommentsTouchBox from './Components/CommentsTouchBox/CommentsTouchBox'
 import SettingsButtonVertical from './Components/SettingsButtonVertical/SettingsButtonVertical'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-// import {Comments} from './Components/Comments/Comments'
+import UserCaption from './Components/UserCaption/UserCaption'
 export default class FeedScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ export default class FeedScreen extends React.Component {
         return (
             <Card style={{ height: '100%', width: '100%' }} >
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10, justifyContent: 'space-between' }} >
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                    <View style={styles.rowContainer} >
                         <Avatar.Image size={24} source={{ uri: img }} />
                         <Title style={{ marginHorizontal: 10 }} >{username}</Title>
                     </View>
@@ -33,7 +33,7 @@ export default class FeedScreen extends React.Component {
                 <Card.Cover source={{ uri: img }} style={{ height: '50%', width: '100%' }} />
                 <Card.Content>
                     <View style={styles.rowContainer}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                        <View style={styles.rowContainer} >
                             <LikeButton isLiked={isLiked} ></LikeButton>
                             <Text style={{ fontSize: 18 }} >{likes}</Text>
                         </View>
@@ -42,12 +42,8 @@ export default class FeedScreen extends React.Component {
                     </View>
                     <Divider style={{ marginBottom: 5 }} />
                     <View >
-                        <Subheading style={{ textAlignVertical: 'center' }} >
-                            <Text style={{ fontWeight: 'bold' }} >{username}</Text>  <Text style={{ textAlignVertical: 'center', flexWrap: 'wrap' }} >{caption}</Text>
-                        </Subheading>
-                        <TouchableWithoutFeedback onPress={() => console.log('go to view comments')} >
-                            <Caption style={{ fontSize: 14 }} >View All {comments.length} Comment{comments.length <= 1 ? '' : 's'}</Caption>
-                        </TouchableWithoutFeedback>
+                        <UserCaption username={username} caption={caption}></UserCaption>
+                        <CommentsTouchBox commentsLength = {comments.length}></CommentsTouchBox>
                     </View>
                 </Card.Content>
             </Card>
