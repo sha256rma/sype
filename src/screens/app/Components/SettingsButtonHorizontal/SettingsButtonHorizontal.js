@@ -2,10 +2,10 @@ import { IconButton } from 'react-native-paper';
 import React from 'react'
 import styles from './styles';
 
-export default class SettingsButtonVertical extends React.Component {
+export default class SettingsButtonHorizontal extends React.Component {
     state = {
         iconSize: 30,
-        settingsButtonVerticalIcon: "dots-horizontal"
+        settingsButtonHorizontalIcon: "dots-horizontal"
     }
 
 
@@ -15,7 +15,7 @@ export default class SettingsButtonVertical extends React.Component {
         }
         return (
             <IconButton
-                icon={this.state.settingsButtonVerticalIcon}
+                icon={this.state.settingsButtonHorizontallIcon}
                 size={this.state.iconSize}
                 onPress={this.handleSettingsClick}
             />

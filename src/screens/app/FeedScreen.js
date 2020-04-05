@@ -5,7 +5,7 @@ import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton'
 import BookmarkButton from './Components/BookmarkButton/BookmarkButton'
 import CommentsTouchBox from './Components/CommentsTouchBox/CommentsTouchBox'
-import SettingsButtonVertical from './Components/SettingsButtonVertical/SettingsButtonVertical'
+import SettingsButtonVertical from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal'
 import UserCaption from './Components/UserCaption/UserCaption'
 export default class FeedScreen extends React.Component {
     constructor(props) {
