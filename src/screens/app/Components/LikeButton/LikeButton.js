@@ -8,7 +8,6 @@ export default class LikeButton extends React.Component {
     }
 
     handleLikeClick = () => {
-
     }
 
     render() {
