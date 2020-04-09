@@ -5,19 +5,38 @@ import styles from './styles';
 export default class LikeButton extends React.Component {
     constructor(props) {
         super(props);
+        if(this.props.isLiked){
+            this.state ={
+                isLiked : this.props.isLiked
+            }
+        }else{
+            this.state ={
+                isLiked : false
+            }
+        }
     }
 
-    handleLikeClick = () => {
-
+    handleLikeClick = event => {
+        if(this.state.isLiked){
+            this.setState({
+                isLiked: false
+            });
+          
+        }
+        else{
+            this.setState({
+                isLiked: true
+            });
+        }
     }
 
     render() {
 
         return (
             <IconButton
-                icon={this.props.isLiked ? 'heart' : 'heart-outline'}
+                icon={this.state.isLiked ? 'heart' : 'heart-outline'}
                 size={25}
-                color={this.props.isLiked ? 'red' : 'grey'}
+                color={this.state.isLiked ? 'red' : 'grey'}
                 onPress={this.handleLikeClick}
             />
         )

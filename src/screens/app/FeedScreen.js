@@ -70,7 +70,7 @@ export default class FeedScreen extends React.Component {
                     dennyliang: true
                 },
                 bookmarkers: {
-                    dennyliang: true
+                    dennyliang: false
                 }
             },
             {
@@ -87,7 +87,7 @@ export default class FeedScreen extends React.Component {
                 ],
                 username: 'gabriela',
                 likers: {
-                    dennyliang: true
+                    dennyliang: false
                 },
                 bookmarkers: {
                 }
@@ -106,7 +106,6 @@ export default class FeedScreen extends React.Component {
                 ],
                 username: 'gabriela',
                 likers: {
-                    dennyliang: true
                 },
                 bookmarkers: {
                     dennyliang: true
