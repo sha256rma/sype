@@ -11,7 +11,7 @@ test('LikeButton snapshot test', () => {
 });
 
 
-it('testing handleLikeClick button',() => {
+it('testing handleLikeClick function',() => {
   const wrapper = shallow(<LikeButton isLiked ={false} />);
   const instance = wrapper.instance();
   const previousLikedValue = instance.state.isLiked;
