@@ -1,15 +1,12 @@
 import 'react-native';
 import React from 'react';
 import LikeButton from '@screens/app/Components/LikeButton/LikeButton';
-import { IconButton } from 'react-native-paper';
 import renderer from 'react-test-renderer';
-
 
 test('LikeButton snapshot test', () => {
   const tree = renderer.create(<LikeButton/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
 
 it('testing handleLikeClick function',() => {
   const wrapper = shallow(<LikeButton isLiked ={false} />);
