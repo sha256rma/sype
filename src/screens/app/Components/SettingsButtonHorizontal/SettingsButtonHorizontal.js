@@ -8,8 +8,9 @@ export default class SettingsButtonHorizontal extends React.Component {
     settingsButtonHorizontalIcon: 'dots-horizontal',
   };
 
+  handleSettingsClick = () => {};
+
   render() {
-    handleSettingsClick = () => {};
     return (
       <IconButton
         icon={this.state.settingsButtonHorizontalIcon}
