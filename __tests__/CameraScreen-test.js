@@ -4,7 +4,7 @@ import CameraScreen from '@screens/app/CameraScreen';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
+test('camera screen snapshot test', () => {
   const tree = renderer.create(<CameraScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });

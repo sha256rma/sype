@@ -4,7 +4,7 @@ import UserCaption from '@screens/app/Components/UserCaption/UserCaption';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
+test('user caption snapshot test', () => {
   const tree = renderer.create(<UserCaption />).toJSON();
   expect(tree).toMatchSnapshot();
 });

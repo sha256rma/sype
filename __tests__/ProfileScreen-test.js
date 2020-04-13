@@ -4,7 +4,7 @@ import ProfileScreen from '@screens/app/ProfileScreen';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
+test('profile screen snapshot test', () => {
   const tree = renderer.create(<ProfileScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -4,7 +4,7 @@ import ProfileAvatar from '@screens/app/Components/ProfileAvatar/ProfileAvatar';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
+test('profile avarar snapshot test', () => {
   const tree = renderer.create(<ProfileAvatar />).toJSON();
   expect(tree).toMatchSnapshot();
 });

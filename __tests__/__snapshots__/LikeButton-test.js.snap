@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LikeButton snapshot test 1`] = `
+exports[`like button snapshot test 1`] = `
 <View
   accessibilityRole="button"
   accessibilityStates={Array []}

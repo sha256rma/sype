@@ -4,7 +4,7 @@ import SettingsButtonHorizontal from '@screens/app/Components/SettingsButtonHori
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
+test('setting button snapshot test', () => {
   const tree = renderer.create(<SettingsButtonHorizontal />).toJSON();
   expect(tree).toMatchSnapshot();
 });
