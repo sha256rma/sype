@@ -8,3 +8,5 @@ test('user caption snapshot test', () => {
   const tree = renderer.create(<UserCaption />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+//TODO : test handleCommentClick function

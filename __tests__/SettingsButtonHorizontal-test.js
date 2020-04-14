@@ -8,3 +8,5 @@ test('setting button snapshot test', () => {
   const tree = renderer.create(<SettingsButtonHorizontal />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+//TODO:test setting button handleSttingsClick function
