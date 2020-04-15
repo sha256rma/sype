@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import {Avatar } from 'react-native-paper';
+import { View, StyleSheet, FlatList, TouchableWithoutFeedback } from 'react-native';
 import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal'
 import ProfileAvatar from './Components/ProfileAvatar/ProfileAvatar'
 import Post from './Components/Post/Post'
@@ -19,13 +18,15 @@ export default class FeedScreen extends React.Component {
         const isLiked = likers[uid] == true ? true : false; // if i liked it
         const isBookmarked = bookmarkers[uid] == true ? true : false;
         return (
-            <View>
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10, justifyContent: 'space-between'}} >
-                    <ProfileAvatar username={username} img={img}/>
-                    <SettingsButtonHorizontal />
+            <TouchableWithoutFeedback onPress={()=>{}}>
+                <View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10, justifyContent: 'space-between'}} >
+                        <ProfileAvatar username={username} img={img}/>
+                        <SettingsButtonHorizontal />
+                    </View>
+                    <Post img={img} isLiked={isLiked} likes={likes} isBookmarked={isBookmarked} caption={caption} username={username} commentsLength={comments.length}/>
                 </View>
-                <Post img={img} isLiked={isLiked} likes={likes} isBookmarked={isBookmarked} caption={caption} username={username} commentsLength={comments.length}/>
-            </View>
+                </TouchableWithoutFeedback>
         );
     }
 
@@ -97,9 +98,7 @@ export default class FeedScreen extends React.Component {
                 <FlatList
                     data={posts}
                     renderItem={this.renderPosts}
-                    contentContainerStyle={{
-                        flexGrow: 1,
-                    }}
+                    style={{flex: 1}}
                 />
             </View>
         );
