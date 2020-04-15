@@ -26,7 +26,8 @@ export default class FeedScreen extends React.Component {
                     </View>
                     <Post img={img} isLiked={isLiked} likes={likes} isBookmarked={isBookmarked} caption={caption} username={username} commentsLength={comments.length}/>
                 </View>
-                </TouchableWithoutFeedback>
+             </TouchableWithoutFeedback>
+
         );
     }
 
@@ -35,6 +36,7 @@ export default class FeedScreen extends React.Component {
 
         const posts = [
             {
+                id:0,
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
                 caption: 'Quarantine selfie #coronasa dsajl as lnsaln aln flsan lsan lfaslf fnasl nfals nlsan lsan lasn lfasn lfasnf lan',
                 likes: 2,
@@ -55,6 +57,7 @@ export default class FeedScreen extends React.Component {
                 }
             },
             {
+                id:1,
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
@@ -74,6 +77,7 @@ export default class FeedScreen extends React.Component {
                 }
             },
             {
+                id:2,
                 img: 'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
                 caption: 'Quarantine selfie #corona',
                 likes: 2,
@@ -94,13 +98,13 @@ export default class FeedScreen extends React.Component {
             }
         ]
         return (
-            <View style={{flex:1}}>
+            // <View style={{flex:1}}>
                 <FlatList
                     data={posts}
                     renderItem={this.renderPosts}
-                    style={{flex: 1}}
+                    keyExtractor={item => item.id}           
                 />
-            </View>
+            // </View>
         );
     }
 }
