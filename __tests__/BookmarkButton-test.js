@@ -30,21 +30,28 @@ function testHandleSaveClick(initialBookmarkStatus) {
 describe('testing handleSaveClick function', () => {
   testHandleSaveClick(true);
   testHandleSaveClick(false);
+  testHandleSaveClick(undefined);
 });
 
-describe('testing icon button heart values', () => {
+describe('testing icon button bookmark values', () => {
   const bookmark = 'bookmark';
   const bookmarkOutline = 'bookmark-outline';
-  const wrapper = shallow(<BookmarkButton isBookmarked={false} />);
-  const iconButton = wrapper.find(IconButton).at(0);
-  it('heart outlined when isLiked is false', () => {
-    const heartValue = iconButton.props().icon;
-    expect(heartValue).toEqual(bookmarkOutline);
+  const falseWrapper = shallow(<BookmarkButton isBookmarked={false} />);
+  const falseIconButton = falseWrapper.find(IconButton).at(0);
+  it('bookmark outlined when isBookmarked is false', () => {
+    const bookmarkValue = falseIconButton.props().icon;
+    expect(bookmarkValue).toEqual(bookmarkOutline);
   });
-  const newWrapper = shallow(<BookmarkButton isBookmarked={true} />);
-  const newIconButton = newWrapper.find(IconButton).at(0);
-  it('heart filled when isLiked is true', () => {
-    const heartValue = newIconButton.props().icon;
-    expect(heartValue).toEqual(bookmark);
+  const trueWrapper = shallow(<BookmarkButton isBookmarked={true} />);
+  const trueIconButton = trueWrapper.find(IconButton).at(0);
+  it('bookmark filled when isLiked is true', () => {
+    const bookmarkValue = trueIconButton.props().icon;
+    expect(bookmarkValue).toEqual(bookmark);
+  });
+  const undefinedWrapper = shallow(<BookmarkButton isBookmarked={undefined} />);
+  const undefinedIconButton = undefinedWrapper.find(IconButton).at(0);
+  it('bookmark filled when isLiked is undefined ', () => {
+    const bookmarkValue = undefinedIconButton.props().icon;
+    expect(bookmarkValue).toEqual(bookmarkOutline);
   });
 });

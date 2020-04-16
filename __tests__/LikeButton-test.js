@@ -25,21 +25,28 @@ function testHandleLikeClick(initialLikeStatus) {
 describe('testing handeLikeClick cases', () => {
   testHandleLikeClick(true);
   testHandleLikeClick(false);
+  testHandleLikeClick(undefined);
 });
 
 describe('testing icon button heart values', () => {
   const heart = 'heart';
   const heartOutline = 'heart-outline';
-  const wrapper = shallow(<LikeButton isLiked={false} />);
-  const iconButton = wrapper.find(IconButton).at(0);
+  const falseWrapper = shallow(<LikeButton isLiked={false} />);
+  const falseIconButton = falseWrapper.find(IconButton).at(0);
   it('heart outlined when isLiked is false', () => {
-    const heartValue = iconButton.props().icon;
+    const heartValue = falseIconButton.props().icon;
     expect(heartValue).toEqual(heartOutline);
   });
-  const newWrapper = shallow(<LikeButton isLiked={true} />);
-  const newIconButton = newWrapper.find(IconButton).at(0);
+  const trueWrapper = shallow(<LikeButton isLiked={true} />);
+  const trueIconButton = trueWrapper.find(IconButton).at(0);
   it('heart filled when isLiked is true', () => {
-    const heartValue = newIconButton.props().icon;
+    const heartValue = trueIconButton.props().icon;
     expect(heartValue).toEqual(heart);
+  });
+  const undefinedWrapper = shallow(<LikeButton isLiked={undefined} />);
+  const underfinedIconButton = undefinedWrapper.find(IconButton).at(0);
+  it('heart filled when isLiked undefined', () => {
+    const heartValue = underfinedIconButton.props().icon;
+    expect(heartValue).toEqual(heartOutline);
   });
 });
