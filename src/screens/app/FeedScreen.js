@@ -1,14 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
-import {Card, Avatar, Title, Divider} from 'react-native-paper';
-import Carousel from 'react-native-snap-carousel';
-import LikeButton from './Components/LikeButton/LikeButton';
-import BookmarkButton from './Components/BookmarkButton/BookmarkButton';
-import CommentsTouchBox from './Components/CommentsTouchBox/CommentsTouchBox';
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
-import UserCaption from './Components/UserCaption/UserCaption';
 import ProfileAvatar from './Components/ProfileAvatar/ProfileAvatar';
-
+import Post from './Components/Post/Post';
 export default class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -27,47 +26,26 @@ export default class FeedScreen extends React.Component {
       bookmarkers,
     } = element.item;
     const uid = 'dennyliang'; // this is the acc im logged on
-    const isLiked = likers[uid] == true ? true : false; // if i liked it
-    const isBookmarked = bookmarkers[uid] == true ? true : false;
+    const isLiked = likers[uid] === true ? true : false; // if i liked it
+    const isBookmarked = bookmarkers[uid] === true ? true : false;
     return (
-      <Card style={{height: '100%', width: '100%'}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginLeft: 10,
-            justifyContent: 'space-between',
-          }}>
-          <ProfileAvatar username={username} img={img} />
-          <SettingsButtonHorizontal />
+      <TouchableWithoutFeedback onPress={() => {}}>
+        <View>
+          <View style={styles.topBarViewStyles}>
+            <ProfileAvatar username={username} img={img} />
+            <SettingsButtonHorizontal />
+          </View>
+          <Post
+            img={img}
+            isLiked={isLiked}
+            likes={likes}
+            isBookmarked={isBookmarked}
+            caption={caption}
+            username={username}
+            commentsLength={comments.length}
+          />
         </View>
-        <Card.Cover
-          source={{uri: img}}
-          style={{height: '50%', width: '100%'}}
-        />
-        <Card.Content>
-          <View style={styles.rowContainer}>
-            <View style={styles.rowContainer}>
-              <LikeButton isLiked={isLiked} />
-              <Text style={{fontSize: 18}}>{likes}</Text>
-            </View>
-            <View
-              style={{
-                borderLeftWidth: 0.5,
-                marginLeft: 17,
-                height: 30,
-                borderColor: 'grey',
-              }}
-            />
-            <BookmarkButton isBookmarked={isBookmarked} />
-          </View>
-          <Divider style={{marginBottom: 5}} />
-          <View>
-            <UserCaption username={username} caption={caption} />
-            <CommentsTouchBox commentsLength={comments.length} />
-          </View>
-        </Card.Content>
-      </Card>
+      </TouchableWithoutFeedback>
     );
   };
 
@@ -75,6 +53,7 @@ export default class FeedScreen extends React.Component {
   render() {
     const posts = [
       {
+        id: 0,
         img:
           'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
         caption:
@@ -98,6 +77,7 @@ export default class FeedScreen extends React.Component {
         },
       },
       {
+        id: 1,
         img:
           'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
         caption: 'Quarantine selfie #corona',
@@ -118,6 +98,7 @@ export default class FeedScreen extends React.Component {
         bookmarkers: {},
       },
       {
+        id: 2,
         img:
           'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
         caption: 'Quarantine selfie #corona',
@@ -139,41 +120,35 @@ export default class FeedScreen extends React.Component {
       },
     ];
     return (
-      <View style={styles.container}>
-        <Carousel
-          vertical={true}
-          layout={'tinder'}
-          data={posts}
-          renderItem={this.renderPosts}
-          itemWidth={Dimensions.get('window').width}
-          sliderWidth={Dimensions.get('window').width}
-          itemHeight={Dimensions.get('window').height}
-          sliderHeight={Dimensions.get('window').height * 0.9}
-        />
-      </View>
+      <FlatList
+        data={posts}
+        renderItem={this.renderPosts}
+        keyExtractor={item => item.id}
+      />
     );
   }
 }
-const Comments = props => {
-  return (
-    <View style={styles.commentContainer}>
-      <Avatar.Image
-        size={this.state.commentImageSize}
-        source={{uri: this.props.data.userImage}}
-      />
-      <Text style={{fontWeight: 'bold'}}>{this.props.data.userName}</Text>
-      <Text>: {this.props.data.comment}</Text>
-    </View>
-  );
-};
+// const Comments = (props) => {
+//     return (
+//         <View style={styles.commentContainer}>
+//             <Avatar.Image size={this.state.commentImageSize} source={{ uri: this.props.data.userImage }} />
+//             <Text style={{ fontWeight: 'bold' }}>{this.props.data.userName}</Text>
+//             <Text>: {this.props.data.comment}</Text>
+//         </View>
+
+//     );
+// }
 
 //styles for our elements. container is used for our carousel. buttonContainer is used for our buttons, to put them in one row.
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   rowContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  topBarViewStyles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 10,
+    justifyContent: 'space-between',
   },
 });
