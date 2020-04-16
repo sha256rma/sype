@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, NativeModules} from 'react-native';
 import {Card, Avatar, Title, Divider} from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton';
@@ -50,8 +52,8 @@ export default class FeedScreen extends React.Component {
       bookmarkers,
     } = element.item;
     const uid = 'dennyliang'; // this is the acc im logged on
-    const isLiked = likers[uid] == true ? true : false; // if i liked it
-    const isBookmarked = bookmarkers[uid] == true ? true : false;
+    const isLiked = likers[uid] === true ? true : false; // if i liked it
+    const isBookmarked = bookmarkers[uid] === true ? true : false;
     return (
       <Card style={{height: '100%', width: '100%'}}>
         <View

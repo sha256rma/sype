@@ -1,7 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import styles from './styles';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {Caption} from 'react-native-paper';
+
 export default class CommentsTouchBox extends React.Component {
   constructor(props) {
     super(props);
