@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`like button snapshot test 1`] = `
+<View
+  accessibilityRole="button"
+  accessibilityStates={Array []}
+  accessible={true}
+  focusable={true}
+  hitSlop={
+    Object {
+      "bottom": 6,
+      "left": 6,
+      "right": 6,
+      "top": 6,
+    }
+  }
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "margin": 6,
+          "overflow": "hidden",
+        },
+        Object {
+          "borderRadius": 18.75,
+          "height": 37.5,
+          "width": 37.5,
+        },
+        undefined,
+        undefined,
+      ],
+    ]
+  }
+>
+  <View
+    style={null}
+  >
+    <Text
+      accessibilityElementsHidden={true}
+      allowFontScaling={false}
+      importantForAccessibility="no-hide-descendants"
+      pointerEvents="none"
+      style={
+        Array [
+          Object {
+            "color": "grey",
+            "fontSize": 25,
+          },
+          Array [
+            Object {
+              "transform": Array [
+                Object {
+                  "scaleX": 1,
+                },
+              ],
+            },
+            Object {
+              "backgroundColor": "transparent",
+            },
+          ],
+          Object {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
