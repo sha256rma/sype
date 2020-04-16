@@ -17,6 +17,10 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* sypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* sypeTests.m */; };
 		5AE2ECE0E042F9AFC723AFF1 /* libPods-sype-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A89A862398E03111BF9DE21C /* libPods-sype-tvOSTests.a */; };
+		6935E4C224330EEF003B2B2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6935E4C124330EEE003B2B2A /* GoogleService-Info.plist */; };
+		6935E4C324330EEF003B2B2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6935E4C124330EEE003B2B2A /* GoogleService-Info.plist */; };
+		6935E4C424330EEF003B2B2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6935E4C124330EEE003B2B2A /* GoogleService-Info.plist */; };
+		6935E4C524330EEF003B2B2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6935E4C124330EEE003B2B2A /* GoogleService-Info.plist */; };
 		81FB8F52E380D714677F2EE5 /* libPods-sype-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F391825109C788BC145189B8 /* libPods-sype-tvOS.a */; };
 		86B64F7136F8B092C96B0D3A /* libPods-sype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3168D74826F6542E03F64AEC /* libPods-sype.a */; };
 		8C6D1F8AE33F55F409B86D1F /* libPods-sype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB814D8010E6259ABDDB11AF /* libPods-sype.a */; };
@@ -71,6 +75,7 @@
 		65B561B12E1CCCA16F38E1D6 /* Pods-sype-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sype-tvOS.release.xcconfig"; path = "Target Support Files/Pods-sype-tvOS/Pods-sype-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		68F630DABBFB4B9A883A411D /* Rubik-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Black.ttf"; path = "../node_modules/@shoutem/ui/fonts/Rubik-Black.ttf"; sourceTree = "<group>"; };
 		68FEE9C1871E4D32A77D3CD0 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		6935E4C124330EEE003B2B2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "sype/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79986BC22F5348EF82FE5A1C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		8333A7795ABA395AD86A35D2 /* Pods-sypeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sypeTests.release.xcconfig"; path = "Target Support Files/Pods-sypeTests/Pods-sypeTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A5D12BB2CB64E0A84D90CF1 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
@@ -155,6 +160,7 @@
 		13B07FAE1A68108700A75B9A /* sype */ = {
 			isa = PBXGroup;
 			children = (
+				6935E4C124330EEE003B2B2A /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -169,16 +175,9 @@
 		203B828624218DA800E4BCE9 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				AB814D8010E6259ABDDB11AF /* libPods-sype.a */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		203B828724218DAC00E4BCE9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				203B828B24218DAD00E4BCE9 /* libRNScreenshotDetector.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -376,6 +375,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 3KCMDCS4W2;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -402,11 +402,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 203B828724218DAC00E4BCE9 /* Products */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* sype */,
@@ -417,20 +412,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		203B828B24218DAD00E4BCE9 /* libRNScreenshotDetector.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNScreenshotDetector.a;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6935E4C324330EEF003B2B2A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +427,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				6935E4C224330EEF003B2B2A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				6935E4C424330EEF003B2B2A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6935E4C524330EEF003B2B2A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,7 +800,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sype.-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sype;
 				PRODUCT_NAME = sype;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -838,7 +828,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sype.-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sype;
 				PRODUCT_NAME = sype;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";

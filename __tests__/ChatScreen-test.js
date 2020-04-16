@@ -24,3 +24,5 @@ test('renders correctly', () => {
   const tree = renderer.create(<ChatScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+
