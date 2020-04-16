@@ -3,6 +3,7 @@ import React from 'react';
 import BookmarkButton from '@screens/app/Components/BookmarkButton/BookmarkButton';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
+import {IconButton} from 'react-native-paper';
 
 test('bookmark snapshot test', () => {
   const tree = renderer.create(<BookmarkButton />).toJSON();
@@ -29,4 +30,21 @@ function testHandleSaveClick(initialBookmarkStatus) {
 describe('testing handleSaveClick function', () => {
   testHandleSaveClick(true);
   testHandleSaveClick(false);
+});
+
+describe('testing icon button heart values', () => {
+  const bookmark = 'bookmark';
+  const bookmarkOutline = 'bookmark-outline';
+  const wrapper = shallow(<BookmarkButton isBookmarked={false} />);
+  const iconButton = wrapper.find(IconButton).at(0);
+  it('heart outlined when isLiked is false', () => {
+    const heartValue = iconButton.props().icon;
+    expect(heartValue).toEqual(bookmarkOutline);
+  });
+  const newWrapper = shallow(<BookmarkButton isBookmarked={true} />);
+  const newIconButton = newWrapper.find(IconButton).at(0);
+  it('heart filled when isLiked is true', () => {
+    const heartValue = newIconButton.props().icon;
+    expect(heartValue).toEqual(bookmark);
+  });
 });
