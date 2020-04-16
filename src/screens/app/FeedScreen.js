@@ -1,11 +1,33 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, NativeModules} from 'react-native';
 import {Card, Caption} from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 
 export default class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.forbidFunction();
+  }
+
+  async forbidFunction() {
+    try {
+      const result = await NativeModules.PreventScreenshotModule.forbid();
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async allowFunction() {
+    try {
+      const result = await NativeModules.PreventScreenshotModule.allow();
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   // renders each post function
@@ -69,8 +91,8 @@ export default class FeedScreen extends React.Component {
           layout={'tinder'}
           data={posts}
           renderItem={this.renderPosts}
-          sliderWidth={500}
-          itemWidth={400}
+          sliderWidth={200}
+          itemWidth={100}
         />
       </View>
     );
