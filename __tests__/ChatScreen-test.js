@@ -20,7 +20,7 @@ import ChatScreen from '@screens/app/ChatScreen';
 
 import renderer from 'react-test-renderer';
 
-test('renders correctly', () => {
+test('chat screen snapshot test', () => {
   const tree = renderer.create(<ChatScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });

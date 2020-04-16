@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`chat screen snapshot test 1`] = `
+exports[`camera screen snapshot test 1`] = `
 <View
   style={
     Object {
@@ -11,7 +11,7 @@ exports[`chat screen snapshot test 1`] = `
   }
 >
   <Text>
-    Chat Screen
+    Camera Screen 
   </Text>
 </View>
 `;
