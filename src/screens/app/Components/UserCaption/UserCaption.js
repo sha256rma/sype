@@ -1,5 +1,5 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import styles from './styles';
 import {Subheading} from 'react-native-paper';
 import {Text} from 'react-native';
 

@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, NativeModules} from 'react-native';
 import {Card, Avatar, Title, Divider} from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import LikeButton from './Components/LikeButton/LikeButton';
@@ -15,7 +17,30 @@ export default class FeedScreen extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    this.forbidFunction();
+  }
+
+  async forbidFunction() {
+    try {
+      const result = await NativeModules.PreventScreenshotModule.forbid();
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async allowFunction() {
+    try {
+      const result = await NativeModules.PreventScreenshotModule.allow();
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   // renders each post function. Each post is a card with a cover(the image) and content. Content for now has a caption with the username and 2 buttons
+
   renderPosts = element => {
     const {
       img,
@@ -27,8 +52,8 @@ export default class FeedScreen extends React.Component {
       bookmarkers,
     } = element.item;
     const uid = 'dennyliang'; // this is the acc im logged on
-    const isLiked = likers[uid] == true ? true : false; // if i liked it
-    const isBookmarked = bookmarkers[uid] == true ? true : false;
+    const isLiked = likers[uid] === true ? true : false; // if i liked it
+    const isBookmarked = bookmarkers[uid] === true ? true : false;
     return (
       <Card style={{height: '100%', width: '100%'}}>
         <View
