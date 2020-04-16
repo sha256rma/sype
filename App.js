@@ -5,6 +5,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import FeedScreen from '@screens/app/FeedScreen';
 import ChatScreen from '@screens/app/ChatScreen';
 import ProfileScreen from '@screens/app/ProfileScreen';
+import SearchScreen from '@screens/app/SearchScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -39,6 +40,11 @@ function App() {
           name="Profile"
           component={ProfileScreen}
           options={{tabBarLabel: 'Profile'}}
+        />
+        <Tab.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{tabBarLabel: 'Search'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
