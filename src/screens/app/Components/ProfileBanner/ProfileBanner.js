@@ -1,15 +1,11 @@
 
 import React from 'react';
-import {SafeAreaView, FlatList, View, Text, StyleSheet} from 'react-native';
-import { Image } from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph, Banner, Chip, IconButton, Divider, Caption, Subheading} from 'react-native-paper';
-import { ScrollView, TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { SafeAreaContext } from 'react-native-safe-area-context';
-import  ProfileBannerAvatar  from '../ProfileBannerAvatar/ProfileBannerAvatar'
-import  ProfileUsername  from '../ProfileUsername/ProfileUsername'
-import  FollowerButton  from '../FollowerButton/FollowerButton'
-import  FollowingButton from '../FollowingButton/FollowingButton'
-import  PostCountButton  from '../PostCountButton/PostCountButton'
+import { View, StyleSheet} from 'react-native';
+import ProfileBannerAvatar  from '../ProfileBannerAvatar/ProfileBannerAvatar'
+import ProfileUsername  from '../ProfileUsername/ProfileUsername'
+import FollowerButton  from '../FollowerButton/FollowerButton'
+import FollowingButton from '../FollowingButton/FollowingButton'
+import PostCountButton  from '../PostCountButton/PostCountButton'
 
 
 export default class ProfileBanner extends React.Component {
@@ -20,13 +16,12 @@ export default class ProfileBanner extends React.Component {
 
     render(){
         const { user_id, username, profile_image, following_count, follower_count, posts_count } = this.props;
-        const profileImageSize = 75; 
         
 
         return ( 
             <View style={styles.profileBannerContainer}>
             
-                <ProfileBannerAvatar   profile_image={this.props.profile_image} />
+                <ProfileBannerAvatar   profile_image={profile_image} />
                 
                 {/** Create three rows --- Possibly 4 but wull get back to this
                 * 1. Username

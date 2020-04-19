@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Banner Avatar Snapshot Test 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#6200ee",
+          "borderRadius": 37.5,
+          "height": 75,
+          "width": 75,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": undefined,
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 37.5,
+          "height": 75,
+          "width": 75,
+        }
+      }
+    />
+  </View>
+</View>
+`;

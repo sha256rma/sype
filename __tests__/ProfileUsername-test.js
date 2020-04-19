@@ -29,10 +29,15 @@ describe( 'Profile Username Component Test Suite', () => {
         expect(shallow(<ProfileUsername />)).toBeDefined();
     });
 
+    /** SCRATCH THIS TEST.... Forgot that Text does not have a username property. 
+     * Spent all this time writing this :( --- That said, maybe theres a way to check the value itself? that appears in Text? )
+     */
+    /**  
     testUsernamePropInput('');
     testUsernamePropInput('bujarsefa');
     testUsernamePropInput('a');
     testUsernamePropInput('1');
     testUsernamePropInput('!');
     testUsernamePropInput(undefined);
+    */
 });

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Username Snapshot Test 1`] = `
+<Text
+  style={
+    Object {
+      "fontSize": 25,
+    }
+  }
+/>
+`;
