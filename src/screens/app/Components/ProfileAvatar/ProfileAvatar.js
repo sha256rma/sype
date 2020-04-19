@@ -1,6 +1,5 @@
 import React from 'react';
-import styles from './styles';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Avatar, Title} from 'react-native-paper';
 export default class ProfileAvatar extends React.Component {
   constructor(props) {
@@ -11,10 +10,19 @@ export default class ProfileAvatar extends React.Component {
 
   render() {
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={styles.rowContainer}>
         <Avatar.Image size={24} source={{uri: this.props.img}} />
-        <Title style={{marginHorizontal: 10}}>{this.props.username}</Title>
+        <Title style={styles.titleStyle}>{this.props.username}</Title>
       </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  titleStyle: {
+    marginHorizontal: 10,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+});
