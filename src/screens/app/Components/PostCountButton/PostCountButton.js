@@ -1,33 +1,27 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import { Chip } from 'react-native-paper';
-
+import {Chip} from 'react-native-paper';
 
 export default class PostCountButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
+  render() {
+    /** The user profile's followers */
+    //const user_id = this.props.user_id;
 
+    /** Here, we just need the count of posts,
+     * which is created when we query the users.
+     */
+    const posts_count = this.props.posts_count;
 
-    render() {
-
-        /** The user profile's followers */
-        const user_id = this.props.user_id;
-
-        /** Here, we just need the count of posts, 
-         * which is created when we query the users. 
-         */
-        const posts_count = this.props.posts_count;
-
-        return(
-            <Chip style={styles.chip} >Posts {posts_count}</Chip>
-        );
-    }
+    return <Chip style={styles.chip}>Posts {posts_count}</Chip>;
+  }
 }
 
 const styles = StyleSheet.create({
-    chip: {
-        backgroundColor: 'white'
-    },
+  chip: {
+    backgroundColor: 'white',
+  },
 });

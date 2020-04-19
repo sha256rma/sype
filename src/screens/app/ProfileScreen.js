@@ -1,17 +1,17 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import  ProfileBanner  from './Components/ProfileBanner/ProfileBanner'
+import ProfileBanner from './Components/ProfileBanner/ProfileBanner';
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    flex: 1
+    flex: 1,
   },
-  imageContainer:{
+  imageContainer: {
     borderColor: 'purple',
     borderWidth: 1,
     marginTop: 20,
-  }
+  },
 });
 
 export default class ProfileScreen extends React.Component {
@@ -19,11 +19,11 @@ export default class ProfileScreen extends React.Component {
     super(props);
     this.state = {
       username: 'bujarsefa',
-      following_count : '20',
+      following_count: '20',
       follower_count: '15',
       posts_count: '2',
-      profile_image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
-
+      profile_image:
+        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
     };
   }
 
@@ -31,13 +31,9 @@ export default class ProfileScreen extends React.Component {
     return (
       <View style={styles.container}>
         {/** Passing in state for testing purposes, but we can/should switch this to individual props :) */}
-        <ProfileBanner 
-          {...this.state}
-        />
+        <ProfileBanner {...this.state} />
         {/** Adding this view just to show where images would  */}
-        <View style={styles.imageContainer}>
-
-        </View>
+        <View style={styles.imageContainer} />
       </View>
     );
   }
