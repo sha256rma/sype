@@ -12,13 +12,14 @@ export default class FollowerButton extends React.Component {
    * that is linked to  the profile
    * ie, the array of following is passed.
    *  */
-  onFollowerClicked = () => {
-    return console.log('Pressed Follower');
+  onFollowerClicked = user => {
+    console.log('Pressed Follower Button of user ' + user);
+    return 'This is the follower list of ' + user;
   };
 
   render() {
-    /** The user profile's followers */
-    //const user_id = this.props.user_id;
+    /** The user profile's followers. The id can be changed to username. */
+    const user_id = this.props.user_id;
 
     /** Here, we just need the count of followers,
      * which is created when we query the users.
@@ -26,7 +27,8 @@ export default class FollowerButton extends React.Component {
     const follower_count = this.props.follower_count;
 
     return (
-      <Chip style={styles.chip} onPress={this.onFollowerClicked}>
+      /**https://stackoverflow.com/questions/47962396/passing-a-value-via-props-onpress -- How I got the function working. This makes sense, what type of a parameter would we even pass in via this onPress? */
+      <Chip style={styles.chip} onPress={() => this.onFollowerClicked(user_id)}>
         Followers {follower_count}
       </Chip>
     );
