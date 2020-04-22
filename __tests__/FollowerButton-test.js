@@ -52,7 +52,7 @@ function testProperPropsPassed(user_id, follower_count) {
   });
 }
 
-describe('Follower Button onFollowerClick Unit Tests', () => {
+describe('Follower Button Unit Tests', () => {
   testOnFollowerClicked('bujarsefa');
   testOnFollowerClicked('');
   testOnFollowerClicked('!');

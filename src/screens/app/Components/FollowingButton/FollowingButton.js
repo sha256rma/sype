@@ -12,13 +12,15 @@ export default class FollowingButton extends React.Component {
    * that is linked to  the profile
    * ie, the array of following is passed.
    *  */
-  onFollowingClicked = () => {
-    return console.log('Pressed Following');
+
+  onFollowingClicked = user => {
+    console.log('Pressed Following Button of user ' + user);
+    return 'This is the following list of ' + user;
   };
 
   render() {
     /** The user profile's followers */
-    //const user_id = this.props.user_id;
+    const user_id = this.props.user_id;
 
     /** Here, we just need the count of following,
      * which is created when we query the users.
@@ -26,7 +28,9 @@ export default class FollowingButton extends React.Component {
     const following_count = this.props.following_count;
 
     return (
-      <Chip style={styles.chip} onPress={this.onFollowingClicked}>
+      <Chip
+        style={styles.chip}
+        onPress={() => this.onFollowingClicked(user_id)}>
         Following {following_count}
       </Chip>
     );
