@@ -15,6 +15,7 @@ export default class ProfileBanner extends React.Component {
     const {
       //user_id,
       username,
+      user_id,
       profile_image,
       following_count,
       follower_count,
@@ -37,8 +38,8 @@ export default class ProfileBanner extends React.Component {
           </View>
 
           <View style={styles.rowContainer}>
-            <FollowerButton follower_count={follower_count} />
-            <FollowingButton following_count={following_count} />
+            <FollowerButton user_id={user_id} follower_count={follower_count} />
+            <FollowingButton user_id={user_id} following_count={following_count} />
             <PostCountButton posts_count={posts_count} />
           </View>
 
