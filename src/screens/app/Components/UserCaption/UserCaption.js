@@ -6,12 +6,11 @@ import PropTypes from 'prop-types';
 export default class UserCaption extends React.Component {
   constructor(props) {
     super(props);
-    
-      this.state = {
-        caption: this.props.caption,
-        username: this.props.username
-      };    
 
+    this.state = {
+      caption: this.props.caption,
+      username: this.props.username,
+    };
   }
 
   render() {
@@ -23,10 +22,10 @@ export default class UserCaption extends React.Component {
     );
   }
 }
-UserCaption.propTypes= {
+UserCaption.propTypes = {
   caption: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired
-}
+  username: PropTypes.string.isRequired,
+};
 
 const styles = StyleSheet.create({
   boldStyle: {
@@ -37,4 +36,3 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
   },
 });
-
