@@ -54,9 +54,7 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": [
-      "<jest-enzyme"
-    ],
+    "setupTestFrameworkScriptFile": "jest-enzyme",
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
