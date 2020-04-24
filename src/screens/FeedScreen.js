@@ -1,13 +1,14 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import {Card, Avatar, Title, Divider} from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
-import LikeButton from './Components/LikeButton/LikeButton';
-import BookmarkButton from './Components/BookmarkButton/BookmarkButton';
-import CommentsTouchBox from './Components/CommentsTouchBox/CommentsTouchBox';
-import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
-import UserCaption from './Components/UserCaption/UserCaption';
-import ProfileAvatar from './Components/ProfileAvatar/ProfileAvatar';
+import LikeButton from './app/Components/LikeButton/LikeButton';
+import BookmarkButton from './app/Components/BookmarkButton/BookmarkButton';
+import CommentsTouchBox from './app/Components/CommentsTouchBox/CommentsTouchBox';
+import SettingsButtonHorizontal from './app/Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
+import UserCaption from './app/Components/UserCaption/UserCaption';
+import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 
 export default class FeedScreen extends React.Component {
   constructor(props) {
