@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "993626699623",
+    "firebase_url": "https://sype-privacy.firebaseio.com",
+    "project_id": "sype-privacy",
+    "storage_bucket": "sype-privacy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993626699623:android:c197ee1f86ccdd1cfd61c2",
+        "android_client_info": {
+          "package_name": "com.sype"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993626699623-00n9obg0h4lto6187s28hdgg1kc3616q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgl7Fjj21Oo78VlsYHD129JBLYqYSfb8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993626699623-00n9obg0h4lto6187s28hdgg1kc3616q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "993626699623-fcmoo37g41tv0sd9kfhgnts6l5mrurin.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sype"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
