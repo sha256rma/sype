@@ -19,6 +19,7 @@ export default class ProfileScreen extends React.Component {
     super(props);
     this.state = {
       username: 'bujarsefa',
+      user_id: 'bujarsefa',
       following_count: '20',
       follower_count: '15',
       posts_count: '2',
