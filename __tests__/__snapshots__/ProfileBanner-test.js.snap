@@ -155,6 +155,7 @@ exports[`Profile Banner Snapshot Test 1`] = `
               }
             >
               Followers 
+              0
             </Text>
           </View>
         </View>
@@ -234,10 +235,21 @@ exports[`Profile Banner Snapshot Test 1`] = `
               }
             >
               Following 
+              0
             </Text>
           </View>
         </View>
       </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
       <View
         style={
           Object {
@@ -313,20 +325,12 @@ exports[`Profile Banner Snapshot Test 1`] = `
               }
             >
               Posts 
+              NaN
             </Text>
           </View>
         </View>
       </View>
     </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "center",
-        }
-      }
-    />
   </View>
 </View>
 `;

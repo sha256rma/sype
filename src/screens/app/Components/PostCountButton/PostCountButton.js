@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Chip} from 'react-native-paper';
+import {numberFormat} from '../../../../common/numberFormatter';
 
 export default class PostCountButton extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class PostCountButton extends React.Component {
      */
     const posts_count = this.props.posts_count;
 
-    return <Chip style={styles.chip}>Posts {posts_count}</Chip>;
+    return <Chip style={styles.chip}>Posts {numberFormat(posts_count)}</Chip>;
   }
 }
 

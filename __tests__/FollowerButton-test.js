@@ -4,6 +4,7 @@ import FollowerButton from '@screens/app/Components/FollowerButton/FollowerButto
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 import {Chip} from 'react-native-paper';
+import {numberFormat} from '../src/common/numberFormatter';
 
 /** Snapshot test */
 test('Follower Button Snapshot Test', () => {
@@ -52,6 +53,23 @@ function testProperPropsPassed(user_id, follower_count) {
   });
 }
 
+
+/** Pass in all props for when we require them */
+function testChipInnerText(user_id, follower_count) {
+  it('Follower Chip should Display Followers '+follower_count, () => {
+    const wrapper = shallow(<FollowerButton user_id={user_id} follower_count={follower_count}/>);
+    const chipWrapper = wrapper.find(Chip);
+    const chipText = chipWrapper.text();
+    /**Check if follower_count is undefined -> expect 0 */
+    const expectedFollowerCount = follower_count === undefined ? 0 : follower_count;
+    
+    
+    /**Formatting seems to work with ''  */
+    expect(chipText).toEqual('Followers '+numberFormat(expectedFollowerCount));
+  });
+}
+
+
 describe('Follower Button Unit Tests', () => {
   testOnFollowerClicked('bujarsefa');
   testOnFollowerClicked('');
@@ -68,4 +86,17 @@ describe('Follower Button Unit Tests', () => {
   testProperPropsPassed('', '');
   testProperPropsPassed(undefined, undefined);
   testProperPropsPassed(0, '');
+
+
+  testChipInnerText('bujarsefa', 0);
+  testChipInnerText('', '');
+  testChipInnerText(undefined, undefined);
+  testChipInnerText(0, '');
+  testChipInnerText('bujarsefa', 100);
+
+  /** THIS SHOULD FAIL IN THE FUTURE! Right now just checking that the same value appears. */
+  testChipInnerText('bujarsefa', -100);
+  //Still passes with strings as it returns NaN. But again, once we enforce type, we don't have to manually check each type (which we are avoiding doing right now.)
+  //testChipInnerText('bujarsefa', 'bujarsefa');
+
 });

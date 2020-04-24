@@ -76,6 +76,7 @@ exports[`Following Button Snapshot Test 1`] = `
         }
       >
         Following 
+        0
       </Text>
     </View>
   </View>

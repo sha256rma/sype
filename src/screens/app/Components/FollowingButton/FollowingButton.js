@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Chip} from 'react-native-paper';
+import {numberFormat} from '../../../../common/numberFormatter';
 
 export default class FollowingButton extends React.Component {
   constructor(props) {
@@ -25,13 +26,19 @@ export default class FollowingButton extends React.Component {
     /** Here, we just need the count of following,
      * which is created when we query the users.
      */
-    const following_count = this.props.following_count;
+    let following_count = this.props.following_count;
+
+    /** Cheat until we understand proptypes. Because we still need a way to handle string,bool,etc. */
+    /** Worst case --> push in 0 for any type other than numeric. */
+    following_count = following_count === undefined ? '0' : following_count; 
+
+
 
     return (
       <Chip
         style={styles.chip}
         onPress={() => this.onFollowingClicked(user_id)}>
-        Following {following_count}
+        Following {numberFormat(following_count)}
       </Chip>
     );
   }

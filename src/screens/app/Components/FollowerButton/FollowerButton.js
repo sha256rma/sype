@@ -1,6 +1,13 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Chip} from 'react-native-paper';
+import {numberFormat} from '../../../../common/numberFormatter';
+
+
+
+
+
+
 
 export default class FollowerButton extends React.Component {
   constructor(props) {
@@ -24,12 +31,16 @@ export default class FollowerButton extends React.Component {
     /** Here, we just need the count of followers,
      * which is created when we query the users.
      */
-    const follower_count = this.props.follower_count;
+    let follower_count = this.props.follower_count;
+
+    /** Cheat until we understand proptypes. Because we still need a way to handle string,bool,etc. */
+    /** Worst case --> push in 0 for any type other than numeric. */
+    follower_count = follower_count === undefined ? '0' : follower_count; 
 
     return (
       /**https://stackoverflow.com/questions/47962396/passing-a-value-via-props-onpress -- How I got the function working. This makes sense, what type of a parameter would we even pass in via this onPress? */
       <Chip style={styles.chip} onPress={() => this.onFollowerClicked(user_id)}>
-        Followers {follower_count}
+        Followers {numberFormat(follower_count, 1)}
       </Chip>
     );
   }

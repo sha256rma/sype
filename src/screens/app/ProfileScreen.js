@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flex: 1,
+    top: '5%'
   },
   imageContainer: {
     borderColor: 'purple',
@@ -20,9 +21,9 @@ export default class ProfileScreen extends React.Component {
     this.state = {
       username: 'bujarsefa',
       user_id: 'bujarsefa',
-      following_count: '20',
-      follower_count: '15',
-      posts_count: '2',
+      following_count: '20000000',
+      follower_count: 150000,
+      posts_count: '20000000',
       profile_image:
         'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
     };

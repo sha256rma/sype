@@ -25,7 +25,6 @@ export default class ProfileBanner extends React.Component {
     return (
       <View style={styles.profileBannerContainer}>
         <ProfileBannerAvatar profile_image={profile_image} />
-
         {/** Create three rows --- Possibly 4 but wull get back to this
          * 1. Username
          * 2. Profile Content
@@ -43,10 +42,11 @@ export default class ProfileBanner extends React.Component {
               user_id={user_id}
               following_count={following_count}
             />
-            <PostCountButton posts_count={posts_count} />
           </View>
 
-          <View style={styles.rowContainer} />
+          <View style={styles.rowContainer}>
+            <PostCountButton posts_count={posts_count} />
+          </View>
         </View>
       </View>
     );

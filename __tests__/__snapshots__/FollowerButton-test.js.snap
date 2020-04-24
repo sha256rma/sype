@@ -76,6 +76,7 @@ exports[`Follower Button Snapshot Test 1`] = `
         }
       >
         Followers 
+        0
       </Text>
     </View>
   </View>

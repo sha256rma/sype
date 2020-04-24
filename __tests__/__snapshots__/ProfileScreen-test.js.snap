@@ -6,6 +6,7 @@ exports[`profile screen snapshot test 1`] = `
     Object {
       "backgroundColor": "white",
       "flex": 1,
+      "top": "5%",
     }
   }
 >
@@ -165,7 +166,7 @@ exports[`profile screen snapshot test 1`] = `
                 }
               >
                 Followers 
-                15
+                150k
               </Text>
             </View>
           </View>
@@ -245,11 +246,21 @@ exports[`profile screen snapshot test 1`] = `
                 }
               >
                 Following 
-                20
+                20M
               </Text>
             </View>
           </View>
         </View>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
         <View
           style={
             Object {
@@ -325,21 +336,12 @@ exports[`profile screen snapshot test 1`] = `
                 }
               >
                 Posts 
-                2
+                20M
               </Text>
             </View>
           </View>
         </View>
       </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "center",
-          }
-        }
-      />
     </View>
   </View>
   <View
