@@ -35,6 +35,8 @@ target 'sype' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+  
+  pod 'Firebase/Analytics'
 
   pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 

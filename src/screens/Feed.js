@@ -6,9 +6,9 @@ import {
   FlatList,
   TouchableWithoutFeedback,
 } from 'react-native';
-import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
-import ProfileAvatar from './Components/ProfileAvatar/ProfileAvatar';
-import Post from './Components/Post/Post';
+import SettingsButtonHorizontal from './app/Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
+import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
+import Post from './app/Components/Post/Post';
 export default class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ export default class FeedScreen extends React.Component {
     const isLiked = likers[uid] === true ? true : false; // if i liked it
     const isBookmarked = bookmarkers[uid] === true ? true : false;
     return (
-      <TouchableWithoutFeedback onPress={() => {}}>
+      <TouchableWithoutFeedback onPress={() => { }}>
         <View>
           <View style={styles.topBarViewStyles}>
             <ProfileAvatar username={username} img={img} />
