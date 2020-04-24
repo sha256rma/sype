@@ -6,6 +6,7 @@
  */
 
 #import "AppDelegate.h"
+@import Firebase;
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -29,6 +30,7 @@
   [self.window makeKeyAndVisible];
   RNScreenshotDetector* screenshotDetector = [[RNScreenshotDetector alloc] init];
   [screenshotDetector setupAndListen:rootView.bridge];
+  [FIRApp configure];
   return YES;
 }
 

@@ -30,7 +30,7 @@ export default class FeedScreen extends React.Component {
     const isLiked = likers[uid] === true ? true : false; // if i liked it
     const isBookmarked = bookmarkers[uid] === true ? true : false;
     return (
-      <TouchableWithoutFeedback onPress={() => {}}>
+      <TouchableWithoutFeedback onPress={() => { }}>
         <View>
           <View style={styles.topBarViewStyles}>
             <ProfileAvatar username={username} img={img} />
