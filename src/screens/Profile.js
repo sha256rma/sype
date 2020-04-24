@@ -18,7 +18,7 @@ const examples = [
   },
 ];
 
-const RootScreen = () => {
+const ProfileScreen = () => {
   // hooks
   const {navigate} = useNavigation();
 
@@ -44,4 +44,4 @@ const RootScreen = () => {
   );
 };
 
-export default RootScreen;
+export default ProfileScreen;

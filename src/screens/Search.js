@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {AuthContext} from '../navigation/AuthNavigator';
 
-export default function Home() {
+export default function SearchScreen() {
   const user = useContext(AuthContext);
 
   async function logOut() {
@@ -16,6 +16,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Search Screen</Text>
       <Text style={styles.title}>Welcome {user.uid}!</Text>
       <TouchableOpacity style={styles.button} onPress={logOut}>
         <Text style={styles.buttonText}>Sign out</Text>
@@ -54,40 +55,3 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 });
-
-
-// import React, {useMemo} from 'react';
-// import {Text, View, StyleSheet} from 'react-native';
-// import {useRoute} from '@react-navigation/native';
-
-// const DummyScreen = () => {
-//   const {name, params} = useRoute();
-//   const containerStyle = useMemo(
-//     () => [
-//       styles.container,
-//       {backgroundColor: params?.backgroundColor || 'white'},
-//     ],
-//     [params],
-//   );
-//   return (
-//     <View style={containerStyle}>
-//       <Text style={styles.text}>{name}</Text>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   text: {
-//     fontSize: 43,
-//     fontWeight: '600',
-//     textTransform: 'uppercase',
-//     color: 'white',
-//   },
-// });
-
-// export default DummyScreen;

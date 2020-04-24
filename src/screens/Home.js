@@ -1,9 +1,12 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AnimatedTabBar, {TabsConfigsType} from '@gorhom/animated-tabbar';
-import DummyScreen from './Dummy';
-import RootScreen from './Root';
-import FeedScreen from './FeedScreen';
+
+import SearchScreen from './Search';
+import ProfileScreen from './Profile';
+import UploadScreen from './Upload';
+import FeedScreen from './Feed';
+
 import HomeSVG from '../svg/HomeSVG';
 import LikeSVG from '../svg/LikeSVG';
 import SearchSVG from '../svg/SearchSVG';
@@ -12,7 +15,7 @@ import ProfileSVG from '../svg/ProfileSVG';
 const Tab = createBottomTabNavigator();
 
 const tabs: TabsConfigsType = {
-  Home: {
+  Feed: {
     labelStyle: {
       color: 'white',
     },
@@ -26,7 +29,7 @@ const tabs: TabsConfigsType = {
       inactiveColor: 'rgba(51,51,51,0)',
     },
   },
-  Likes: {
+  Upload: {
     labelStyle: {
       color: 'white',
     },
@@ -82,32 +85,32 @@ const BubbleStyledScreen = () => {
         <AnimatedTabBar iconSize={20} duration={500} tabs={tabs} {...props} />
       )}>
       <Tab.Screen
-        name="Home"
+        name="Feed"
         initialParams={{
           backgroundColor: '#000',
         }}
         component={FeedScreen}
       />
       <Tab.Screen
-        name="Likes"
+        name="Upload"
         initialParams={{
           backgroundColor: '#000',
         }}
-        component={DummyScreen}
+        component={UploadScreen}
       />
       <Tab.Screen
         name="Search"
         initialParams={{
           backgroundColor: '#000',
         }}
-        component={DummyScreen}
+        component={SearchScreen}
       />
       <Tab.Screen
         name="Profile"
         initialParams={{
           backgroundColor: '#000',
         }}
-        component={RootScreen}
+        component={ProfileScreen}
       />
     </Tab.Navigator>
   );

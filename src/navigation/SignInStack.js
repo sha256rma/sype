@@ -2,7 +2,6 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/Home';
-import Settings from '../screens/Settings.js';
 
 const Stack = createStackNavigator();
 
@@ -11,7 +10,6 @@ export default function SignInStack() {
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );
