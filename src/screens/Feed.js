@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   View,
@@ -5,9 +6,9 @@ import {
   FlatList,
   TouchableWithoutFeedback,
 } from 'react-native';
-import SettingsButtonHorizontal from './Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
-import ProfileAvatar from './Components/ProfileAvatar/ProfileAvatar';
-import Post from './Components/Post/Post';
+import SettingsButtonHorizontal from './app/Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
+import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
+import Post from './app/Components/Post/Post';
 export default class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
