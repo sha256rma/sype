@@ -23,9 +23,9 @@ exports[`Profile Banner Snapshot Test 1`] = `
         Array [
           Object {
             "backgroundColor": "#6200ee",
-            "borderRadius": 37.5,
-            "height": 75,
-            "width": 75,
+            "borderRadius": 50,
+            "height": 100,
+            "width": 100,
           },
           undefined,
         ]
@@ -34,14 +34,14 @@ exports[`Profile Banner Snapshot Test 1`] = `
       <Image
         source={
           Object {
-            "uri": undefined,
+            "uri": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
           }
         }
         style={
           Object {
-            "borderRadius": 37.5,
-            "height": 75,
-            "width": 75,
+            "borderRadius": 50,
+            "height": 100,
+            "width": 100,
           }
         }
       />
@@ -325,7 +325,7 @@ exports[`Profile Banner Snapshot Test 1`] = `
               }
             >
               Posts 
-              NaN
+              0
             </Text>
           </View>
         </View>

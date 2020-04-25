@@ -32,9 +32,9 @@ exports[`profile screen snapshot test 1`] = `
           Array [
             Object {
               "backgroundColor": "#6200ee",
-              "borderRadius": 37.5,
-              "height": 75,
-              "width": 75,
+              "borderRadius": 50,
+              "height": 100,
+              "width": 100,
             },
             undefined,
           ]
@@ -48,9 +48,9 @@ exports[`profile screen snapshot test 1`] = `
           }
           style={
             Object {
-              "borderRadius": 37.5,
-              "height": 75,
-              "width": 75,
+              "borderRadius": 50,
+              "height": 100,
+              "width": 100,
             }
           }
         />
@@ -166,7 +166,7 @@ exports[`profile screen snapshot test 1`] = `
                 }
               >
                 Followers 
-                150k
+                10
               </Text>
             </View>
           </View>
@@ -246,7 +246,7 @@ exports[`profile screen snapshot test 1`] = `
                 }
               >
                 Following 
-                20M
+                20
               </Text>
             </View>
           </View>
@@ -336,7 +336,7 @@ exports[`profile screen snapshot test 1`] = `
                 }
               >
                 Posts 
-                20M
+                10
               </Text>
             </View>
           </View>

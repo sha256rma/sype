@@ -14,9 +14,9 @@ exports[`profile avarar snapshot test 1`] = `
       Array [
         Object {
           "backgroundColor": "#6200ee",
-          "borderRadius": 15,
-          "height": 30,
-          "width": 30,
+          "borderRadius": 12,
+          "height": 24,
+          "width": 24,
         },
         undefined,
       ]
@@ -30,9 +30,9 @@ exports[`profile avarar snapshot test 1`] = `
       }
       style={
         Object {
-          "borderRadius": 15,
-          "height": 30,
-          "width": 30,
+          "borderRadius": 12,
+          "height": 24,
+          "width": 24,
         }
       }
     />

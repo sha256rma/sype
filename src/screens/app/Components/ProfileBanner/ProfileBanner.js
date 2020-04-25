@@ -5,6 +5,8 @@ import ProfileUsername from '../ProfileUsername/ProfileUsername';
 import FollowerButton from '../FollowerButton/FollowerButton';
 import FollowingButton from '../FollowingButton/FollowingButton';
 import PostCountButton from '../PostCountButton/PostCountButton';
+import PropTypes from 'prop-types';
+import AirbnbPropTypes from 'airbnb-prop-types';
 
 export default class ProfileBanner extends React.Component {
   constructor(props) {
@@ -15,7 +17,6 @@ export default class ProfileBanner extends React.Component {
     const {
       //user_id,
       username,
-      user_id,
       profile_image,
       following_count,
       follower_count,
@@ -24,7 +25,10 @@ export default class ProfileBanner extends React.Component {
 
     return (
       <View style={styles.profileBannerContainer}>
-        <ProfileBannerAvatar profile_image={profile_image} />
+        <ProfileBannerAvatar
+          username={username}
+          profile_image={profile_image}
+        />
         {/** Create three rows --- Possibly 4 but wull get back to this
          * 1. Username
          * 2. Profile Content
@@ -37,21 +41,32 @@ export default class ProfileBanner extends React.Component {
           </View>
 
           <View style={styles.rowContainer}>
-            <FollowerButton user_id={user_id} follower_count={follower_count} />
+            <FollowerButton
+              username={username}
+              follower_count={follower_count}
+            />
             <FollowingButton
-              user_id={user_id}
+              username={username}
               following_count={following_count}
             />
           </View>
 
           <View style={styles.rowContainer}>
-            <PostCountButton posts_count={posts_count} />
+            <PostCountButton username={username} posts_count={posts_count} />
           </View>
         </View>
       </View>
     );
   }
 }
+
+ProfileBanner.propTypes = {
+  username: PropTypes.string.isRequired,
+  profile_image: PropTypes.string.isRequired,
+  following_count: AirbnbPropTypes.nonNegativeInteger.isRequired,
+  follower_count: AirbnbPropTypes.nonNegativeInteger.isRequired,
+  posts_count: AirbnbPropTypes.nonNegativeInteger.isRequired,
+};
 
 const styles = StyleSheet.create({
   profileBannerContainer: {

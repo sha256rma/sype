@@ -3,52 +3,166 @@ import React from 'react';
 import ProfileUsername from '@screens/app/Components/ProfileUsername/ProfileUsername';
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
-//import {Text} from 'react-native';
+import checkPropTypes from 'check-prop-types';
+var assert = require('assert'); /** NODE.js assert function */
+
+/** ================ HELPER FUNCTIONS ================ */
+
+function testAllProperPropsPassed(username) {
+  it('Username value is the ProfileUsername prop value', () => {
+    const wrapper = shallow(<ProfileUsername username={username} />);
+    const instance = wrapper.instance();
+    const usernameProp = instance.props.username;
+    expect(username).toEqual(usernameProp);
+  });
+}
+
+/** ================ SNAPSHOT TEST ================ */
 
 test('Profile Username Snapshot Test', () => {
   const tree = renderer.create(<ProfileUsername />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-/**
-function testUsernamePropInput(usernamePropInput) {
-  const usernamePropInputWrapper = shallow(
-    <ProfileUsername username={usernamePropInput} />,
-  );
+/** ================ UNIT TESTS ================ */
+/**  -- To do, localize + refactor code. */
 
+describe('Profile Username Unit Testing', () => {
+  const stringUsernameTest = 'bsefa';
+  testAllProperPropsPassed(stringUsernameTest);
 
-  const profileUsernameTextComponent = usernamePropInputWrapper
-    .find(Text)
-    .at(0);
-
-  it(
-    'ProfileUsername username prop equals passed in username:' +
-      usernamePropInput,
-    () => {
-      const profileUsernameUsernameProp = profileUsernameTextComponent.props()
-        .username;
-      expect(profileUsernameUsernameProp).toEqual(usernamePropInput);
-    },
-  );
-}
-*/
-
-/** THis styling of testing came from:  https://blog.cloudboost.io/jest-and-react-go-good-together-part-3-639932d8ee32*/
-describe('Profile Username Component Test Suite', () => {
-  /** NOT sure if I need to pass in some initial props... */
-  it('reders without crashing', () => {
-    expect(shallow(<ProfileUsername />)).toBeDefined();
+  it('Throws failed propType erorr for not providing any props', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: The prop `username` is marked as required',
+      ),
+    );
   });
 
-  /** SCRATCH THIS TEST.... Forgot that Text does not have a username property.
-   * Spent all this time writing this :( --- That said, maybe theres a way to check the value itself? that appears in Text? )
-   */
-  /**
-    testUsernamePropInput('');
-    testUsernamePropInput('bujarsefa');
-    testUsernamePropInput('a');
-    testUsernamePropInput('1');
-    testUsernamePropInput('!');
-    testUsernamePropInput(undefined);
-    */
+  it('Throws failed propType erorr for not providing username', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: The prop `username` is marked as required',
+      ),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of undefined and not required value', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: undefined},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: The prop `username` is marked as required in `function ProfileUsername',
+      ) && result.includes('but its value is `undefined`.'),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of true and not string', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: true},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: Invalid prop `username` of type `boolean` supplied to `function ProfileUsername',
+      ) && result.includes('expected `string`.'),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of false and not string', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: false},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: Invalid prop `username` of type `boolean` supplied to `function ProfileUsername',
+      ) && result.includes('expected `string`.'),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of integer number and not string', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: 12},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: Invalid prop `username` of type `number` supplied to `function ProfileUsername',
+      ) && result.includes('expected `string`.'),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of double number and not string', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: 12.1},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: Invalid prop `username` of type `number` supplied to `function ProfileUsername',
+      ) && result.includes('expected `string`.'),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of array and not string', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: []},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: Invalid prop `username` of type `array` supplied to `function ProfileUsername',
+      ) && result.includes('expected `string`.'),
+    );
+  });
+
+  it('Throws Failed propType Error for providing username value of object and not string', () => {
+    let result = checkPropTypes(
+      ProfileUsername.propTypes,
+      {username: {}},
+      'prop',
+      ProfileUsername,
+    );
+    console.log(result);
+    assert(
+      result.includes(
+        'Failed prop type: Invalid prop `username` of type `object` supplied to `function ProfileUsername',
+      ) && result.includes('expected `string`.'),
+    );
+  });
 });

@@ -76,7 +76,7 @@ exports[`Post Count Button Snapshot Test 1`] = `
         }
       >
         Posts 
-        NaN
+        0
       </Text>
     </View>
   </View>
