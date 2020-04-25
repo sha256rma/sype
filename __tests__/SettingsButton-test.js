@@ -89,9 +89,5 @@ describe('testing SettingsButton values, should throw errors', () => {
     'Failed prop type: Invalid prop `icon` of value `234.5` supplied to `<<anonymous>>`, expected one of ["horizontal","vertical"].',
     'providing value of number',
   );
-
-  // testPropTypesWithErrors(false, 'corona is wack', 'Failed prop type: Invalid prop `username` of type `boolean` supplied to `<<anonymous>>`, expected `string`.', 'providing username value of false and not string');
-  // testPropTypesWithErrors(234, 'corona is wack', 'Failed prop type: Invalid prop `username` of type `number` supplied to `<<anonymous>>`, expected `string`.', 'providing username value of number and not string');
-  // testPropTypesWithErrors(234.5, 'corona is wack', 'Failed prop type: Invalid prop `username` of type `number` supplied to `<<anonymous>>`, expected `string`.', 'providing username value of number and not string');
 });
 //TODO:test setting button handleSttingsClick function
