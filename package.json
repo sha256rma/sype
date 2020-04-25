@@ -35,8 +35,7 @@
     "react-native-tab-view": "^2.13.0",
     "react-native-vector-icons": "^6.6.0",
     "rn-fetch-blob": "^0.12.0",
-    "sendbird": "^3.0.119",
-    "sinon": "^9.0.2"
+    "sendbird": "^3.0.119"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

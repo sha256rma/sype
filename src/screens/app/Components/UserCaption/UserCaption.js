@@ -6,18 +6,13 @@ import PropTypes from 'prop-types';
 export default class UserCaption extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      caption: this.props.caption,
-      username: this.props.username,
-    };
   }
 
   render() {
     return (
       <Subheading style={styles.SubheadingStyle}>
-        <Text style={styles.boldStyle}>{this.state.username}</Text>{' '}
-        <Text style={styles.captionStyles}>{this.state.caption}</Text>
+        <Text style={styles.boldStyle}>{this.props.username}</Text>{' '}
+        <Text style={styles.captionStyles}>{this.props.caption}</Text>
       </Subheading>
     );
   }

@@ -1,12 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  TouchableWithoutFeedback,
-} from 'react-native';
-import SettingsButtonHorizontal from './app/Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
+import {View, StyleSheet, FlatList} from 'react-native';
+import SettingsButton from './app/Components/SettingsButton/SettingsButton';
 import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 export default class FeedScreen extends React.Component {
@@ -30,23 +25,21 @@ export default class FeedScreen extends React.Component {
     const isLiked = likers[uid] === true ? true : false; // if i liked it
     const isBookmarked = bookmarkers[uid] === true ? true : false;
     return (
-      <TouchableWithoutFeedback onPress={() => {}}>
-        <View>
-          <View style={styles.topBarViewStyles}>
-            <ProfileAvatar username={username} img={img} />
-            <SettingsButtonHorizontal />
-          </View>
-          <Post
-            img={img}
-            isLiked={isLiked}
-            likes={likes}
-            isBookmarked={isBookmarked}
-            caption={caption}
-            username={username}
-            commentsLength={comments.length}
-          />
+      <View>
+        <View style={styles.topBarViewStyles}>
+          <ProfileAvatar username={username} img={img} />
+          <SettingsButton icon="horizontal" />
         </View>
-      </TouchableWithoutFeedback>
+        <Post
+          img={img}
+          isLiked={isLiked}
+          likes={likes}
+          isBookmarked={isBookmarked}
+          caption={caption}
+          username={username}
+          commentsLength={comments.length}
+        />
+      </View>
     );
   };
 
