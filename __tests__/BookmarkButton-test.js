@@ -8,20 +8,25 @@ import checkPropTypes from 'check-prop-types';
 
 var assert = require('assert');
 
-
-
 test('like button snapshot test', () => {
-  const treeTrue = renderer.create(<BookmarkButton isBookmarked={true} />).toJSON();
+  const treeTrue = renderer
+    .create(<BookmarkButton isBookmarked={true} />)
+    .toJSON();
   expect(treeTrue).toMatchSnapshot();
-  const treeFalse = renderer.create(<BookmarkButton isBookmarked={false} />).toJSON();
+  const treeFalse = renderer
+    .create(<BookmarkButton isBookmarked={false} />)
+    .toJSON();
   expect(treeFalse).toMatchSnapshot();
-
 });
 
 function testHandleSaveClick(initialBookmarkedStatus) {
-  const bookmarkedStatus = initialBookmarkedStatus ? 'bookmarked' : 'notBookmarked';
+  const bookmarkedStatus = initialBookmarkedStatus
+    ? 'bookmarked'
+    : 'notBookmarked';
   it('testing handleSaveClick function - initially ' + bookmarkedStatus, () => {
-    const wrapper = shallow(<BookmarkButton isBookmarked={initialBookmarkedStatus} />);
+    const wrapper = shallow(
+      <BookmarkButton isBookmarked={initialBookmarkedStatus} />,
+    );
     const instance = wrapper.instance();
     const previousBookmarkedValue = instance.state.isBookmarked;
     instance.handleSaveClick();
@@ -34,6 +39,7 @@ describe('testing handleSaveClick cases', () => {
   testHandleSaveClick(true);
   testHandleSaveClick(false);
 });
+
 function testPropTypesWithoutErrors(isBookmarked) {
   const bookmark = 'bookmark';
   const bookmarkOutline = 'bookmark-outline';
@@ -47,16 +53,15 @@ function testPropTypesWithoutErrors(isBookmarked) {
       const iconButton = wrapper.find(IconButton).at(0);
       const iconBookmarkedValue = iconButton.props().icon;
       const iconColorValue = iconButton.props().color;
-      if(isBookmarked === true){
+      if (isBookmarked === true) {
         expect(iconBookmarkedValue).toEqual(bookmark);
         expect(iconColorValue).toEqual(colorBlack);
-      }
-      else if(isBookmarked === false){
+      } else if (isBookmarked === false) {
         expect(iconBookmarkedValue).toEqual(bookmarkOutline);
         expect(iconColorValue).toEqual(colorGrey);
       }
-     
-    });
+    },
+  );
 }
 
 function testPropTypesWithErrors(isBookmarked, errorMsg, testDescription) {
@@ -73,13 +78,36 @@ function testPropTypesWithErrors(isBookmarked, errorMsg, testDescription) {
 }
 
 describe('testing icon button bookmarked values', () => {
-    testPropTypesWithoutErrors(true);
-    testPropTypesWithoutErrors(false);
-    testPropTypesWithErrors(undefined, 'Failed prop type: The prop `isBookmarked` is marked as required in `<<anonymous>>`, but its value is `undefined`.', 'undefined value given to isBookmarked');
-    testPropTypesWithErrors(null, 'Failed prop type: The prop `isBookmarked` is marked as required in `<<anonymous>>`, but its value is `null`.', 'null value given to isBookmarked');
-    testPropTypesWithErrors('', 'Failed prop type: Invalid prop `isBookmarked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.', 'empty string value given to isBookmarked');
-    testPropTypesWithErrors('test', 'Failed prop type: Invalid prop `isBookmarked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.', 'string value with length > 0, given to isBookmarked');
-    testPropTypesWithErrors(234, 'Failed prop type: Invalid prop `isBookmarked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.', 'number given to isBookmarked');
-    testPropTypesWithErrors(234.5, 'Failed prop type: Invalid prop `isBookmarked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.', 'number given to isBookmarked');
-
+  testPropTypesWithoutErrors(true);
+  testPropTypesWithoutErrors(false);
+  testPropTypesWithErrors(
+    undefined,
+    'Failed prop type: The prop `isBookmarked` is marked as required in `<<anonymous>>`, but its value is `undefined`.',
+    'undefined value given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    null,
+    'Failed prop type: The prop `isBookmarked` is marked as required in `<<anonymous>>`, but its value is `null`.',
+    'null value given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    '',
+    'Failed prop type: Invalid prop `isBookmarked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.',
+    'empty string value given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    'test',
+    'Failed prop type: Invalid prop `isBookmarked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.',
+    'string value with length > 0, given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    234,
+    'Failed prop type: Invalid prop `isBookmarked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.',
+    'number given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    234.5,
+    'Failed prop type: Invalid prop `isBookmarked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.',
+    'number given to isBookmarked',
+  );
 });

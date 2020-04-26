@@ -9,8 +9,7 @@ export default class LikeButton extends React.Component {
       this.state = {
         isLiked: this.props.isLiked,
       };
-    } 
-    else if(this.props.isLiked === false) {
+    } else if (this.props.isLiked === false) {
       this.state = {
         isLiked: false,
       };
@@ -22,8 +21,7 @@ export default class LikeButton extends React.Component {
       this.setState({
         isLiked: false,
       });
-    } 
-    else if(this.state.isLiked === false) {
+    } else if (this.state.isLiked === false) {
       this.setState({
         isLiked: true,
       });
@@ -44,4 +42,3 @@ export default class LikeButton extends React.Component {
 LikeButton.propTypes = {
   isLiked: PropTypes.bool.isRequired,
 };
-

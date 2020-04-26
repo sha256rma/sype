@@ -9,8 +9,7 @@ export default class BookmarkButton extends React.Component {
       this.state = {
         isBookmarked: this.props.isBookmarked,
       };
-    } 
-    else if(this.props.isBookmarked === false) {
+    } else if (this.props.isBookmarked === false) {
       this.state = {
         isBookmarked: false,
       };
@@ -22,8 +21,7 @@ export default class BookmarkButton extends React.Component {
       this.setState({
         isBookmarked: false,
       });
-    } 
-    else if(this.state.isBookmarked === false) {
+    } else if (this.state.isBookmarked === false) {
       this.setState({
         isBookmarked: true,
       });
@@ -44,4 +42,3 @@ export default class BookmarkButton extends React.Component {
 BookmarkButton.propTypes = {
   isBookmarked: PropTypes.bool.isRequired,
 };
-

@@ -8,14 +8,11 @@ import checkPropTypes from 'check-prop-types';
 
 var assert = require('assert');
 
-
-
 test('like button snapshot test', () => {
   const treeTrue = renderer.create(<LikeButton isLiked={true} />).toJSON();
   expect(treeTrue).toMatchSnapshot();
   const treeFalse = renderer.create(<LikeButton isLiked={false} />).toJSON();
   expect(treeFalse).toMatchSnapshot();
-
 });
 
 function testHandleLikeClick(initialLikeStatus) {
@@ -40,23 +37,21 @@ function testPropTypesWithoutErrors(isLiked) {
   const colorRed = 'red';
   const colorGrey = 'grey';
   it(
-    'testing icon button heart values (No errors) where isLiked is ' +
-      isLiked,
+    'testing icon button heart values (No errors) where isLiked is ' + isLiked,
     () => {
       const wrapper = shallow(<LikeButton isLiked={isLiked} />);
       const iconButton = wrapper.find(IconButton).at(0);
       const iconHeartValue = iconButton.props().icon;
       const iconColorValue = iconButton.props().color;
-      if(isLiked === true){
+      if (isLiked === true) {
         expect(iconHeartValue).toEqual(heart);
         expect(iconColorValue).toEqual(colorRed);
-      }
-      else if(isLiked === false){
+      } else if (isLiked === false) {
         expect(iconHeartValue).toEqual(heartOutline);
         expect(iconColorValue).toEqual(colorGrey);
       }
-     
-    });
+    },
+  );
 }
 
 function testPropTypesWithErrors(isLiked, errorMsg, testDescription) {
@@ -72,13 +67,36 @@ function testPropTypesWithErrors(isLiked, errorMsg, testDescription) {
 }
 
 describe('testing icon button heart values', () => {
-    testPropTypesWithoutErrors(true);
-    testPropTypesWithoutErrors(false);
-    testPropTypesWithErrors(undefined, 'Failed prop type: The prop `isLiked` is marked as required in `<<anonymous>>`, but its value is `undefined`.', 'undefined value given to isLiked');
-    testPropTypesWithErrors(null, 'Failed prop type: The prop `isLiked` is marked as required in `<<anonymous>>`, but its value is `null`.', 'null value given to isLiked');
-    testPropTypesWithErrors('', 'Failed prop type: Invalid prop `isLiked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.', 'empty string value given to isLiked');
-    testPropTypesWithErrors('test', 'Failed prop type: Invalid prop `isLiked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.', 'string value with length > 0, given to isLiked');
-    testPropTypesWithErrors(234, 'Failed prop type: Invalid prop `isLiked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.', 'number given to isLiked');
-    testPropTypesWithErrors(234.5, 'Failed prop type: Invalid prop `isLiked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.', 'number given to isLiked');
-
+  testPropTypesWithoutErrors(true);
+  testPropTypesWithoutErrors(false);
+  testPropTypesWithErrors(
+    undefined,
+    'Failed prop type: The prop `isLiked` is marked as required in `<<anonymous>>`, but its value is `undefined`.',
+    'undefined value given to isLiked',
+  );
+  testPropTypesWithErrors(
+    null,
+    'Failed prop type: The prop `isLiked` is marked as required in `<<anonymous>>`, but its value is `null`.',
+    'null value given to isLiked',
+  );
+  testPropTypesWithErrors(
+    '',
+    'Failed prop type: Invalid prop `isLiked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.',
+    'empty string value given to isLiked',
+  );
+  testPropTypesWithErrors(
+    'test',
+    'Failed prop type: Invalid prop `isLiked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.',
+    'string value with length > 0, given to isLiked',
+  );
+  testPropTypesWithErrors(
+    234,
+    'Failed prop type: Invalid prop `isLiked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.',
+    'number given to isLiked',
+  );
+  testPropTypesWithErrors(
+    234.5,
+    'Failed prop type: Invalid prop `isLiked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.',
+    'number given to isLiked',
+  );
 });
