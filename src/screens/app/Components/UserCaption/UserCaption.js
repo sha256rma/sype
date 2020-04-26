@@ -1,13 +1,12 @@
 import React from 'react';
 import {Subheading} from 'react-native-paper';
 import {Text, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class UserCaption extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  handleCommentClick = () => {};
 
   render() {
     return (
@@ -18,6 +17,11 @@ export default class UserCaption extends React.Component {
     );
   }
 }
+UserCaption.propTypes = {
+  caption: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+};
+
 const styles = StyleSheet.create({
   boldStyle: {
     fontWeight: 'bold',

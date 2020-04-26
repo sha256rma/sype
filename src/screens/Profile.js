@@ -1,7 +1,7 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import Showcase from '@gorhom/showcase-template';
-import { version, description } from '../../package.json';
+import {version, description} from '../../package.json';
 
 const examples = [
   {
@@ -20,7 +20,7 @@ const examples = [
 
 const ProfileScreen = () => {
   // hooks
-  const { navigate } = useNavigation();
+  const {navigate} = useNavigation();
 
   // callbacks
   const handleOnExamplePress = (slug: string) => {
