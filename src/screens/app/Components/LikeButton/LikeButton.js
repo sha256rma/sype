@@ -1,14 +1,16 @@
 import {IconButton} from 'react-native-paper';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class LikeButton extends React.Component {
   constructor(props) {
     super(props);
-    if (this.props.isLiked) {
+    if (this.props.isLiked === true) {
       this.state = {
         isLiked: this.props.isLiked,
       };
-    } else {
+    } 
+    else if(this.props.isLiked === false) {
       this.state = {
         isLiked: false,
       };
@@ -16,11 +18,12 @@ export default class LikeButton extends React.Component {
   }
 
   handleLikeClick = event => {
-    if (this.state.isLiked) {
+    if (this.state.isLiked === true) {
       this.setState({
         isLiked: false,
       });
-    } else {
+    } 
+    else if(this.state.isLiked === false) {
       this.setState({
         isLiked: true,
       });
@@ -38,3 +41,7 @@ export default class LikeButton extends React.Component {
     );
   }
 }
+LikeButton.propTypes = {
+  isLiked: PropTypes.bool.isRequired,
+};
+
