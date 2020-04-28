@@ -82,3 +82,173 @@ exports[`profile avarar snapshot test 1`] = `
   />
 </View>
 `;
+
+exports[`profile avarar snapshot test 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#6200ee",
+          "borderRadius": 12,
+          "height": 24,
+          "width": 24,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": undefined,
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 12,
+          "height": 24,
+          "width": 24,
+        }
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+          "textAlign": "left",
+        },
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontWeight": "500",
+            "textAlign": "left",
+            "writingDirection": "ltr",
+          },
+          Array [
+            Object {
+              "fontSize": 20,
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+            },
+            Object {
+              "marginHorizontal": 10,
+            },
+          ],
+          Array [
+            Object {
+              "fontSize": 20,
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+            },
+            Object {
+              "marginHorizontal": 10,
+            },
+          ],
+        ],
+      ]
+    }
+  >
+    emanasia
+  </Text>
+</View>
+`;
+
+exports[`profile avarar snapshot test 3`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#6200ee",
+          "borderRadius": 12,
+          "height": 24,
+          "width": 24,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://images.app.goo.gl/HPsoQwfF6dpaqUqG8",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 12,
+          "height": 24,
+          "width": 24,
+        }
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+          "textAlign": "left",
+        },
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontWeight": "500",
+            "textAlign": "left",
+            "writingDirection": "ltr",
+          },
+          Array [
+            Object {
+              "fontSize": 20,
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+            },
+            Object {
+              "marginHorizontal": 10,
+            },
+          ],
+          Array [
+            Object {
+              "fontSize": 20,
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+            },
+            Object {
+              "marginHorizontal": 10,
+            },
+          ],
+        ],
+      ]
+    }
+  >
+    emanasia
+  </Text>
+</View>
+`;
