@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`like button snapshot test 1`] = `
+<RNGestureHandlerButton
+  collapsable={false}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      View All 
+       Comment
+      s
+    </Text>
+  </View>
+</RNGestureHandlerButton>
+`;
+
+exports[`like button snapshot test 2`] = `
+<RNGestureHandlerButton
+  collapsable={false}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      View All 
+      0
+       Comment
+      
+    </Text>
+  </View>
+</RNGestureHandlerButton>
+`;
+
+exports[`like button snapshot test 3`] = `
+<RNGestureHandlerButton
+  collapsable={false}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      View All 
+      1
+       Comment
+      
+    </Text>
+  </View>
+</RNGestureHandlerButton>
+`;
+
+exports[`like button snapshot test 4`] = `
+<RNGestureHandlerButton
+  collapsable={false}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "fontSize": 14,
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      View All 
+      2
+       Comment
+      s
+    </Text>
+  </View>
+</RNGestureHandlerButton>
+`;
