@@ -33,4 +33,3 @@ const styles = StyleSheet.create({
 CommentsTouchBox.propTypes = {
   commentsLength: AirbnbPropTypes.nonNegativeInteger.isRequired,
 };
-

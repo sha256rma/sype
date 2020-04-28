@@ -6,39 +6,38 @@ import {shallow} from 'enzyme';
 import checkPropTypes from 'check-prop-types';
 var assert = require('assert');
 
-
 test('like button snapshot test', () => {
   const treeWithoutCommentsLength = renderer
     .create(<CommentsTouchBox />)
     .toJSON();
   expect(treeWithoutCommentsLength).toMatchSnapshot();
   const treeWithCommentLengthZero = renderer
-  .create(<CommentsTouchBox commentsLength={0}/>)
-  .toJSON();
+    .create(<CommentsTouchBox commentsLength={0} />)
+    .toJSON();
   expect(treeWithCommentLengthZero).toMatchSnapshot();
   const treeWithCommentLengthOne = renderer
-  .create(<CommentsTouchBox commentsLength={1}/>)
-  .toJSON();
+    .create(<CommentsTouchBox commentsLength={1} />)
+    .toJSON();
   expect(treeWithCommentLengthOne).toMatchSnapshot();
   const treeWithCommentLengthGreaterThanOne = renderer
-  .create(<CommentsTouchBox commentsLength={2}/>)
-  .toJSON();
+    .create(<CommentsTouchBox commentsLength={2} />)
+    .toJSON();
   expect(treeWithCommentLengthGreaterThanOne).toMatchSnapshot();
-
 });
 
 function testPropTypesWithoutErrors(commentsLength) {
   it(
     'testing commentsLength values (No errors) where commentsLength is ' +
-    commentsLength,
+      commentsLength,
     () => {
-      const wrapper = shallow(<CommentsTouchBox commentsLength={commentsLength} />);
+      const wrapper = shallow(
+        <CommentsTouchBox commentsLength={commentsLength} />,
+      );
       const instance = wrapper.instance();
       const commentsLengthProp = instance.props.commentsLength;
       expect(commentsLength).toEqual(commentsLengthProp);
-    });
-    
-  
+    },
+  );
 }
 
 function testPropTypesWithErrors(commentLength, errorMsg, testDescription) {
@@ -60,7 +59,7 @@ describe('testing commentsLength values', () => {
   testPropTypesWithErrors(
     undefined,
     'Failed prop type: commentsLength in undefined must be an integer',
-    'undefined value given to commentsLength'
+    'undefined value given to commentsLength',
   );
   testPropTypesWithErrors(
     null,
@@ -102,6 +101,4 @@ describe('testing commentsLength values', () => {
     'Failed prop type: commentsLength in undefined must be a non-negative number',
     'negative integer given to commentsLength',
   );
-
-
 });
