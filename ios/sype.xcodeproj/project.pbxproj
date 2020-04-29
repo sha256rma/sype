@@ -310,7 +310,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				4322E941297536989572ACD7 /* [CP] Copy Pods Resources */,
-				D2F1702B8A157579A20F5EBA /* [CP-User] [RNFB] Core Configuration */,
+				5A66AC6F78F006585D4AB2E9 /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -571,7 +571,11 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sype/Pods-sype-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+<<<<<<< HEAD
 		92F3E53AEE123954B9AE28EB /* [CP-User] [RNFB] Core Configuration */ = {
+=======
+		5A66AC6F78F006585D4AB2E9 /* [CP-User] [RNFB] Core Configuration */ = {
+>>>>>>> 921ee49b99b7042bb5a18405a1c8b7799dc2d3ab
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
