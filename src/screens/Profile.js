@@ -1,6 +1,6 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {View, StyleSheet} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, StyleSheet } from 'react-native';
 /**
 import Showcase from '@gorhom/showcase-template';
 import {version, description} from '../../package.json';
@@ -44,7 +44,7 @@ const ProfileScreen = () => {
     posts_count: 673,
     profile_image:
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-  };
+  }
 
   // renders
   return (
