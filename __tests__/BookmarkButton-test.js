@@ -4,54 +4,110 @@ import BookmarkButton from '@screens/app/Components/BookmarkButton/BookmarkButto
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import {IconButton} from 'react-native-paper';
+import checkPropTypes from 'check-prop-types';
 
-test('bookmark snapshot test', () => {
-  const tree = renderer.create(<BookmarkButton />).toJSON();
-  expect(tree).toMatchSnapshot();
+var assert = require('assert');
+
+test('like button snapshot test', () => {
+  const treeTrue = renderer
+    .create(<BookmarkButton isBookmarked={true} />)
+    .toJSON();
+  expect(treeTrue).toMatchSnapshot();
+  const treeFalse = renderer
+    .create(<BookmarkButton isBookmarked={false} />)
+    .toJSON();
+  expect(treeFalse).toMatchSnapshot();
 });
 
-function testHandleSaveClick(initialBookmarkStatus) {
-  const bookmarkStatus = initialBookmarkStatus ? 'bookmarked' : 'unbookmarked';
+function testHandleSaveClick(initialBookmarkedStatus) {
+  const bookmarkedStatus = initialBookmarkedStatus
+    ? 'bookmarked'
+    : 'notBookmarked';
+  it('testing handleSaveClick function - initially ' + bookmarkedStatus, () => {
+    const wrapper = shallow(
+      <BookmarkButton isBookmarked={initialBookmarkedStatus} />,
+    );
+    const instance = wrapper.instance();
+    const previousBookmarkedValue = instance.state.isBookmarked;
+    instance.handleSaveClick();
+    const currentBookmarkedValue = instance.state.isBookmarked;
+    expect(currentBookmarkedValue).toEqual(!previousBookmarkedValue);
+  });
+}
+
+describe('testing handleSaveClick cases', () => {
+  testHandleSaveClick(true);
+  testHandleSaveClick(false);
+});
+
+function testPropTypesWithoutErrors(isBookmarked) {
+  const bookmark = 'bookmark';
+  const bookmarkOutline = 'bookmark-outline';
+  const colorBlack = 'black';
+  const colorGrey = 'grey';
   it(
-    'testing handleBookmarkClick function - initially ' + bookmarkStatus,
+    'testing icon button heart values (No errors) where isBookmarked is ' +
+      isBookmarked,
     () => {
-      const wrapper = shallow(
-        <BookmarkButton isBookmarked={initialBookmarkStatus} />,
-      );
-      const instance = wrapper.instance();
-      const previousBookmarkValue = instance.state.isBookmarked;
-      instance.handleSaveClick();
-      const currentBookmarkValue = instance.state.isBookmarked;
-      expect(currentBookmarkValue).toEqual(!previousBookmarkValue);
+      const wrapper = shallow(<BookmarkButton isBookmarked={isBookmarked} />);
+      const iconButton = wrapper.find(IconButton).at(0);
+      const iconBookmarkedValue = iconButton.props().icon;
+      const iconColorValue = iconButton.props().color;
+      if (isBookmarked === true) {
+        expect(iconBookmarkedValue).toEqual(bookmark);
+        expect(iconColorValue).toEqual(colorBlack);
+      } else if (isBookmarked === false) {
+        expect(iconBookmarkedValue).toEqual(bookmarkOutline);
+        expect(iconColorValue).toEqual(colorGrey);
+      }
     },
   );
 }
 
-describe('testing handleSaveClick function', () => {
-  testHandleSaveClick(true);
-  testHandleSaveClick(false);
-  testHandleSaveClick(undefined);
-});
+function testPropTypesWithErrors(isBookmarked, errorMsg, testDescription) {
+  it('Throws failed propType Error for ' + testDescription, () => {
+    let result = checkPropTypes(
+      BookmarkButton.propTypes,
+      {isBookmarked: isBookmarked},
+      'prop',
+      BookmarkButton.isBookmarked,
+    );
+    console.log(result);
+    assert(result === errorMsg);
+  });
+}
 
-describe('testing icon button bookmark values', () => {
-  const bookmark = 'bookmark';
-  const bookmarkOutline = 'bookmark-outline';
-  const falseWrapper = shallow(<BookmarkButton isBookmarked={false} />);
-  const falseIconButton = falseWrapper.find(IconButton).at(0);
-  it('bookmark outlined when isBookmarked is false', () => {
-    const bookmarkValue = falseIconButton.props().icon;
-    expect(bookmarkValue).toEqual(bookmarkOutline);
-  });
-  const trueWrapper = shallow(<BookmarkButton isBookmarked={true} />);
-  const trueIconButton = trueWrapper.find(IconButton).at(0);
-  it('bookmark filled when isLiked is true', () => {
-    const bookmarkValue = trueIconButton.props().icon;
-    expect(bookmarkValue).toEqual(bookmark);
-  });
-  const undefinedWrapper = shallow(<BookmarkButton isBookmarked={undefined} />);
-  const undefinedIconButton = undefinedWrapper.find(IconButton).at(0);
-  it('bookmark filled when isLiked is undefined ', () => {
-    const bookmarkValue = undefinedIconButton.props().icon;
-    expect(bookmarkValue).toEqual(bookmarkOutline);
-  });
+describe('testing icon button bookmarked values', () => {
+  testPropTypesWithoutErrors(true);
+  testPropTypesWithoutErrors(false);
+  testPropTypesWithErrors(
+    undefined,
+    'Failed prop type: The prop `isBookmarked` is marked as required in `<<anonymous>>`, but its value is `undefined`.',
+    'undefined value given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    null,
+    'Failed prop type: The prop `isBookmarked` is marked as required in `<<anonymous>>`, but its value is `null`.',
+    'null value given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    '',
+    'Failed prop type: Invalid prop `isBookmarked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.',
+    'empty string value given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    'test',
+    'Failed prop type: Invalid prop `isBookmarked` of type `string` supplied to `<<anonymous>>`, expected `boolean`.',
+    'string value with length > 0, given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    234,
+    'Failed prop type: Invalid prop `isBookmarked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.',
+    'number given to isBookmarked',
+  );
+  testPropTypesWithErrors(
+    234.5,
+    'Failed prop type: Invalid prop `isBookmarked` of type `number` supplied to `<<anonymous>>`, expected `boolean`.',
+    'number given to isBookmarked',
+  );
 });

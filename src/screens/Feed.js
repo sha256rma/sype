@@ -10,7 +10,7 @@ import {
   Alert
 } from 'react-native';
 
-import SettingsButtonHorizontal from './app/Components/SettingsButtonHorizontal/SettingsButtonHorizontal';
+import SettingsButton from './app/Components/SettingsButton/SettingsButton';
 import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
@@ -56,7 +56,7 @@ export default class FeedScreen extends React.Component {
         <View >
           <View style={styles.topBarViewStyles}>
             <ProfileAvatar username={username} img={img} />
-            <SettingsButtonHorizontal />
+            <SettingsButton icon="horizontal" />
           </View>
           <Post
             img={img}
@@ -68,6 +68,15 @@ export default class FeedScreen extends React.Component {
             commentsLength={comments.length}
           />
           <Divider />
+          <Post
+            img={img}
+            isLiked={isLiked}
+            likes={likes}
+            isBookmarked={isBookmarked}
+            caption={caption}
+            username={username}
+            commentsLength={comments.length}
+          />
         </View>
       </TouchableWithoutFeedback>
     );

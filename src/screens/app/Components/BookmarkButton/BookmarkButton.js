@@ -1,14 +1,15 @@
 import {IconButton} from 'react-native-paper';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class BookmarkButton extends React.Component {
   constructor(props) {
     super(props);
-    if (this.props.isBookmarked) {
+    if (this.props.isBookmarked === true) {
       this.state = {
         isBookmarked: this.props.isBookmarked,
       };
-    } else {
+    } else if (this.props.isBookmarked === false) {
       this.state = {
         isBookmarked: false,
       };
@@ -16,11 +17,11 @@ export default class BookmarkButton extends React.Component {
   }
 
   handleSaveClick = event => {
-    if (this.state.isBookmarked) {
+    if (this.state.isBookmarked === true) {
       this.setState({
         isBookmarked: false,
       });
-    } else {
+    } else if (this.state.isBookmarked === false) {
       this.setState({
         isBookmarked: true,
       });
@@ -33,8 +34,11 @@ export default class BookmarkButton extends React.Component {
         icon={this.state.isBookmarked ? 'bookmark' : 'bookmark-outline'}
         size={25}
         color={this.state.isBookmarked ? 'black' : 'grey'}
-        onPress={this.handleSaveClick}
+        onPress={this.handleSavelick}
       />
     );
   }
 }
+BookmarkButton.propTypes = {
+  isBookmarked: PropTypes.bool.isRequired,
+};
