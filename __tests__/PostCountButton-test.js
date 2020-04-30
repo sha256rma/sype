@@ -51,7 +51,9 @@ function testChipInnerText(username, posts_count) {
 
 /** NOTE, snapshot tests will give warnings with no required props passed. */
 test('Post Count Button Snapshot Test', () => {
-  const tree = renderer.create(<PostCountButton />).toJSON();
+  const tree = renderer
+    .create(<PostCountButton username={''} posts_count={0} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 

@@ -20,7 +20,7 @@ function testAllProperPropsPassed(username) {
 /** ================ SNAPSHOT TEST ================ */
 
 test('Profile Username Snapshot Test', () => {
-  const tree = renderer.create(<ProfileUsername />).toJSON();
+  const tree = renderer.create(<ProfileUsername username={''} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

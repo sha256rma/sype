@@ -76,7 +76,9 @@ function testChipInnerText(username, following_count) {
 
 /** ================ SNAPSHOT TEST ================ */
 test('Following Button Snapshot Test', () => {
-  const tree = renderer.create(<FollowingButton />).toJSON();
+  const tree = renderer
+    .create(<FollowingButton username={''} following_count={0} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 

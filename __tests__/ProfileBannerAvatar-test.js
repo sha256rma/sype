@@ -32,7 +32,9 @@ function testAllProperPropsPassed(username, profile_image) {
 /** ================ SNAPSHOT TEST ================ */
 
 test('Profile Banner Avatar Snapshot Test', () => {
-  const tree = renderer.create(<ProfileBannerAvatar />).toJSON();
+  const tree = renderer
+    .create(<ProfileBannerAvatar username={''} profile_image={''} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
