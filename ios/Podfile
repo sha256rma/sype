@@ -46,6 +46,8 @@ target 'sype' do
 
   pod 'RNScreenshotDetector', :path => '../node_modules/react-native-screenshot-detect'
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   target 'sypeTests' do
     inherit! :search_paths
     # Pods for testing
