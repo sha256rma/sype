@@ -46,7 +46,7 @@ function testPropTypesWithoutErrors(isBookmarked) {
   const colorBlack = 'black';
   const colorGrey = 'grey';
   it(
-    'testing icon button heart values (No errors) where isBookmarked is ' +
+    'testing icon button bookmark values (No errors) where isBookmarked is ' +
       isBookmarked,
     () => {
       const wrapper = shallow(<BookmarkButton isBookmarked={isBookmarked} />);
@@ -72,7 +72,6 @@ function testPropTypesWithErrors(isBookmarked, errorMsg, testDescription) {
       'prop',
       BookmarkButton.isBookmarked,
     );
-    console.log(result);
     assert(result === errorMsg);
   });
 }
