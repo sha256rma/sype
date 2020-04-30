@@ -44,7 +44,6 @@ function testPropTypesWithErrors(icon, errorMsg, testDescription) {
       'prop',
       SettingsButton.icon,
     );
-    console.log(result);
     assert(result === errorMsg);
   });
 }
