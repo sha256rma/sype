@@ -571,11 +571,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sype/Pods-sype-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-<<<<<<< HEAD
-		92F3E53AEE123954B9AE28EB /* [CP-User] [RNFB] Core Configuration */ = {
-=======
 		5A66AC6F78F006585D4AB2E9 /* [CP-User] [RNFB] Core Configuration */ = {
->>>>>>> 921ee49b99b7042bb5a18405a1c8b7799dc2d3ab
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -840,7 +836,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3KCMDCS4W2;
+				DEVELOPMENT_TEAM = 9MM6PSVF78;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/..",
