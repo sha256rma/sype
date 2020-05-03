@@ -10,85 +10,353 @@ import LikeButton from '../src/screens/app/Components/LikeButton/LikeButton';
 var assert = require('assert');
 
 test('like button snapshot test', () => {
-  const treeTrue = renderer.create(<Post isLiked={true} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={0} likes={0}/>).toJSON();
+  const treeTrue = renderer
+    .create(
+      <Post
+        isLiked={true}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={0}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeTrue).toMatchSnapshot();
-  const treeFalse = renderer.create(<Post isLiked={false} isBookmarked={false} caption={"What times we live in now" } username={"emanasia"} commentsLength={0} likes={0}/>).toJSON();
+  const treeFalse = renderer
+    .create(
+      <Post
+        isLiked={false}
+        isBookmarked={false}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={0}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeFalse).toMatchSnapshot();
-  const treeTrueAndFalse = renderer.create(<Post isLiked={true} isBookmarked={false} caption={"What times we live in now" } username={"emanasia"} commentsLength={0} likes={0}/>).toJSON();
+  const treeTrueAndFalse = renderer
+    .create(
+      <Post
+        isLiked={true}
+        isBookmarked={false}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={0}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeTrueAndFalse).toMatchSnapshot();
-  const treeFalseAndTrue = renderer.create(<Post isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={0} likes={0}/>).toJSON();
+  const treeFalseAndTrue = renderer
+    .create(
+      <Post
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={0}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeFalseAndTrue).toMatchSnapshot();
   //didnt test likes > 0 because we don't have a different behavior for that like we do with comments
-  const treeWithImgCommentsLengthZeroAndLikesZero = renderer.create(<Post img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8" isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={0} likes={0}/>).toJSON();
+  const treeWithImgCommentsLengthZeroAndLikesZero = renderer
+    .create(
+      <Post
+        img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8"
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={0}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeWithImgCommentsLengthZeroAndLikesZero).toMatchSnapshot();
-  const treeWithoutImgCommentsLengthZeroAndLikesZero = renderer.create(<Post isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={0} likes={0}/>).toJSON();
+  const treeWithoutImgCommentsLengthZeroAndLikesZero = renderer
+    .create(
+      <Post
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={0}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeWithoutImgCommentsLengthZeroAndLikesZero).toMatchSnapshot();
-  const treeWithCommentLengthOneAndImgAndLikesZero = renderer.create(<Post img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8" isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={1} likes={0}/>).toJSON();
+  const treeWithCommentLengthOneAndImgAndLikesZero = renderer
+    .create(
+      <Post
+        img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8"
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={1}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeWithCommentLengthOneAndImgAndLikesZero).toMatchSnapshot();
-  const treeWithCommentLengthOneAndNoImgAndLikesZero = renderer.create(<Post isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={1} likes={0}/>).toJSON();
+  const treeWithCommentLengthOneAndNoImgAndLikesZero = renderer
+    .create(
+      <Post
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={1}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeWithCommentLengthOneAndNoImgAndLikesZero).toMatchSnapshot();
-  const treeWithCommentLengthTwoAndImgAndLikesZero = renderer.create(<Post img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8" isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={2} likes={0}/>).toJSON();
+  const treeWithCommentLengthTwoAndImgAndLikesZero = renderer
+    .create(
+      <Post
+        img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8"
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={2}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeWithCommentLengthTwoAndImgAndLikesZero).toMatchSnapshot();
-  const treeWithCommentLengthTwoAndNoImgAndLikesZero = renderer.create(<Post isLiked={false} isBookmarked={true} caption={"What times we live in now" } username={"emanasia"} commentsLength={2} likes={0}/>).toJSON();
+  const treeWithCommentLengthTwoAndNoImgAndLikesZero = renderer
+    .create(
+      <Post
+        isLiked={false}
+        isBookmarked={true}
+        caption={'What times we live in now'}
+        username={'emanasia'}
+        commentsLength={2}
+        likes={0}
+      />,
+    )
+    .toJSON();
   expect(treeWithCommentLengthTwoAndNoImgAndLikesZero).toMatchSnapshot();
 });
 
-function testPropTypesWithoutErrors(isLiked, isBookmarked, username, caption, commentsLength, likes) {
+function testPropTypesWithoutErrors(
+  isLiked,
+  isBookmarked,
+  username,
+  caption,
+  commentsLength,
+  likes,
+) {
   const heart = 'heart';
   const heartOutline = 'heart-outline';
   const colorRed = 'red';
   const colorGrey = 'grey';
   it(
-    'testing Post values (No errors) where isLiked is ' + isLiked + " isBookmarked is " + isBookmarked + " username is " + username + " caption is " + caption + " commentsLength is " + commentsLength + "likes is " + likes,
+    'testing Post values (No errors) where isLiked is ' +
+      isLiked +
+      ' isBookmarked is ' +
+      isBookmarked +
+      ' username is ' +
+      username +
+      ' caption is ' +
+      caption +
+      ' commentsLength is ' +
+      commentsLength +
+      'likes is ' +
+      likes,
     () => {
-    const wrapper = shallow(<Post isLiked={isLiked} username={username} caption={caption} isBookmarked={isBookmarked} commentsLength={commentsLength} likes={likes} />);
-    const instance = wrapper.instance();
-    const commentsLengthProp = instance.props.commentsLength;
-    expect(commentsLength).toEqual(commentsLengthProp);
-    const likePropValue = instance.props.isLiked;
-    expect(isLiked).toEqual(likePropValue);
-    const BookmarkPropValue = instance.props.isBookmarked;
-    expect(isBookmarked).toEqual(BookmarkPropValue);
-    const usernamePropValue = instance.props.username;
-    expect(username).toEqual(usernamePropValue);
-    const captionPropValue = instance.props.caption;
-    expect(caption).toEqual(captionPropValue);
-    const likesPropValue = instance.props.likes;
-    expect(likes).toEqual(likesPropValue);
-  },
+      const wrapper = shallow(
+        <Post
+          isLiked={isLiked}
+          username={username}
+          caption={caption}
+          isBookmarked={isBookmarked}
+          commentsLength={commentsLength}
+          likes={likes}
+        />,
+      );
+      const instance = wrapper.instance();
+      const commentsLengthProp = instance.props.commentsLength;
+      expect(commentsLength).toEqual(commentsLengthProp);
+      const likePropValue = instance.props.isLiked;
+      expect(isLiked).toEqual(likePropValue);
+      const BookmarkPropValue = instance.props.isBookmarked;
+      expect(isBookmarked).toEqual(BookmarkPropValue);
+      const usernamePropValue = instance.props.username;
+      expect(username).toEqual(usernamePropValue);
+      const captionPropValue = instance.props.caption;
+      expect(caption).toEqual(captionPropValue);
+      const likesPropValue = instance.props.likes;
+      expect(likes).toEqual(likesPropValue);
+    },
   );
 }
 
-function testPropTypesWithErrors(isLiked,isBookmarked, username, caption, commentsLength, likes,  errorMsg, testDescription) {
+function testPropTypesWithErrors(
+  isLiked,
+  isBookmarked,
+  username,
+  caption,
+  commentsLength,
+  likes,
+  errorMsg,
+  testDescription,
+) {
   it('Throws failed propType Error for ' + testDescription, () => {
     let result = checkPropTypes(
-        Post.propTypes,
-      {isLiked: isLiked, isBookmarked:isBookmarked, caption: caption, username: username, commentsLength: commentsLength, likes: likes},
+      Post.propTypes,
+      {
+        isLiked: isLiked,
+        isBookmarked: isBookmarked,
+        caption: caption,
+        username: username,
+        commentsLength: commentsLength,
+        likes: likes,
+      },
       'prop',
       Post.isLiked,
     );
-    console.log("result is ", result);
+    console.log('result is ', result);
     assert(result === errorMsg);
   });
 }
 
 describe('testing Post prop values', () => {
-  testPropTypesWithoutErrors(true, true, "What times we live in now", "emanasia", 0, 0) ;
-  testPropTypesWithoutErrors(true, true, "What times we live in now", "emanasia", 1, 0) ;
-  testPropTypesWithoutErrors(true, true, "What times we live in now", "emanasia", 2, 1) ;
-  testPropTypesWithoutErrors(true, true, "What times we live in now", "emanasia", 1, 1) ;
-  testPropTypesWithoutErrors(false, false, "What times we live in now", "emanasia", 0, 0) ;
-  testPropTypesWithoutErrors(false, false, "What times we live in now", "emanasia", 1, 0) ;
-  testPropTypesWithoutErrors(false, false, "What times we live in now", "emanasia", 2, 1) ;
-  testPropTypesWithoutErrors(false, false, "What times we live in now", "emanasia", 1, 1) ;
-  testPropTypesWithoutErrors(true, false, "What times we live in now", "emanasia", 0, 0) ;
-  testPropTypesWithoutErrors(true, false, "What times we live in now", "emanasia", 1, 0) ;
-  testPropTypesWithoutErrors(true, false, "What times we live in now", "emanasia", 2, 1) ;
-  testPropTypesWithoutErrors(true, false, "What times we live in now", "emanasia", 1, 1) ;
-  testPropTypesWithoutErrors(false, true, "What times we live in now", "emanasia", 0, 0) ;
-  testPropTypesWithoutErrors(false, true, "What times we live in now", "emanasia", 1, 0) ;
-  testPropTypesWithoutErrors(false, true, "What times we live in now", "emanasia", 2, 1) ;
-  testPropTypesWithoutErrors(false, true, "What times we live in now", "emanasia", 1, 1) ;
+  testPropTypesWithoutErrors(
+    true,
+    true,
+    'What times we live in now',
+    'emanasia',
+    0,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    true,
+    'What times we live in now',
+    'emanasia',
+    1,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    true,
+    'What times we live in now',
+    'emanasia',
+    2,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    true,
+    'What times we live in now',
+    'emanasia',
+    1,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    false,
+    'What times we live in now',
+    'emanasia',
+    0,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    false,
+    'What times we live in now',
+    'emanasia',
+    1,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    false,
+    'What times we live in now',
+    'emanasia',
+    2,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    false,
+    'What times we live in now',
+    'emanasia',
+    1,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    false,
+    'What times we live in now',
+    'emanasia',
+    0,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    false,
+    'What times we live in now',
+    'emanasia',
+    1,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    false,
+    'What times we live in now',
+    'emanasia',
+    2,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    true,
+    false,
+    'What times we live in now',
+    'emanasia',
+    1,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    true,
+    'What times we live in now',
+    'emanasia',
+    0,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    true,
+    'What times we live in now',
+    'emanasia',
+    1,
+    0,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    true,
+    'What times we live in now',
+    'emanasia',
+    2,
+    1,
+  );
+  testPropTypesWithoutErrors(
+    false,
+    true,
+    'What times we live in now',
+    'emanasia',
+    1,
+    1,
+  );
   testPropTypesWithErrors(
     undefined,
     undefined,
@@ -460,7 +728,6 @@ describe('testing Post prop values', () => {
     'negative integer value given to commentsLength',
   );
 
-
   testPropTypesWithErrors(
     true,
     true,
@@ -531,6 +798,4 @@ describe('testing Post prop values', () => {
     'Failed prop type: likes in undefined must be a non-negative number',
     'negative integer value given to likes',
   );
-
-
 });

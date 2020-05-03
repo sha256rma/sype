@@ -7,7 +7,14 @@ import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 
 test('profile avatar snapshot test', () => {
-  const treeWithUsernameAndImage = renderer.create(<ProfileAvatar username="emanasia" img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8" />).toJSON();
+  const treeWithUsernameAndImage = renderer
+    .create(
+      <ProfileAvatar
+        username="emanasia"
+        img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8"
+      />,
+    )
+    .toJSON();
   expect(treeWithUsernameAndImage).toMatchSnapshot();
 });
 
@@ -15,10 +22,9 @@ function testPropTypesWithoutErrors(username) {
   it(
     'testing ProfileAvatar Creation with proper props where ' +
       'username : ' +
-      username , () => {
-      const wrapper = shallow(
-        <ProfileAvatar username={username} />,
-      );
+      username,
+    () => {
+      const wrapper = shallow(<ProfileAvatar username={username} />);
       const instance = wrapper.instance();
       const usernameProp = instance.props.username;
       expect(username).toEqual(usernameProp);
@@ -30,7 +36,6 @@ function testPropTypesWithoutErrors(username) {
 describe('testing ProfileAvatar values, should not throw errors', () => {
   testPropTypesWithoutErrors('e805');
   testPropTypesWithoutErrors('bsefa');
-
 });
 
 function testPropTypesWithErrors(username, errorMsg, testDescription) {
@@ -76,5 +81,4 @@ describe('testing ProfileAvatar values, should throw errors', () => {
     'Failed prop type: Invalid prop `username` of type `number` supplied to `<<anonymous>>`, expected `string`.',
     'providing username value of number and not string',
   );
-
 });

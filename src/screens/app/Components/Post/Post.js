@@ -82,6 +82,5 @@ Post.propTypes = {
   isBookmarked: PropTypes.bool.isRequired,
   caption: PropTypes.string.isRequired,
   commentsLength: AirbnbPropTypes.nonNegativeInteger.isRequired,
-  likes: AirbnbPropTypes.nonNegativeInteger.isRequired
-}
-
+  likes: AirbnbPropTypes.nonNegativeInteger.isRequired,
+};

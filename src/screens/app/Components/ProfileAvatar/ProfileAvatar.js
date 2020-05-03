@@ -28,6 +28,5 @@ const styles = StyleSheet.create({
   },
 });
 ProfileAvatar.propTypes = {
-  username: PropTypes.string.isRequired
-}
-
+  username: PropTypes.string.isRequired,
+};
