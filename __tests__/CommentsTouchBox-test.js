@@ -7,10 +7,6 @@ import checkPropTypes from 'check-prop-types';
 var assert = require('assert');
 
 test('like button snapshot test', () => {
-  const treeWithoutCommentsLength = renderer
-    .create(<CommentsTouchBox />)
-    .toJSON();
-  expect(treeWithoutCommentsLength).toMatchSnapshot();
   const treeWithCommentLengthZero = renderer
     .create(<CommentsTouchBox commentsLength={0} />)
     .toJSON();

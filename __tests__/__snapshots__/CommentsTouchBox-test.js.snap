@@ -54,72 +54,13 @@ exports[`like button snapshot test 1`] = `
   }
 >
   View All 
-   Comment
-  s
-</Text>
-`;
-
-exports[`like button snapshot test 2`] = `
-<Text
-  accessible={true}
-  focusable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Array [
-      Object {
-        "color": "#000000",
-        "fontFamily": "System",
-        "fontWeight": "400",
-        "textAlign": "left",
-      },
-      Array [
-        Object {
-          "color": "rgba(0, 0, 0, 0.54)",
-          "fontFamily": "System",
-          "fontWeight": "400",
-          "textAlign": "left",
-          "writingDirection": "ltr",
-        },
-        Array [
-          Object {
-            "fontSize": 12,
-            "letterSpacing": 0.4,
-            "lineHeight": 20,
-            "marginVertical": 2,
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ],
-        Array [
-          Object {
-            "fontSize": 12,
-            "letterSpacing": 0.4,
-            "lineHeight": 20,
-            "marginVertical": 2,
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ],
-      ],
-    ]
-  }
->
-  View All 
   0
    Comment
   
 </Text>
 `;
 
-exports[`like button snapshot test 3`] = `
+exports[`like button snapshot test 2`] = `
 <Text
   accessible={true}
   focusable={true}
@@ -179,7 +120,7 @@ exports[`like button snapshot test 3`] = `
 </Text>
 `;
 
-exports[`like button snapshot test 4`] = `
+exports[`like button snapshot test 3`] = `
 <Text
   accessible={true}
   focusable={true}

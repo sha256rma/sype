@@ -6,11 +6,7 @@ var assert = require('assert');
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 
-test('profile avarar snapshot test', () => {
-  const treeWithoutProps = renderer.create(<ProfileAvatar />).toJSON();
-  expect(treeWithoutProps).toMatchSnapshot();
-  const treeWithUsername = renderer.create(<ProfileAvatar username="emanasia" />).toJSON();
-  expect(treeWithUsername).toMatchSnapshot();
+test('profile avatar snapshot test', () => {
   const treeWithUsernameAndImage = renderer.create(<ProfileAvatar username="emanasia" img="https://images.app.goo.gl/HPsoQwfF6dpaqUqG8" />).toJSON();
   expect(treeWithUsernameAndImage).toMatchSnapshot();
 });
