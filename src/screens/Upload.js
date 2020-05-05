@@ -102,6 +102,7 @@ export default function SearchScreen() {
         dateCreated: Math.floor(Date.now() / 1000),
         hearts: 0,
         allowScreenshot: true,
+        comments: [],
       })
       .then(() => {
         console.log('posted item!');

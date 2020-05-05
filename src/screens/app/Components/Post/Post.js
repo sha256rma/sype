@@ -61,15 +61,17 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   cardDimensions: {
-    height: 500,
-    width: '100%',
+    marginRight: '5%',
+    marginLeft: '5%',
+    height: '88%',
+    backgroundColor: '#9400D3',
   },
   dividerStyles: {
     marginBottom: 5,
   },
   viewBetweenLikeAndVerticalButtonStyle: {
-    borderLeftWidth: 0.5,
-    marginLeft: 17,
+    borderLeftWidth: 2,
+    marginLeft: '5%',
     height: 30,
     borderColor: 'grey',
   },
