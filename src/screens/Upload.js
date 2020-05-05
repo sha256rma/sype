@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {
   Image,
   PixelRatio,
@@ -6,36 +6,24 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Platform,
 } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
-import uuid from 'uuid'; 
+import {Button, TextInput, ToggleButton} from 'react-native-paper';
 import ImagePicker from 'react-native-image-picker';
+import {AuthContext} from '../navigation/AuthNavigator';
+import storage from '@react-native-firebase/storage';
+import firestore from '@react-native-firebase/firestore';
+import RNFetchBlob from 'rn-fetch-blob';
+import {uniqueId} from '@common/functions';
+import {useNavigation} from '@react-navigation/native';
 
-export default class UploadScreen extends React.Component {
-  state = {
-    avatarSource: null,
-  };
+export default function SearchScreen() {
+  const user = useContext(AuthContext);
+  const [avatarSource, setAvatarSource] = useState(null);
+  const [caption, setCaption] = useState('');
+  const {navigate} = useNavigation();
 
-  constructor(props) {
-    super(props);
-
-    this.selectPhotoTapped = this.selectPhotoTapped.bind(this);
-  }
-
-  uploadPost = post => {
-    const id = uuid.v4();
-    const uploadData = {
-      id: id,
-      postPhoto: post.photo,
-      postTitle: post.title,
-    };
-    return firestore()
-      .collection('posts')
-      .doc(id)
-      .set(uploadData);
-  }
-
-  selectPhotoTapped() {
+  function selectPhotoTapped() {
     const options = {
       quality: 1.0,
       maxWidth: 500,
@@ -46,7 +34,7 @@ export default class UploadScreen extends React.Component {
     };
 
     ImagePicker.showImagePicker(options, response => {
-      console.log('Response = ', response);
+      console.log('Response = ', response.uri);
 
       if (response.didCancel) {
         console.log('User cancelled photo picker');
@@ -55,37 +43,115 @@ export default class UploadScreen extends React.Component {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
       } else {
-        let source = { uri: response.uri };
+        let source = null;
 
-        // You can also display the image using data:
-        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        if (Platform.OS === 'ios') {
+          source = {uri: response.uri.replace('file:', '')};
+        } else {
+          source = {uri: response.uri};
+        }
 
-        this.setState({
-          avatarSource: source,
-        });
+        setAvatarSource(source);
       }
     });
   }
 
+  function onSubmit() {
+    const image = avatarSource.uri;
+    let imageId = uniqueId();
+    const Blob = RNFetchBlob.polyfill.Blob;
+    const fs = RNFetchBlob.fs;
+    window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
+    window.Blob = Blob;
+    let uploadBlob = null;
+    const imageRef = storage()
+      .ref(`Image/${user.uid}`)
+      .child(imageId + '.png');
+    let mime = 'image/png';
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-          <View
-            style={[styles.avatar, styles.avatarContainer, { marginBottom: 20 }]}>
-            {this.state.avatarSource === null ? (
-              <Text>Select a Photo</Text>
-            ) : (
-                <Image style={styles.avatar} source={this.state.avatarSource} />
-              )}
-          </View>
-        </TouchableOpacity>
-
-
-      </View>
-    );
+    fs.readFile(image, 'base64')
+      .then(data => {
+        return Blob.build(data, {type: `${mime};BASE64`});
+      })
+      .then(blob => {
+        uploadBlob = blob;
+        console.log(uploadBlob._ref);
+        return imageRef.putFile(uploadBlob._ref, {contentType: mime});
+      })
+      .then(() => {
+        uploadBlob.close();
+        return imageRef.getDownloadURL();
+      })
+      .then(uri => {
+        processUpload(uri);
+      })
+      .catch(error => {
+        console.log('Error when uploading image to database', error);
+      });
   }
+
+  function processUpload(uri) {
+    const ref = firestore().collection('posts');
+
+    ref
+      .add({
+        uid: user.uid,
+        username: user.email.slice(0, user.email.indexOf('@')),
+        image: uri,
+        caption,
+        dateCreated: Math.floor(Date.now() / 1000),
+        hearts: 0,
+        allowScreenshot: true,
+      })
+      .then(() => {
+        console.log('posted item!');
+        setAvatarSource(null);
+        setCaption('');
+        navigate('Feed');
+      });
+  }
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={selectPhotoTapped}>
+        <View
+          style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}>
+          {avatarSource === null ? (
+            <Text>Select a Photo</Text>
+          ) : (
+            <Image style={styles.avatar} source={avatarSource} />
+          )}
+        </View>
+      </TouchableOpacity>
+      <View style={{flexDirection: 'row'}}>
+        <TextInput
+          label="Caption"
+          mode="outlined"
+          value={caption}
+          onChangeText={text => setCaption(text)}
+          style={{
+            borderRadius: 10,
+            width: 200,
+            alignSelf: 'center',
+            marginBottom: 40,
+            marginTop: 10,
+          }}
+        />
+      </View>
+      <Button
+        mode="contained"
+        onPress={onSubmit}
+        style={{
+          borderRadius: 10,
+          width: 200,
+          alignSelf: 'center',
+          marginBottom: 40,
+          marginTop: 10,
+        }}>
+        Post
+      </Button>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -100,6 +166,7 @@ const styles = StyleSheet.create({
     borderWidth: 1 / PixelRatio.get(),
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'yellow',
   },
   avatar: {
     borderRadius: 75,

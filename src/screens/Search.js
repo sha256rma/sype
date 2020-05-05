@@ -17,7 +17,7 @@ export default function SearchScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Search Screen</Text>
-      <Text style={styles.title}>Welcome {user.uid}!</Text>
+      <Text style={styles.title}>Welcome {user.email.slice(0, user.email.indexOf('@'))}!</Text>
       <TouchableOpacity style={styles.button} onPress={logOut}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
