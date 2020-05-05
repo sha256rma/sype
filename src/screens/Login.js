@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { Component, useState } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -13,8 +13,8 @@ import {
   LayoutAnimation,
   Alert,
 } from 'react-native';
-
-import auth, {firebase} from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import auth, { firebase } from '@react-native-firebase/auth';
 if (
   Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
@@ -39,19 +39,19 @@ export default class Login extends Component<Props> {
     if (user) {
       console.log(tag, user);
 
-      this.setState({authenticated: true});
+      this.setState({ authenticated: true });
     } else {
-      this.setState({authenticated: false});
+      this.setState({ authenticated: false });
     }
   };
 
   render() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {this.state.authenticated ? (
           <View style={styles.containerStyle}>
-            <Text style={{textAlign: 'center'}}>
+            <Text style={{ textAlign: 'center' }}>
               email {firebase.auth().currentUser.email}{' '}
             </Text>
 
@@ -66,25 +66,25 @@ export default class Login extends Component<Props> {
             </View>
           </View>
         ) : (
-          <View style={{flex: 1}}>
-            {this.state.isLogin ? <LoginComponent /> : <SigInComponent />}
+            <View style={{ flex: 1 }}>
+              {this.state.isLogin ? <LoginComponent /> : <SigInComponent />}
 
-            <View style={styles.loginButtonContainerStyle}>
-              <TouchableOpacity
-                style={styles.loginButtonStyle}
-                onPress={() =>
-                  this.setState(state => ({isLogin: !state.isLogin}))
-                }>
-                <Text style={styles.loginButtonTextStyle}>
-                  {' '}
-                  {this.state.isLogin
-                    ? 'New? Create account.'
-                    : 'Already have account? Log In'}
-                </Text>
-              </TouchableOpacity>
+              <View style={styles.loginButtonContainerStyle}>
+                <TouchableOpacity
+                  style={styles.loginButtonStyle}
+                  onPress={() =>
+                    this.setState(state => ({ isLogin: !state.isLogin }))
+                  }>
+                  <Text style={styles.loginButtonTextStyle}>
+                    {' '}
+                    {this.state.isLogin
+                      ? 'New? Create account.'
+                      : 'Already have account? Log In'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        )}
+          )}
       </View>
     );
   }
@@ -240,7 +240,7 @@ const LoginComponent = () => {
 
   return (
     <SafeAreaView style={styles.containerStyle}>
-      <View style={{flex: 0.2}}>
+      <View style={{ flex: 0.2 }}>
         {!!fetching && <ActivityIndicator color={blue} />}
       </View>
       <View style={styles.headerContainerStyle}>
@@ -327,7 +327,18 @@ const SigInComponent = () => {
         password,
       );
       if (response && response.user) {
+        // add user to firestore
+        let userData = {
+          uid: response.user._user.uid,
+          email: response.user._user.email,
+          totalPosts: 0,
+          followers: 0,
+          following: 0
+        }
+        await firestore().collection('users').doc(userData.uid).set(userData);
+
         Alert.alert('Success ✅', 'Account created successfully');
+
       }
     } catch (e) {
       console.error(e.message);
@@ -336,7 +347,7 @@ const SigInComponent = () => {
 
   return (
     <SafeAreaView style={styles.containerStyle}>
-      <View style={{flex: 0.2}}>
+      <View style={{ flex: 0.2 }}>
         {!!fetching && <ActivityIndicator color={blue} />}
       </View>
       <View style={styles.headerContainerStyle}>
