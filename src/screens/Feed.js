@@ -6,28 +6,36 @@ import {
   TouchableWithoutFeedback,
   Text,
   SafeAreaView,
-  Alert
+  Alert,
 } from 'react-native';
 
 import SettingsButton from './app/Components/SettingsButton/SettingsButton';
 import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
-import { Divider } from 'react-native-paper';
+import {Divider} from 'react-native-paper';
+import firestore from '@react-native-firebase/firestore';
 import * as ScreenshotDetector from 'react-native-screenshot-detect';
-
 
 export default class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       swiperIndex: 0,
+      posts: [],
+      loading: false,
     };
   }
 
   componentDidMount() {
+    this.fetchPosts();
+
     this.eventEmitter = ScreenshotDetector.subscribe(() => {
-      Alert.alert('The post with caption', posts[this.state.swiperIndex].caption, 'was screenshotted');
+      Alert.alert(
+        'The post with caption',
+        posts[this.state.swiperIndex].caption,
+        'was screenshotted',
+      );
     });
   }
 
@@ -35,36 +43,58 @@ export default class FeedScreen extends React.Component {
     ScreenshotDetector.unsubscribe(this.eventEmitter);
   }
 
+  fetchPosts = () => {
+    const subscriber = firestore()
+      .collection('posts')
+      .onSnapshot(querySnapshot => {
+        const posts = [];
+
+        querySnapshot.forEach(documentSnapshot => {
+          posts.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          });
+        });
+
+        this.setState({
+          posts,
+          loading: false,
+        });
+      });
+  };
+
   // renders each post function. Each post is a card with a cover(the image) and content. Content for now has a caption with the username and 2 buttons
-  renderPosts = (element) => {
+  renderPosts = element => {
     const {
-      img,
+      allowScreenshot,
       caption,
+      dateCreated,
+      hearts,
+      image,
+      key,
+      uid,
       username,
-      comments,
-      likes,
-      likers,
-      bookmarkers,
     } = element;
-    const uid = 'dennyliang'; // this is the acc im logged on
-    const isLiked = likers[uid] ? true : false; // if i liked it
-    const isBookmarked = bookmarkers[uid] ? true : false;
+    // const isLiked = likers[uid] ? true : false; // if i liked it
+    // const isBookmarked = bookmarkers[uid] ? true : false;
 
     return (
-      <TouchableWithoutFeedback style={{}} onPress={() => { }}>
-        <View >
+      <TouchableWithoutFeedback
+        key={key}
+        onPress={() => this.props.navigation.navigate('UserProfile')}>
+        <View>
           <View style={styles.topBarViewStyles}>
-            <ProfileAvatar username={username} img={img} />
+            <ProfileAvatar username={username} img={image} />
             <SettingsButton icon="horizontal" />
           </View>
           <Post
-            img={img}
-            isLiked={isLiked}
-            likes={likes}
-            isBookmarked={isBookmarked}
+            img={image}
+            isLiked={true}
+            likes={hearts}
+            isBookmarked={true}
             caption={caption}
             username={username}
-            commentsLength={comments.length}
+            commentsLength={0}
           />
           <Divider />
         </View>
@@ -74,18 +104,16 @@ export default class FeedScreen extends React.Component {
 
   //sample post data for ui testing purposes. We also have use react-native carousel for swiping posts.
   render() {
+    console.log('Posts are:', this.state.posts);
     return (
-      <SafeAreaView style={{ flex: 1 }} >
+      <SafeAreaView style={{flex: 1}}>
         <Swiper
           horizontal={false}
           showsPagination={false}
-          onIndexChanged={(index) => this.setState({ swiperIndex: index })}
-          loop={false}
-        >
-          {posts.map((element) => {
-            return (
-              this.renderPosts(element)
-            )
+          onIndexChanged={index => this.setState({swiperIndex: index})}
+          loop={false}>
+          {this.state.posts.map(element => {
+            return this.renderPosts(element);
           })}
         </Swiper>
       </SafeAreaView>
@@ -116,7 +144,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-
 
 const posts = [
   {
