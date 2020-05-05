@@ -1,35 +1,61 @@
-import React, {useContext} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import React, {useContext, useState, useEffect} from 'react';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
+import {Searchbar} from 'react-native-paper';
+
+import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+
 import {AuthContext} from '../navigation/AuthNavigator';
 
 export default function SearchScreen() {
+  const [searchText, setSearchText] = useState('');
+  const [friend, setFriend] = useState({});
+
   const user = useContext(AuthContext);
 
-  async function logOut() {
-    try {
-      await auth().signOut();
-    } catch (e) {
-      console.error(e);
-    }
+  async function onSearch() {
+    await firestore()
+      .collection('users')
+      .where('email', '==', friend)
+      .get()
+      .then(snapshot => {
+        console.log();
+        if (!snapshot.empty) {
+          console.log('friend', snapshot);
+        } else {
+          console.log('no friends found');
+        }
+      });
   }
 
+  // async function logOut() {
+  //   try {
+  //     await auth().signOut();
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Search Screen</Text>
-      <Text style={styles.title}>Welcome {user.email.slice(0, user.email.indexOf('@'))}!</Text>
-      <TouchableOpacity style={styles.button} onPress={logOut}>
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Searchbar
+        placeholder="Find friends..."
+        value={searchText}
+        onChangeText={text => setSearchText(text)}
+        onIconPress={onSearch}
+      />
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
   },
   title: {
     marginTop: 20,
