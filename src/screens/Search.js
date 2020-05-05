@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import {Searchbar} from 'react-native-paper';
+import { Searchbar, Card, Title, Divider } from 'react-native-paper';
 
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-import {AuthContext} from '../navigation/AuthNavigator';
+import { AuthContext } from '../navigation/AuthNavigator';
 
 export default function SearchScreen() {
   const [searchText, setSearchText] = useState('');
@@ -22,14 +22,15 @@ export default function SearchScreen() {
   async function onSearch() {
     await firestore()
       .collection('users')
-      .where('email', '==', friend)
+      .where('email', '==', searchText)
       .get()
       .then(snapshot => {
-        console.log();
         if (!snapshot.empty) {
-          console.log('friend', snapshot);
+          snapshot.forEach(doc => {
+            setFriend(doc.data());
+          })
         } else {
-          console.log('no friends found');
+          setFriend({});
         }
       });
   }
@@ -42,6 +43,39 @@ export default function SearchScreen() {
   //   }
   // }
 
+  function showResults() {
+    if (friend.email === undefined) {
+      console.log('friend initial', friend);
+      return (
+        <Title style={{ alignSelf: 'center', marginVertical: 100 }} >There are no results to your request</Title>
+      );
+    } else {
+      return (
+        <Card elevation={10} style={{ marginVertical: 50, marginHorizontal: 10, borderWidth: 1 }} >
+          <Card.Cover source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1200px-User_font_awesome.svg.png' }} />
+          <Card.Title title={`${friend.email.slice(0, friend.email.indexOf('@'))}`} />
+          <Divider />
+          <Card.Content>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', paddingTop: 15 }} >
+              <View style={{ alignItems: 'center' }} >
+                <Text>Followers</Text>
+                <Text>{friend.followers}</Text>
+              </View>
+              <View style={{ alignItems: 'center' }} >
+                <Text>Following</Text>
+                <Text>{friend.following}</Text>
+              </View>
+              <View style={{ alignItems: 'center' }} >
+                <Text>Posts</Text>
+                <Text>{friend.totalPosts}</Text>
+              </View>
+            </View>
+          </Card.Content>
+        </Card>
+      )
+    }
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Searchbar
@@ -50,6 +84,7 @@ export default function SearchScreen() {
         onChangeText={text => setSearchText(text)}
         onIconPress={onSearch}
       />
+      {showResults()}
     </SafeAreaView>
   );
 }
