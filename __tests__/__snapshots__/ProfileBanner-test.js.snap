@@ -427,9 +427,7 @@ exports[`Profile Banner Snapshot Test 1`] = `
                   ],
                 ]
               }
-            >
-               
-            </Text>
+            />
           </View>
         </View>
       </View>
