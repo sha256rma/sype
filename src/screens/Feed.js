@@ -9,8 +9,6 @@ import {
   Alert,
 } from 'react-native';
 
-import SettingsButton from './app/Components/SettingsButton/SettingsButton';
-import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
 import {Divider} from 'react-native-paper';
@@ -79,14 +77,7 @@ export default class FeedScreen extends React.Component {
     // const isBookmarked = bookmarkers[uid] ? true : false;
 
     return (
-      <TouchableWithoutFeedback
-        key={key}
-        onPress={() => this.props.navigation.navigate('UserProfile')}>
-        <View>
-          <View style={styles.topBarViewStyles}>
-            <ProfileAvatar username={username} img={image} />
-            <SettingsButton icon="horizontal" />
-          </View>
+      <View>
           <Post
             img={image}
             isLiked={true}
@@ -95,10 +86,11 @@ export default class FeedScreen extends React.Component {
             caption={caption}
             username={username}
             commentsLength={0}
+            key={key}
           />
           <Divider />
         </View>
-      </TouchableWithoutFeedback>
+      
     );
   };
 
@@ -107,6 +99,10 @@ export default class FeedScreen extends React.Component {
     console.log('Posts are:', this.state.posts);
     return (
       <SafeAreaView style={{flex: 1}}>
+        <View
+          style={styles.topLogoBar}>
+          <Text style={styles.logoText}>Sype</Text>
+        </View>
         <Swiper
           horizontal={false}
           showsPagination={false}
@@ -137,12 +133,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  topBarViewStyles: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 10,
-    justifyContent: 'space-between',
+  topLogoBar: {
+    borderBottomLeftRadius: 3, 
+    borderBottomRightRadius: 3, 
+    overflow: 'hidden', 
+    flexDirection: 'row', 
+    justifyContent: 'center', 
+    alignContent: 'center', 
+    backgroundColor:'purple', 
+    marginBottom: '3%'
   },
+  logoText: {
+    fontFamily: 'Georgia', 
+    color: 'white', 
+    padding: '3%', 
+    fontSize: 22
+  }
 });
 
 const posts = [

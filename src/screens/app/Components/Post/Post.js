@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground, TouchableWithoutFeedback} from 'react-native';
 import {Card, Divider} from 'react-native-paper';
 import LikeButton from '../LikeButton/LikeButton';
 import BookmarkButton from '../BookmarkButton/BookmarkButton';
 import CommentsTouchBox from '../CommentsTouchBox/CommentsTouchBox';
 import UserCaption from '../UserCaption/UserCaption';
+import SettingsButton from '../SettingsButton/SettingsButton';
+import ProfileAvatar from '../ProfileAvatar/ProfileAvatar';
+
+
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -16,27 +20,35 @@ export default class Post extends React.Component {
       caption: this.props.caption,
       username: this.props.username,
       commentsLength: this.props.commentsLength,
+      key: this.props.key,
     };
   }
 
   render() {
     return (
       <Card style={styles.cardDimensions}>
-        <Card.Cover
+        <ImageBackground
           source={{uri: this.state.img}}
-          style={styles.cardCoverDimensions}
-        />
-        <Card.Content>
-          <View style={styles.rowContainer}>
+          style={styles.cardCoverDimensions}>
+          <TouchableWithoutFeedback
+            key={this.state.key}
+            onPress={() => this.props.navigation.navigate('UserProfile')}>
+          <View style={styles.topBarViewStyles}>
+            <ProfileAvatar username={this.state.username} img={this.state.img} />
+            <SettingsButton icon="horizontal" />
+          </View>
+          </TouchableWithoutFeedback>
+        <Card.Content><View style={styles.cardEmptyContent}></View></Card.Content>
+        <Card.Content style={styles.cardElementcontent} >
+          <View style={styles.rowIconContainer}>
             <View style={styles.rowContainer}>
               <LikeButton isLiked={this.state.isLiked} />
               <Text style={styles.fontSizeLikes}>{this.state.likes}</Text>
             </View>
-            <View style={styles.viewBetweenLikeAndVerticalButtonStyle} />
+            
             <BookmarkButton isBookmarked={this.state.isBookmarked} />
           </View>
-          <Divider style={styles.dividerStyles} />
-          <View>
+          <View >
             <UserCaption
               username={this.state.username}
               caption={this.state.caption}
@@ -44,6 +56,7 @@ export default class Post extends React.Component {
             <CommentsTouchBox commentsLength={this.state.commentsLength} />
           </View>
         </Card.Content>
+        </ImageBackground>
       </Card>
     );
   }
@@ -53,26 +66,53 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  rowIconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   fontSizeLikes: {
-    fontSize: 18,
+    fontSize: 16,
   },
   cardCoverDimensions: {
-    height: '50%',
+    height: '100%',
     width: '100%',
   },
   cardDimensions: {
-    marginRight: '5%',
-    marginLeft: '5%',
-    height: '88%',
-    backgroundColor: '#9400D3',
+    marginRight: '3%',
+    marginLeft: '3%',
+    height: '97%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    overflow: 'hidden'
   },
   dividerStyles: {
     marginBottom: 5,
   },
   viewBetweenLikeAndVerticalButtonStyle: {
     borderLeftWidth: 2,
-    marginLeft: '5%',
+    marginLeft: '3%',
     height: 30,
     borderColor: 'grey',
   },
+  image: {
+    flex:1 ,
+    resizeMode: "cover",
+    justifyContent: "center",
+  },
+  topBarViewStyles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    opacity: 0.7,
+    justifyContent: 'space-between',
+  },
+  cardEmptyContent: {
+    height: '73%'
+  },
+  cardElementcontent: {
+    flex: 1, 
+    justifyContent: 'flex-end', 
+    backgroundColor: 'white', 
+    opacity: 0.7
+  }
 });

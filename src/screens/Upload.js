@@ -132,7 +132,7 @@ export default function SearchScreen() {
           onChangeText={text => setCaption(text)}
           style={{
             borderRadius: 10,
-            width: 200,
+            width: '80%',
             alignSelf: 'center',
             marginBottom: 40,
             marginTop: 10,
@@ -144,10 +144,11 @@ export default function SearchScreen() {
         onPress={onSubmit}
         style={{
           borderRadius: 10,
-          width: 200,
+          width: '80%',
           alignSelf: 'center',
           marginBottom: 40,
           marginTop: 10,
+          backgroundColor: 'darkslateblue'
         }}>
         Post
       </Button>
@@ -167,11 +168,11 @@ const styles = StyleSheet.create({
     borderWidth: 1 / PixelRatio.get(),
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'yellow',
+    backgroundColor: 'steelblue',
   },
   avatar: {
-    borderRadius: 75,
-    width: 150,
-    height: 150,
+    borderRadius: 10,
+    width: 300,
+    height: 300,
   },
 });
