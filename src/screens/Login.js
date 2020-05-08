@@ -48,10 +48,10 @@ export default class Login extends Component<Props> {
   render() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1}} testID="loginView">
         {this.state.authenticated ? (
           <View style={styles.containerStyle}>
-            <Text style={{textAlign: 'center'}}>
+            <Text style={{textAlign: 'center'}} testID="emailInput">
               email {firebase.auth().currentUser.email}{' '}
             </Text>
 

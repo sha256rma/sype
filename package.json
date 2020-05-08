@@ -43,6 +43,7 @@
     "@react-native-community/eslint-config": "^0.0.7",
     "babel-jest": "^25.1.0",
     "check-prop-types": "^1.1.2",
+    "detox": "^16.4.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -60,5 +61,22 @@
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
     }
+  },
+  "detox": {
+    "configurations": {
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_6_API_28"
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_6_API_28"
+      }
+    },
+    "test-runner": "jest"
   }
 }
