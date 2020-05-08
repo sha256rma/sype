@@ -14,7 +14,6 @@ import auth from '@react-native-firebase/auth';
 import {AuthContext} from '../navigation/AuthNavigator';
 
 export default function userProfileScreen() {
-
   // async function logOut() {
   //   try {
   //     await auth().signOut();
@@ -25,7 +24,7 @@ export default function userProfileScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-    <Text>HELLO</Text>
+      <Text>HELLO</Text>
     </SafeAreaView>
   );
 }
