@@ -44,7 +44,7 @@ function testPropTypesWithoutErrors(isBookmarked) {
   const bookmark = 'bookmark';
   const bookmarkOutline = 'bookmark-outline';
   const colorBlack = 'black';
-  const colorGrey = 'grey';
+  const color018786 = '#018786';
   it(
     'testing icon button heart values (No errors) where isBookmarked is ' +
       isBookmarked,
@@ -58,7 +58,7 @@ function testPropTypesWithoutErrors(isBookmarked) {
         expect(iconColorValue).toEqual(colorBlack);
       } else if (isBookmarked === false) {
         expect(iconBookmarkedValue).toEqual(bookmarkOutline);
-        expect(iconColorValue).toEqual(colorGrey);
+        expect(iconColorValue).toEqual(color018786);
       }
     },
   );
