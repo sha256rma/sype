@@ -55,10 +55,10 @@ function testPropTypesWithoutErrors(isBookmarked) {
       const iconColorValue = iconButton.props().color;
       if (isBookmarked === true) {
         expect(iconBookmarkedValue).toEqual(bookmark);
-        expect(iconColorValue).toEqual(colorBlack);
+        expect(iconColorValue).toEqual(color018786);
       } else if (isBookmarked === false) {
         expect(iconBookmarkedValue).toEqual(bookmarkOutline);
-        expect(iconColorValue).toEqual(color018786);
+        expect(iconColorValue).toEqual(colorBlack);
       }
     },
   );
