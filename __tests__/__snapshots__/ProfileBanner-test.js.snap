@@ -4,6 +4,7 @@ exports[`Profile Banner Snapshot Test 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flexDirection": "row",
       "paddingHorizontal": 5,
       "paddingVertical": 5,
