@@ -11,8 +11,8 @@ export default class UserCaption extends React.Component {
   render() {
     return (
       <Subheading style={styles.SubheadingStyle}>
-        <Text style={styles.boldStyle}>{this.props.username}</Text>{' '}
-        <Text style={styles.captionStyles}>{this.props.caption}</Text>
+       
+        <Text style={styles.captionStyles, styles.boldStyle}>{this.props.caption}</Text>
       </Subheading>
     );
   }
@@ -25,9 +25,7 @@ UserCaption.propTypes = {
 const styles = StyleSheet.create({
   boldStyle: {
     fontWeight: 'bold',
+    color: '#3700b3'
   },
-  captionStyles: {textAlignVertical: 'center', flexWrap: 'wrap'},
-  SubheadingStyle: {
-    textAlignVertical: 'center',
-  },
+  captionStyles: {  justifyContent: 'center', flexWrap: 'wrap'},
 });

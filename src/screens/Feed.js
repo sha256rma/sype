@@ -70,6 +70,7 @@ export default class FeedScreen extends React.Component {
       hearts,
       image,
       key,
+      saves,
       uid,
       username,
     } = element;
@@ -98,7 +99,7 @@ export default class FeedScreen extends React.Component {
   render() {
     console.log('Posts are:', this.state.posts);
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{backgroundColor: '#212121', flex: 1}}>
         <View
           style={styles.topLogoBar}>
           <Text style={styles.logoText}>Sype</Text>
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     justifyContent: 'center', 
     alignContent: 'center', 
-    backgroundColor:'purple', 
+    backgroundColor:'#6200ee', 
     marginBottom: '3%'
   },
   logoText: {

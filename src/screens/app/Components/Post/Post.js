@@ -41,19 +41,17 @@ export default class Post extends React.Component {
         <Card.Content><View style={styles.cardEmptyContent}></View></Card.Content>
         <Card.Content style={styles.cardElementcontent} >
           <View style={styles.rowIconContainer}>
-            <View style={styles.rowContainer}>
-              <LikeButton isLiked={this.state.isLiked} />
-              <Text style={styles.fontSizeLikes}>{this.state.likes}</Text>
-            </View>
-            
-            <BookmarkButton isBookmarked={this.state.isBookmarked} />
-          </View>
-          <View >
-            <UserCaption
+          <UserCaption
               username={this.state.username}
               caption={this.state.caption}
             />
-            <CommentsTouchBox commentsLength={this.state.commentsLength} />
+            <View style={styles.rowContainer}>
+          <LikeButton isLiked={this.state.isLiked} />
+          <BookmarkButton isBookmarked={this.state.isBookmarked} />
+          </View>
+          
+          
+
           </View>
         </Card.Content>
         </ImageBackground>
@@ -85,15 +83,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden'
   },
-  dividerStyles: {
-    marginBottom: 5,
-  },
-  viewBetweenLikeAndVerticalButtonStyle: {
-    borderLeftWidth: 2,
-    marginLeft: '3%',
-    height: 30,
-    borderColor: 'grey',
-  },
   image: {
     flex:1 ,
     resizeMode: "cover",
@@ -102,17 +91,17 @@ const styles = StyleSheet.create({
   topBarViewStyles: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff',
     opacity: 0.7,
     justifyContent: 'space-between',
   },
   cardEmptyContent: {
-    height: '73%'
+    height: '84%'
   },
   cardElementcontent: {
-    flex: 1, 
+
     justifyContent: 'flex-end', 
-    backgroundColor: 'white', 
-    opacity: 0.7
+    backgroundColor: '#ffffff', 
+    opacity: 0.7,
   }
 });
