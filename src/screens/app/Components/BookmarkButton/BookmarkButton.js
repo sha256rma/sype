@@ -35,7 +35,7 @@ export default class BookmarkButton extends React.Component {
         size={25}
         color={this.state.isBookmarked ? '#018786' : 'black'}
         onPress={this.handleSavelick}
-        style={{margin:0}}
+        style={{margin: 0}}
       />
     );
   }

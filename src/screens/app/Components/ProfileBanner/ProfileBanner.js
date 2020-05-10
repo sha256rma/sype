@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 5,
     paddingHorizontal: 5,
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
   usernameFontSize: {
     fontSize: 25,

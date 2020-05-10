@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import {Button, TextInput, ToggleButton} from 'react-native-paper';
 import ImagePicker from 'react-native-image-picker';
@@ -115,22 +115,20 @@ export default function SearchScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-    
-    <View
-          style={styles.topLogoBar}>
-          <Text style={styles.logoText}>Sype</Text>
-        </View>
-      
-      <TouchableOpacity onPress={selectPhotoTapped}
-          style={[styles.avatar, styles.avatarContainer]}>
-          {avatarSource === null ? (
-            <Text>Select a Photo</Text>
-          ) : (
-            <Image style={styles.avatar} source={avatarSource} />
-          )}
-        
+      <View style={styles.topLogoBar}>
+        <Text style={styles.logoText}>Sype</Text>
+      </View>
+
+      <TouchableOpacity
+        onPress={selectPhotoTapped}
+        style={[styles.avatar, styles.avatarContainer]}>
+        {avatarSource === null ? (
+          <Text>Select a Photo</Text>
+        ) : (
+          <Image style={styles.avatar} source={avatarSource} />
+        )}
       </TouchableOpacity>
-      
+
       <View style={{flexDirection: 'row'}}>
         <TextInput
           label="Caption"
@@ -147,24 +145,21 @@ export default function SearchScreen() {
         />
       </View>
       <View style={{flexDirection: 'row'}}>
-      <Button
-        mode="contained"
-        onPress={onSubmit}
-        style={{
-          borderRadius: 10,
-          width: '85%',
-          alignSelf: 'center',
-          justifyContent: 'center',
-          marginBottom: 10,
-          marginTop: 10,
-          backgroundColor: '#bb86fc',
-        }}>
-
-        Post
-      </Button>
+        <Button
+          mode="contained"
+          onPress={onSubmit}
+          style={{
+            borderRadius: 10,
+            width: '85%',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            marginBottom: 10,
+            marginTop: 10,
+            backgroundColor: '#bb86fc',
+          }}>
+          Post
+        </Button>
       </View>
-    
-
     </SafeAreaView>
   );
 }
@@ -185,23 +180,22 @@ const styles = StyleSheet.create({
     height: '70%',
     width: '94%',
     borderRadius: 10,
-   
   },
   topLogoBar: {
-    borderBottomLeftRadius: 3, 
-    borderBottomRightRadius: 3, 
-    overflow: 'hidden', 
-    flexDirection: 'row', 
-    justifyContent: 'center', 
-    alignContent: 'center', 
-    backgroundColor:'#6200ee', 
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
     marginBottom: '3%',
-    width: '100%'
+    width: '100%',
   },
   logoText: {
-    fontFamily: 'Georgia', 
-    color: 'white', 
-    padding: '3%', 
-    fontSize: 22
-  }
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
+  },
 });

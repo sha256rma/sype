@@ -79,19 +79,18 @@ export default class FeedScreen extends React.Component {
 
     return (
       <View>
-          <Post
-            img={image}
-            isLiked={true}
-            likes={hearts}
-            isBookmarked={true}
-            caption={caption}
-            username={username}
-            commentsLength={0}
-            key={key}
-          />
-          <Divider />
-        </View>
-      
+        <Post
+          img={image}
+          isLiked={true}
+          likes={hearts}
+          isBookmarked={true}
+          caption={caption}
+          username={username}
+          commentsLength={0}
+          key={key}
+        />
+        <Divider />
+      </View>
     );
   };
 
@@ -100,8 +99,7 @@ export default class FeedScreen extends React.Component {
     console.log('Posts are:', this.state.posts);
     return (
       <SafeAreaView style={{backgroundColor: '#212121', flex: 1}}>
-        <View
-          style={styles.topLogoBar}>
+        <View style={styles.topLogoBar}>
           <Text style={styles.logoText}>Sype</Text>
         </View>
         <Swiper
@@ -135,21 +133,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   topLogoBar: {
-    borderBottomLeftRadius: 3, 
-    borderBottomRightRadius: 3, 
-    overflow: 'hidden', 
-    flexDirection: 'row', 
-    justifyContent: 'center', 
-    alignContent: 'center', 
-    backgroundColor:'#6200ee', 
-    marginBottom: '3%'
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
+    marginBottom: '3%',
   },
   logoText: {
-    fontFamily: 'Georgia', 
-    color: 'white', 
-    padding: '3%', 
-    fontSize: 22
-  }
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
+  },
 });
 
 const posts = [

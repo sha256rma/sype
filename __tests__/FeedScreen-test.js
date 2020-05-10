@@ -1,7 +1,4 @@
-
 /** NOT AN ACTUAL TEST. DELETING FILE GIVES ERRORS WITH NODE MODULES. */
-
-
 
 import 'react-native';
 import React from 'react';

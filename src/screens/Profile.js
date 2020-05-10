@@ -49,13 +49,11 @@ const ProfileScreen = () => {
   // renders
   return (
     <SafeAreaView style={styles.container}>
-        <View
-          style={styles.topLogoBar}>
-          <Text style={styles.logoText}>Sype</Text>
-        </View>
+      <View style={styles.topLogoBar}>
+        <Text style={styles.logoText}>Sype</Text>
+      </View>
       {/** Passing in state for testing purposes, but we can/should switch this to individual props :) */}
       <ProfileBanner {...this.state} />
-      
     </SafeAreaView>
   );
 };
@@ -72,20 +70,20 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   topLogoBar: {
-    borderBottomLeftRadius: 3, 
-    borderBottomRightRadius: 3, 
-    overflow: 'hidden', 
-    flexDirection: 'row', 
-    justifyContent: 'center', 
-    alignContent: 'center', 
-    backgroundColor:'#6200ee', 
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
   },
   logoText: {
-    fontFamily: 'Georgia', 
-    color: 'white', 
-    padding: '3%', 
-    fontSize: 22
-  }
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
+  },
 });
 
 export default ProfileScreen;
