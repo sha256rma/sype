@@ -51,7 +51,7 @@ export default class Login extends Component<Props> {
       <View style={{flex: 1}} testID="loginView">
         {this.state.authenticated ? (
           <View style={styles.containerStyle}>
-            <Text style={{textAlign: 'center'}} testID="emailInput">
+            <Text style={{textAlign: 'center'}}>
               email {firebase.auth().currentUser.email}{' '}
             </Text>
 
@@ -72,6 +72,7 @@ export default class Login extends Component<Props> {
             <View style={styles.loginButtonContainerStyle}>
               <TouchableOpacity
                 style={styles.loginButtonStyle}
+                testID="already-have-account-button"
                 onPress={() =>
                   this.setState(state => ({isLogin: !state.isLogin}))
                 }>
@@ -231,7 +232,7 @@ const LoginComponent = () => {
     try {
       let response = await auth().signInWithEmailAndPassword(email, password);
       if (response && response.user) {
-        Alert.alert('Success ✅', 'Logged successfully');
+        // Alert.alert('Success ✅', 'Logged successfully');
       }
     } catch (e) {
       console.error(e.message);
@@ -253,6 +254,8 @@ const LoginComponent = () => {
           keyboardType="email-address"
           style={styles.textInputStyle}
           placeholder="Mail address"
+          testID="login-email-input"
+          loginButtonContainerStyle
           onChangeText={text => {
             // let isValid = this.state.isValid;
             // isValid["email"] = !this.__isValidEmail(text);
@@ -270,6 +273,7 @@ const LoginComponent = () => {
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
+          testID="login-password-input"
         />
       </View>
       {error ? (
@@ -282,7 +286,8 @@ const LoginComponent = () => {
         <TouchableHighlight
           style={styles.signInButtonStyle}
           onPress={__doLogin}
-          underlayColor={blue}>
+          underlayColor={blue}
+          testID="login-button">
           <View
             style={{
               flexDirection: 'row',
@@ -354,6 +359,7 @@ const SigInComponent = () => {
             setEmail(text);
           }}
           error={isValid}
+          testID="signup-email-input"
         />
 
         <TextInput
@@ -365,6 +371,7 @@ const SigInComponent = () => {
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
+          testID="signup-password-input"
         />
       </View>
       {error ? (
@@ -376,7 +383,8 @@ const SigInComponent = () => {
         <TouchableHighlight
           style={styles.signInButtonStyle}
           onPress={__doSignUp}
-          underlayColor={blue}>
+          underlayColor={blue}
+          testID="signup-button">
           <View
             style={{
               flexDirection: 'row',
