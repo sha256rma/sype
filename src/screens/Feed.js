@@ -42,18 +42,35 @@ export default class FeedScreen extends React.Component {
   componentWillUnmount() {
     ScreenshotDetector.unsubscribe(this.eventEmitter);
   }
+  /**
+ * db.collection("SellOrders")
+  .onSnapshot(snapshot =>{
+    let changes = snapshot.docChanges();
+    changes.forEach(change =>{
+      if(change.type == 'added'){
+        let order = broker.generateOrder(change.doc);
+        broker.addSellOrderToMap(order);
+        broker.executeMatchesForOrder(order);
+      }
+    });
+  });
 
+ */
   fetchPosts = () => {
     const subscriber = firestore()
       .collection('posts')
-      .onSnapshot(querySnapshot => {
-        const posts = [];
+      .onSnapshot(snapshot => {
+        let changes = [];
+        changes = snapshot.docChanges();
+        const posts = this.state.posts;
 
-        querySnapshot.forEach(documentSnapshot => {
-          posts.push({
-            ...documentSnapshot.data(),
-            key: documentSnapshot.id,
-          });
+        changes.forEach(change => {
+          if (change.type === 'added') {
+            posts.push({
+              ...snapshot.data(),
+              key: snapshot.id,
+            });
+          }
         });
 
         this.setState({
@@ -80,6 +97,7 @@ export default class FeedScreen extends React.Component {
 
     return (
       <TouchableWithoutFeedback
+        testID={key}
         key={key}
         onPress={() => this.props.navigation.navigate('UserProfile')}>
         <View>
