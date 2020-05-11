@@ -13,7 +13,7 @@ import {
   LayoutAnimation,
   Alert,
 } from 'react-native';
-
+import firestore from '@react-native-firebase/firestore';
 import auth, {firebase} from '@react-native-firebase/auth';
 if (
   Platform.OS === 'android' &&
@@ -332,6 +332,19 @@ const SigInComponent = () => {
         password,
       );
       if (response && response.user) {
+        // add user to firestore
+        let userData = {
+          uid: response.user._user.uid,
+          email: response.user._user.email,
+          totalPosts: 0,
+          followers: 0,
+          following: 0,
+        };
+        await firestore()
+          .collection('users')
+          .doc(userData.uid)
+          .set(userData);
+
         Alert.alert('Success ✅', 'Account created successfully');
       }
     } catch (e) {
