@@ -33,8 +33,9 @@ export default class LikeButton extends React.Component {
       <IconButton
         icon={this.state.isLiked ? 'heart' : 'heart-outline'}
         size={25}
-        color={this.state.isLiked ? 'red' : 'grey'}
+        color={this.state.isLiked ? '#cf6679' : 'black'}
         onPress={this.handleLikeClick}
+        style={{margin: 0}}
       />
     );
   }

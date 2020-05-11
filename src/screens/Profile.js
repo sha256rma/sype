@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
 /**
 import Showcase from '@gorhom/showcase-template';
 import {version, description} from '../../package.json';
@@ -48,18 +48,19 @@ const ProfileScreen = () => {
 
   // renders
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.topLogoBar}>
+        <Text style={styles.logoText}>Sype</Text>
+      </View>
       {/** Passing in state for testing purposes, but we can/should switch this to individual props :) */}
       <ProfileBanner {...this.state} />
-      {/** Adding this view just to show where images would  */}
-      <View style={styles.imageContainer} />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#212121',
     flex: 1,
     top: '5%',
   },
@@ -67,6 +68,21 @@ const styles = StyleSheet.create({
     borderColor: 'purple',
     borderWidth: 1,
     marginTop: 20,
+  },
+  topLogoBar: {
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
+  },
+  logoText: {
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
   },
 });
 

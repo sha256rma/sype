@@ -13,7 +13,7 @@ import {
   LayoutAnimation,
   Alert,
 } from 'react-native';
-
+import firestore from '@react-native-firebase/firestore';
 import auth, {firebase} from '@react-native-firebase/auth';
 if (
   Platform.OS === 'android' &&
@@ -48,10 +48,10 @@ export default class Login extends Component<Props> {
   render() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: '#212121'}}>
         {this.state.authenticated ? (
           <View style={styles.containerStyle}>
-            <Text style={{textAlign: 'center'}}>
+            <Text style={{textAlign: 'center', color: '#bb86fc'}}>
               email {firebase.auth().currentUser.email}{' '}
             </Text>
 
@@ -75,7 +75,7 @@ export default class Login extends Component<Props> {
                 onPress={() =>
                   this.setState(state => ({isLogin: !state.isLogin}))
                 }>
-                <Text style={styles.loginButtonTextStyle}>
+                <Text style={styles.bottomMessageStyle}>
                   {' '}
                   {this.state.isLogin
                     ? 'New? Create account.'
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitleStyle: {
-    color: blue,
+    color: '#bb86fc',
     fontSize: 30,
     fontWeight: 'bold',
   },
@@ -116,9 +116,10 @@ const styles = StyleSheet.create({
     marginVertical: baseMargin,
     borderRadius: 6,
     paddingHorizontal: doubleBaseMargin,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     borderColor: '#888',
     borderWidth: 1,
+    color: 'black',
   },
   signInButtonContainerStyle: {
     flex: 0.3,
@@ -133,15 +134,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 130 / 4,
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#000000',
   },
   signInButtonTextStyle: {
-    color: 'black',
     textAlign: 'center',
     alignSelf: 'center',
     fontSize: 14,
     fontWeight: 'bold',
     marginHorizontal: baseMargin,
+    color: '#3700bc',
   },
   signInWithGoogleButtonContainerStyle: {
     flex: 0.2,
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   errorTextStyle: {
-    color: 'red',
+    color: '#b00020',
     textAlign: 'center',
   },
   loginButtonContainerStyle: {
@@ -184,6 +185,9 @@ const styles = StyleSheet.create({
   },
   loginButtonTextStyle: {
     color: blue,
+  },
+  bottomMessageStyle: {
+    color: '#03DAC6',
   },
 });
 
@@ -266,7 +270,6 @@ const LoginComponent = () => {
           secureTextEntry
           autoCapitalize={false}
           style={styles.textInputStyle}
-          selectionColor={blue}
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
@@ -281,8 +284,7 @@ const LoginComponent = () => {
       <View style={styles.signInButtonContainerStyle}>
         <TouchableHighlight
           style={styles.signInButtonStyle}
-          onPress={__doLogin}
-          underlayColor={blue}>
+          onPress={__doLogin}>
           <View
             style={{
               flexDirection: 'row',
@@ -327,6 +329,19 @@ const SigInComponent = () => {
         password,
       );
       if (response && response.user) {
+        // add user to firestore
+        let userData = {
+          uid: response.user._user.uid,
+          email: response.user._user.email,
+          totalPosts: 0,
+          followers: 0,
+          following: 0,
+        };
+        await firestore()
+          .collection('users')
+          .doc(userData.uid)
+          .set(userData);
+
         Alert.alert('Success ✅', 'Account created successfully');
       }
     } catch (e) {
@@ -361,7 +376,6 @@ const SigInComponent = () => {
           secureTextEntry
           autoCapitalize={false}
           style={styles.textInputStyle}
-          selectionColor={blue}
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
@@ -375,8 +389,7 @@ const SigInComponent = () => {
       <View style={styles.signInButtonContainerStyle}>
         <TouchableHighlight
           style={styles.signInButtonStyle}
-          onPress={__doSignUp}
-          underlayColor={blue}>
+          onPress={__doSignUp}>
           <View
             style={{
               flexDirection: 'row',
