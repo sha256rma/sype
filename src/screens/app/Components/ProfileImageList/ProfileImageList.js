@@ -3,345 +3,38 @@ import {FlatList, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {Image} from 'react-native';
 import {IconButton} from 'react-native-paper';
 import Post from './../Post/Post';
+import PropTypes from 'prop-types';
+import AirbnbPropTypes from 'airbnb-prop-types';
 
 export default class ProfileImageList extends React.Component {
-  state = {
-    visible: true,
-    username: 'bujarsefa',
-    profile_img:
-      'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-    followers: '100',
-    following: '2',
-    posts: '10',
-    postList: [
-      {
-        post_id: 1,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        username: 'bujarsefa',
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 2,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        username: 'bujarsefa',
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 3,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        username: 'bujarsefa',
-        saves: 0,
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 4,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        username: 'bujarsefa',
-        saves: 0,
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 5,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        username: 'bujarsefa',
-        saves: 0,
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 6,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        username: 'bujarsefa',
-        saves: 0,
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 7,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        username: 'bujarsefa',
-        saves: 0,
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 8,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        username: 'bujarsefa',
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 9,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        username: 'bujarsefa',
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 10,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        username: 'bujarsefa',
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-      {
-        post_id: 11,
-        isLiked: false,
-        isBookmarked: false,
-        commentsLength: 1,
-        caption: 'Quarantine selfie #corona',
-        likes: 2,
-        saves: 0,
-        username: 'bujarsefa',
-        likers: {
-          dennyliang: true,
-        },
-        bookmarkers: {
-          dennyliang: true,
-        },
-        comments: [
-          {
-            userName: 'Model1234',
-            userImage:
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            comment: 'Slay girllll!!!',
-          },
-        ],
-        img:
-          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-        date_posted: '10-10-2019',
-      },
-    ],
-    profile_view: 'grid',
-    /** This is our 'global' constant which determines how the user's profile images are displayed on the screen.
-     * If it is a grid layout, we can view 3 images in each row. If it is listview, we only view one.
-     * Note the check occurs in function renderList and in passing to
-     */
-  };
+
+  constructor(props){
+    super(props);
+    this.state = {
+      profile_view: 'grid',
+    }
+  }
+
+  
 
   renderGrid = element => {
-    const styling = {
-      width: '32.5%',
-      margin: 1,
-      overflow: 'hidden',
-      borderRadius: 5,
-    };
     return (
       <TouchableOpacity
         activeOpacity={1}
-        style={styling}
+        style={styles.profileGridCard}
         onPress={() => {
           console.log(element.item.post_id);
         }}>
         <Image
           source={{uri: element.item.img}}
-          style={{width: '100%', aspectRatio: 1}}
+          style={styles.profileGridCardImage}
         />
       </TouchableOpacity>
     );
   };
 
   render() {
+    let postList = this.props.postList;
     return (
       <View style={styles.profileImageViewContainer}>
         <View style={styles.profileViewButtonsContainer}>
@@ -360,7 +53,7 @@ export default class ProfileImageList extends React.Component {
         {this.state.profile_view == 'grid' ? (
           <FlatList
             key={this.state.profile_view}
-            data={this.state.postList}
+            data={postList}
             renderItem={element => this.renderGrid(element)}
             keyExtractor={element => element}
             numColumns={3}
@@ -370,7 +63,7 @@ export default class ProfileImageList extends React.Component {
           /** NOTE, we must directly pass in each prop. Otherwise, it will issue an error. */
           <FlatList
             key={this.state.profile_view}
-            data={this.state.postList}
+            data={postList}
             renderItem={element => (
               <Post
                 img={element.item.img}
@@ -412,4 +105,29 @@ const styles = StyleSheet.create({
   profileViewIcons: {
     backgroundColor: 'white',
   },
+  profileGridCard: {
+    width: '32.5%',
+    margin: 1,
+    overflow: 'hidden',
+    borderRadius: 5,
+  },
+  profileGridCardImage: {
+    width: '100%', 
+    aspectRatio: 1
+  }
 });
+
+/** Will probably need to add conditions that check if we have 0 posts, well, then
+ * we cannot have required children properities!
+ */
+ProfileImageList.propTypes = {
+  postList: AirbnbPropTypes.and(
+    [PropTypes.array, 
+      AirbnbPropTypes.childrenHavePropXorChildren('username'),
+      AirbnbPropTypes.childrenHavePropXorChildren('commentsLength'),
+      AirbnbPropTypes.childrenHavePropXorChildren('caption'),
+      AirbnbPropTypes.childrenHavePropXorChildren('likes'),
+      AirbnbPropTypes.childrenHavePropXorChildren('isLiked'),
+      AirbnbPropTypes.childrenHavePropXorChildren('isBookmarked'),
+    ]).isRequired,
+};
