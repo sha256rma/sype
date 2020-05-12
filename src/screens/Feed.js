@@ -107,7 +107,7 @@ export default class FeedScreen extends React.Component {
   render() {
     console.log('Posts are:', this.state.posts);
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}} testID={'feed-safe-area'}>
         <Swiper
           horizontal={false}
           showsPagination={false}
