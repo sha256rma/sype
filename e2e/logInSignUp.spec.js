@@ -108,7 +108,6 @@ describe('Log in flow', () => {
     const haveAccountButton = await getElementRef(
       'already-have-account-button',
     );
-
     await haveAccountButton.tap();
     await simulateLogIn(email, password);
     sleep(5000);

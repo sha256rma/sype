@@ -87,10 +87,10 @@
       },
       "ios.sim.debug": {
         "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/sype.app",
-        "build": "xcodebuild -project ios/sype.xcodeproj -scheme sype -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "build": "xcodebuild -workspace ios/sype.xcworkspace -scheme sype -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "device": {
-          "type": "iPhone 11 Pro"
+          "type": "iPhone 8"
         }
       }
     },
