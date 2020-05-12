@@ -13,6 +13,7 @@ import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
 import {Divider} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
+
 import * as ScreenshotDetector from 'react-native-screenshot-detect';
 
 export default class FeedScreen extends React.Component {
