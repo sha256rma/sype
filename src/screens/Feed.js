@@ -42,35 +42,18 @@ export default class FeedScreen extends React.Component {
   componentWillUnmount() {
     ScreenshotDetector.unsubscribe(this.eventEmitter);
   }
-  /**
- * db.collection("SellOrders")
-  .onSnapshot(snapshot =>{
-    let changes = snapshot.docChanges();
-    changes.forEach(change =>{
-      if(change.type == 'added'){
-        let order = broker.generateOrder(change.doc);
-        broker.addSellOrderToMap(order);
-        broker.executeMatchesForOrder(order);
-      }
-    });
-  });
 
- */
   fetchPosts = () => {
     const subscriber = firestore()
       .collection('posts')
-      .onSnapshot(snapshot => {
-        let changes = [];
-        changes = snapshot.docChanges();
-        const posts = this.state.posts;
+      .onSnapshot(querySnapshot => {
+        const posts = [];
 
-        changes.forEach(change => {
-          if (change.type === 'added') {
-            posts.push({
-              ...snapshot.data(),
-              key: snapshot.id,
-            });
-          }
+        querySnapshot.forEach(documentSnapshot => {
+          posts.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          });
         });
 
         this.setState({
