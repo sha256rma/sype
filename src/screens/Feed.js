@@ -8,6 +8,8 @@ import {
   SafeAreaView,
   Alert,
 } from 'react-native';
+import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
+import SettingsButton from './app/Components/SettingsButton/SettingsButton';
 
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
@@ -79,19 +81,27 @@ export default class FeedScreen extends React.Component {
     // const isBookmarked = bookmarkers[uid] ? true : false;
 
     return (
-      <View>
-        <Post
-          img={image}
-          isLiked={true}
-          likes={hearts}
-          isBookmarked={true}
-          caption={caption}
-          username={username}
-          commentsLength={0}
-          key={key}
-        />
-        <Divider />
-      </View>
+      <TouchableWithoutFeedback
+        testID={key}
+        key={key}
+        onPress={() => this.props.navigation.navigate('UserProfile')}>
+        <View>
+          {/* <View style={styles.topBarViewStyles}>
+            <ProfileAvatar username={username} img={image} />
+            <SettingsButton icon="horizontal" />
+          </View> */}
+          <Post
+            img={image}
+            isLiked={true}
+            likes={hearts}
+            isBookmarked={true}
+            caption={caption}
+            username={username}
+            commentsLength={0}
+          />
+          <Divider />
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 
@@ -99,10 +109,7 @@ export default class FeedScreen extends React.Component {
   render() {
     console.log('Posts are:', this.state.posts);
     return (
-      <SafeAreaView style={{backgroundColor: '#212121', flex: 1}}>
-        <View style={styles.topLogoBar}>
-          <Text style={styles.logoText}>Sype</Text>
-        </View>
+      <SafeAreaView style={{flex: 1}} testID={'feed-safe-area'}>
         <Swiper
           horizontal={false}
           showsPagination={false}

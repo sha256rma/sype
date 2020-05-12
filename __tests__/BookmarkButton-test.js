@@ -72,7 +72,7 @@ function testPropTypesWithErrors(isBookmarked, errorMsg, testDescription) {
       'prop',
       BookmarkButton.isBookmarked,
     );
-    console.log(result);
+    // console.log(result);
     assert(result === errorMsg);
   });
 }

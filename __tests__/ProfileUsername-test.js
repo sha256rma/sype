@@ -38,7 +38,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: The prop `username` is marked as required',
@@ -53,7 +53,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: The prop `username` is marked as required',
@@ -68,7 +68,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: The prop `username` is marked as required in `function ProfileUsername',
@@ -83,7 +83,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: Invalid prop `username` of type `boolean` supplied to `function ProfileUsername',
@@ -98,7 +98,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: Invalid prop `username` of type `boolean` supplied to `function ProfileUsername',
@@ -113,7 +113,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: Invalid prop `username` of type `number` supplied to `function ProfileUsername',
@@ -128,7 +128,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: Invalid prop `username` of type `number` supplied to `function ProfileUsername',
@@ -143,7 +143,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: Invalid prop `username` of type `array` supplied to `function ProfileUsername',
@@ -158,7 +158,7 @@ describe('Profile Username Unit Testing', () => {
       'prop',
       ProfileUsername,
     );
-    console.log(result);
+    // console.log(result);
     assert(
       result.includes(
         'Failed prop type: Invalid prop `username` of type `object` supplied to `function ProfileUsername',
