@@ -1,7 +1,7 @@
 import React from 'react';
 import {Caption} from 'react-native-paper';
-import {StyleSheet, TouchableOpacity} from 'react-native';
 import AirbnbPropTypes from 'airbnb-prop-types';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 export default class CommentsTouchBox extends React.Component {
   constructor(props) {
