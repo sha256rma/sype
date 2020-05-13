@@ -51,43 +51,6 @@ const simulateSignUp = async (email, password) => {
   await enterCredentials(email, password, false);
 };
 
-// const addPostToDatabase = async (
-//   allowScreenshot,
-//   caption,
-//   comments,
-//   dataCreated,
-//   hearts,
-//   image,
-//   uid,
-//   username,
-// ) => {
-//   await firestore()
-//     .collection('posts')
-//     .add({
-//       allowScreenshot: allowScreenshot,
-//       caption: caption,
-//       comments: comments,
-//       dataCreated: dataCreated,
-//       hearts: hearts,
-//       image: image,
-//       uid: uid,
-//       username: username,
-//     });
-// };
-
-// const addDefaultPostToDatabase = async () => {
-//   await addPostToDatabase(
-//     true,
-//     'Pretty',
-//     '',
-//     1589158822,
-//     0,
-//     'https://firebasestorage.googleapis.com/v0/b/sype-privacy.appspot.com/o/Image%2Fkh3FZBqQAlNZGeK0ig7PkTZRtLs2%2F29940322-432c-057b-80de.png?alt=media&token=a8a13f56-de92-41a2-83b8-35ff785101f4',
-//     'kh3FZBqQAlNZGeK0ig7PkTZRtLs2',
-//     'tester0',
-//   );
-// };
-
 describe('Verifying sign up page', () => {
   it('checking if all sign up components are visible', async () => {
     const signUpEmailInput = await getElementRef('signup-email-input');
