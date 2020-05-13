@@ -8,4 +8,3 @@ test('profile avarar snapshot test', () => {
   const tree = renderer.create(<ProfileAvatar />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-

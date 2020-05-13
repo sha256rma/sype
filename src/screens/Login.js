@@ -46,7 +46,7 @@ export default class Login extends Component<Props> {
   };
 
   render() {
-    console.disableYellowBox = true; 
+    console.disableYellowBox = true;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
       <View style={{flex: 1}} testID="loginView">

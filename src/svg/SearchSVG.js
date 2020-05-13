@@ -11,8 +11,8 @@ Animated.addWhitelistedNativeProps({
 
 const SearchSVG = ({color, size}: SVGProps) => {
   return (
-      <View testID="SearchSVG">
-      <Svg width={size} height={size} viewBox="0 0 20 20"> 
+    <View testID="SearchSVG">
+      <Svg width={size} height={size} viewBox="0 0 20 20">
         <G
           transform="translate(1 1)"
           strokeWidth={2}
@@ -24,7 +24,7 @@ const SearchSVG = ({color, size}: SVGProps) => {
           <AnimatedPath d="M18 18l-4.35-4.35" stroke={color} />
         </G>
       </Svg>
-      </View>
+    </View>
   );
 };
 

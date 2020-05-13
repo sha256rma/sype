@@ -1,5 +1,5 @@
 // import firestore from '@react-native-firebase/firestore';
-
+/* eslint-disable */
 const getElementRef = async elementID => {
   const elementRef = await element(by.id(elementID));
   return elementRef;
@@ -146,11 +146,11 @@ describe('testing swiping on feed page', () => {
     await elementIsVisible(feedSVG);
     await elementIsVisible(uploadSVG);
 
-    await(searchSVG).tap();
+    await searchSVG.tap();
     const logOut = await element(by.id('logout-button'));
     await elementIsVisible(logOut);
 
-    await(logOut).tap();
+    await logOut.tap();
     // await swiper.swipe('down');
     // await swiper.swipe('up');
     // await swiper.swipe('down', 'fast');

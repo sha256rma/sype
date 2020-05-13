@@ -12,19 +12,18 @@ Animated.addWhitelistedNativeProps({
 const HomeSVG = ({color, size}: SVGProps) => {
   return (
     <View testID="FeedSVG">
-    <Svg width={size} height={size} viewBox="0 0 20 22">
-      <AnimatedPath
-        d="M1 8l9-7 9 7v11a2 2 0 01-2 2H3a2 2 0 01-2-2V8z"
-        stroke={color}
-        strokeWidth={2}
-        fill="none"
-        fillRule="evenodd"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </Svg>
+      <Svg width={size} height={size} viewBox="0 0 20 22">
+        <AnimatedPath
+          d="M1 8l9-7 9 7v11a2 2 0 01-2 2H3a2 2 0 01-2-2V8z"
+          stroke={color}
+          strokeWidth={2}
+          fill="none"
+          fillRule="evenodd"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </Svg>
     </View>
-
   );
 };
 

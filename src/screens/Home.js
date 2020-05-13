@@ -69,17 +69,16 @@ const tabs: TabsConfigsType = {
       activeColor: 'rgba(51,51,51,1)',
       inactiveColor: 'rgba(51,51,51,0)',
     },
-  }
+  },
 };
 
 const BubbleStyledScreen = () => {
-
   return (
     <Tab.Navigator
       tabBarOptions={{
         style: {
           backgroundColor: '#080808',
-        }
+        },
       }}
       tabBar={props => (
         <AnimatedTabBar
@@ -114,14 +113,14 @@ const BubbleStyledScreen = () => {
         }}
         component={SearchScreen}
       />
-        <Tab.Screen
-          name="Profile"
-          testID="navigation-profile-button"
-          initialParams={{
-            backgroundColor: '#000',
-          }}
-          component={ProfileScreen}
-        />
+      <Tab.Screen
+        name="Profile"
+        testID="navigation-profile-button"
+        initialParams={{
+          backgroundColor: '#000',
+        }}
+        component={ProfileScreen}
+      />
     </Tab.Navigator>
   );
 };
