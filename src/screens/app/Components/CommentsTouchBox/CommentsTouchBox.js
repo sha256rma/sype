@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {TouchableWithoutFeedback} from 'react-native';
 import {Caption} from 'react-native-paper';
 import {StyleSheet} from 'react-native';
 

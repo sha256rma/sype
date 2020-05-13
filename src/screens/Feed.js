@@ -27,6 +27,48 @@ export default class FeedScreen extends React.Component {
     };
   }
 
+  static addPostToDatabase = async (
+    allowScreenshot,
+    caption,
+    comments,
+    dataCreated,
+    hearts,
+    image,
+    uid,
+    username,
+  ) => {
+    let docID = '';
+    await firestore()
+      .collection('posts')
+      .add({
+        allowScreenshot: allowScreenshot,
+        caption: caption,
+        comments: comments,
+        dataCreated: dataCreated,
+        hearts: hearts,
+        image: image,
+        uid: uid,
+        username: username,
+      })
+      .then(docRef => {
+        docID = docRef;
+      });
+    return docID;
+  };
+
+  static addDefaultPostToDatabase = async () => {
+    await this.addPostToDatabase(
+      true,
+      'Pretty',
+      '',
+      1589158822,
+      0,
+      'https://firebasestorage.googleapis.com/v0/b/sype-privacy.appspot.com/o/Image%2Fkh3FZBqQAlNZGeK0ig7PkTZRtLs2%2F29940322-432c-057b-80de.png?alt=media&token=a8a13f56-de92-41a2-83b8-35ff785101f4',
+      'kh3FZBqQAlNZGeK0ig7PkTZRtLs2',
+      'tester0',
+    );
+  };
+
   componentDidMount() {
     this.fetchPosts();
 

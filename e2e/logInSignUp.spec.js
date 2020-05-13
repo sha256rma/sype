@@ -96,17 +96,17 @@ describe('Log in flow', () => {
   });
 });
 
-describe('testing swiping on feed page', () => {
-  it('simulating swipes', async () => {
-    const swiperView = await getElementRef('feed-safe-area-view');
-    elementIsVisible(swiperView);
-    // await swiper.swipe('down');
-    // await swiper.swipe('up');
-    // await swiper.swipe('down', 'fast');
-    // await swiper.swipe('up', 'fast');
-    // elementIsVisible(swiper);
-  });
-});
+// describe('testing swiping on feed page', () => {
+//   it('simulating swipes', async () => {
+//     const swiperView = await getElementRef('feed-safe-area-view');
+//     elementIsVisible(swiperView);
+//     // await swiper.swipe('down');
+//     // await swiper.swipe('up');
+//     // await swiper.swipe('down', 'fast');
+//     // await swiper.swipe('up', 'fast');
+//     // elementIsVisible(swiper);
+//   });
+// });
 
 // describe('testing fetchPosts listener', () => {
 //   beforeEach(async () => {
