@@ -14,8 +14,12 @@ import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
 import { Divider } from 'react-native-paper';
+
+import { AuthContext } from '../navigation/AuthNavigator';
 import firestore from '@react-native-firebase/firestore';
+import auth, { firebase } from '@react-native-firebase/auth';
 import * as ScreenshotDetector from 'react-native-screenshot-detect';
+
 
 export default class FeedScreen extends React.Component {
   constructor(props) {
@@ -30,11 +34,26 @@ export default class FeedScreen extends React.Component {
   componentDidMount() {
     this.fetchPosts();
 
-    this.eventEmitter = ScreenshotDetector.subscribe(() => {
+    this.eventEmitter = ScreenshotDetector.subscribe(async () => {
+      const { swiperIndex, posts } = this.state;
+      let uid = ''; // the uid of the person whose post got screenshotted
+      let key = '';
+      posts.map((element, index) => {
+        if (index == swiperIndex) {
+          uid = element.uid;
+          key = element.key;
+        }
+      });
+
+      firestore().collection('users').where('uid', '==', uid).get().then(snapshot => {
+        snapshot.forEach(doc => {
+          firestore().collection('users').doc(doc.id).update({ [key]: firebase.auth().currentUser.uid });
+        })
+      })
 
       Alert.alert(
         'The post with caption',
-        posts[this.state.swiperIndex].caption,
+        posts[swiperIndex].caption,
         'was screenshotted',
       );
     });
@@ -105,7 +124,7 @@ export default class FeedScreen extends React.Component {
 
   //sample post data for ui testing purposes. We also have use react-native carousel for swiping posts.
   render() {
-    console.log('Posts are:', this.state.posts);
+
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <Swiper
@@ -145,72 +164,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-
-const posts = [
-  {
-    id: 0,
-    img:
-      'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-    caption:
-      'Quarantine selfie oronasa dsajl as lnsaln aln flsan lsan lfaslf fnasl nfals nlsan lsan lasn lfasn lfasnf lan',
-    likes: 2,
-    saves: 0,
-    comments: [
-      {
-        userName: 'Model1234',
-        userImage:
-          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-        comment: 'Sla girlll!!',
-      },
-    ],
-    username: 'gabriela',
-    likers: {
-      dennyliang: true,
-    },
-    bookmarkers: {
-      dennyliang: false,
-    },
-  },
-  {
-    id: 1,
-    img:
-      'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-    caption: 'Quarae selfie #corona',
-    likes: 2,
-    saves: 0,
-    comments: [
-      {
-        userName: 'Model1234',
-        userImage:
-          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-        comment: 'Slay girl!!',
-      },
-    ],
-    username: 'gabriellllla',
-    likers: {
-      dennyliang: false,
-    },
-    bookmarkers: {},
-  },
-  {
-    id: 2,
-    img:
-      'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-    caption: 'Quarantine selfie #corona',
-    likes: 2,
-    saves: 0,
-    comments: [
-      {
-        userName: 'Model1234',
-        userImage:
-          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-        comment: 'Slay girllll!!!',
-      },
-    ],
-    username: 'gabriela',
-    likers: {},
-    bookmarkers: {
-      dennyliang: true,
-    },
-  },
-];

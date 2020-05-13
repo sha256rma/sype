@@ -35,13 +35,6 @@ export default function SearchScreen() {
       });
   }
 
-  // async function logOut() {
-  //   try {
-  //     await auth().signOut();
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // }
 
   function showResults() {
     if (friend.email === undefined) {
