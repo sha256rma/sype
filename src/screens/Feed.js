@@ -8,13 +8,14 @@ import {
   SafeAreaView,
   Alert,
 } from 'react-native';
-
-import SettingsButton from './app/Components/SettingsButton/SettingsButton';
 import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
+import SettingsButton from './app/Components/SettingsButton/SettingsButton';
+
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
 import {Divider} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
+
 import * as ScreenshotDetector from 'react-native-screenshot-detect';
 
 export default class FeedScreen extends React.Component {
@@ -114,6 +115,7 @@ export default class FeedScreen extends React.Component {
       hearts,
       image,
       key,
+      saves,
       uid,
       username,
     } = element;
@@ -126,10 +128,10 @@ export default class FeedScreen extends React.Component {
         key={key}
         onPress={() => this.props.navigation.navigate('UserProfile')}>
         <View>
-          <View style={styles.topBarViewStyles}>
+          {/* <View style={styles.topBarViewStyles}>
             <ProfileAvatar username={username} img={image} />
             <SettingsButton icon="horizontal" />
-          </View>
+          </View> */}
           <Post
             img={image}
             isLiked={true}
@@ -148,6 +150,7 @@ export default class FeedScreen extends React.Component {
   //sample post data for ui testing purposes. We also have use react-native carousel for swiping posts.
   render() {
     console.log('Posts are:', this.state.posts);
+    console.disableYellowBox = true;
     return (
       <SafeAreaView style={{flex: 1}} testID={'feed-safe-area-view'}>
         <Swiper
@@ -180,11 +183,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  topBarViewStyles: {
+  topLogoBar: {
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
     flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
+    marginBottom: '3%',
+  },
+  logoText: {
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
   },
 });
 

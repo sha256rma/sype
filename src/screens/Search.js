@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import {Searchbar, Card, Title, Divider} from 'react-native-paper';
+
+import {Searchbar, Card, Title, Divider, Button} from 'react-native-paper';
 
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -35,19 +36,20 @@ export default function SearchScreen() {
       });
   }
 
-  // async function logOut() {
-  //   try {
-  //     await auth().signOut();
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // }
+  async function logOut() {
+    try {
+      await auth().signOut();
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   function showResults() {
     if (friend.email === undefined) {
       console.log('friend initial', friend);
       return (
-        <Title style={{alignSelf: 'center', marginVertical: 100}}>
+        <Title
+          style={{color: '#cf6679', alignSelf: 'center', marginVertical: 100}}>
           There are no results to your request
         </Title>
       );
@@ -95,6 +97,9 @@ export default function SearchScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.topLogoBar}>
+        <Text style={styles.logoText}>Sype</Text>
+      </View>
       <Searchbar
         placeholder="Find friends..."
         value={searchText}
@@ -102,12 +107,28 @@ export default function SearchScreen() {
         onIconPress={onSearch}
       />
       {showResults()}
+      <Button
+        testID="logout-button"
+        mode="contained"
+        onPress={logOut}
+        style={{
+          borderRadius: 10,
+          width: '85%',
+          alignSelf: 'center',
+          justifyContent: 'center',
+          marginBottom: 10,
+          marginTop: 10,
+          backgroundColor: '#bb86fc',
+        }}>
+        LOGOUT
+      </Button>
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#212121',
   },
   title: {
     marginTop: 20,
@@ -131,5 +152,21 @@ const styles = StyleSheet.create({
     color: '#ffe2ff',
     fontSize: 24,
     marginRight: 5,
+  },
+  topLogoBar: {
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
+    marginBottom: '3%',
+  },
+  logoText: {
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
   },
 });

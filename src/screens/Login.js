@@ -46,12 +46,13 @@ export default class Login extends Component<Props> {
   };
 
   render() {
+    console.disableYellowBox = true;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
       <View style={{flex: 1}} testID="loginView">
         {this.state.authenticated ? (
           <View style={styles.containerStyle}>
-            <Text style={{textAlign: 'center'}}>
+            <Text style={{textAlign: 'center', color: '#bb86fc'}}>
               email {firebase.auth().currentUser.email}{' '}
             </Text>
 
@@ -76,7 +77,7 @@ export default class Login extends Component<Props> {
                 onPress={() =>
                   this.setState(state => ({isLogin: !state.isLogin}))
                 }>
-                <Text style={styles.loginButtonTextStyle}>
+                <Text style={styles.bottomMessageStyle}>
                   {' '}
                   {this.state.isLogin
                     ? 'New? Create account.'
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitleStyle: {
-    color: blue,
+    color: '#bb86fc',
     fontSize: 30,
     fontWeight: 'bold',
   },
@@ -117,9 +118,10 @@ const styles = StyleSheet.create({
     marginVertical: baseMargin,
     borderRadius: 6,
     paddingHorizontal: doubleBaseMargin,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     borderColor: '#888',
     borderWidth: 1,
+    color: 'black',
   },
   signInButtonContainerStyle: {
     flex: 0.3,
@@ -134,15 +136,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 130 / 4,
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#000000',
   },
   signInButtonTextStyle: {
-    color: 'black',
     textAlign: 'center',
     alignSelf: 'center',
     fontSize: 14,
     fontWeight: 'bold',
     marginHorizontal: baseMargin,
+    color: '#3700bc',
   },
   signInWithGoogleButtonContainerStyle: {
     flex: 0.2,
@@ -171,7 +173,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   errorTextStyle: {
-    color: 'red',
+    color: '#b00020',
     textAlign: 'center',
   },
   loginButtonContainerStyle: {
@@ -185,6 +187,9 @@ const styles = StyleSheet.create({
   },
   loginButtonTextStyle: {
     color: blue,
+  },
+  bottomMessageStyle: {
+    color: '#03DAC6',
   },
 });
 
@@ -250,7 +255,7 @@ const LoginComponent = () => {
       <View style={styles.formContainerStyle}>
         <TextInput
           label={'Email'}
-          autoCapitalize={false}
+          autoCapitalize={'none'}
           keyboardType="email-address"
           style={styles.textInputStyle}
           placeholder="Mail address"
@@ -269,7 +274,6 @@ const LoginComponent = () => {
           secureTextEntry
           autoCapitalize={false}
           style={styles.textInputStyle}
-          selectionColor={blue}
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
@@ -380,7 +384,6 @@ const SigInComponent = () => {
           secureTextEntry
           autoCapitalize={false}
           style={styles.textInputStyle}
-          selectionColor={blue}
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}

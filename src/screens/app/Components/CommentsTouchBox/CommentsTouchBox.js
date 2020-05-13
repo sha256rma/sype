@@ -1,7 +1,6 @@
 import React from 'react';
-import {TouchableWithoutFeedback} from 'react-native';
 import {Caption} from 'react-native-paper';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 export default class CommentsTouchBox extends React.Component {
   constructor(props) {
@@ -12,13 +11,12 @@ export default class CommentsTouchBox extends React.Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback
-        onPress={() => console.log('go to view comments')}>
+      <TouchableOpacity onPress={() => console.log('go to view comments')}>
         <Caption style={styles.captionStyle}>
           View All {this.props.commentsLength} Comment
           {this.props.commentsLength <= 1 ? '' : 's'}
         </Caption>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     );
   }
 }
