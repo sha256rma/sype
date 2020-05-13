@@ -112,52 +112,88 @@ describe('Log in flow', () => {
     await haveAccountButton.tap();
     await simulateLogIn(email, password);
     sleep(5000);
-
-    // const navigationFeedButton = await getElementRef('navigation-feed-button');
-    // const navigationUploadButton = await getElementRef(
-    //   'navigation-upload-button',
-    // );
-    // const navigationSearchButton = await getElementRef(
-    //   'navigation-search-button',
-    // );
-    // const navigationProfileButton = await getElementRef(
-    //   'navigation-profile-button',
-    // );
-
-    // await navigationFeedButton.tap();
-    // await navigationUploadButton.tap();
-    // await navigationSearchButton.tap();
-    // await navigationProfileButton.tap();
-
-    // expect(signUpButton).toBeNotVisible();
+    const signUpButton = await getElementRef('signup-button');
+    await elementIsNotVisible(signUpButton);
   });
 });
-
+describe('testing svgs in bottom navigator extts', () => {
+  it('checking svgs', async () => {
+    const haveAccountButton = await getElementRef(
+      'already-have-account-button',
+    );
+  await elementIsNotVisible(haveAccountButton);
+  const signUpButton = await getElementRef('signup-button');
+  await elementIsNotVisible(signUpButton);
+  const searchSVG = await element(by.id('SearchSVG'));
+  const profileSVG = await element(by.id('ProfileSVG'));
+  const feedSVG = await element(by.id('FeedSVG'));
+  const uploadSVG = await element(by.id('UploadSVG'));
+  await elementIsVisible(searchSVG);
+  await elementIsVisible(profileSVG);
+  await elementIsVisible(feedSVG);
+  await elementIsVisible(uploadSVG);
+  });
+});
 describe('testing swiping on feed page', () => {
   it('simulating swipes', async () => {
-    const searchSVG = await element(by.id('SearchSVG'));
-    const profileSVG = await element(by.id('ProfileSVG'));
     const feedSVG = await element(by.id('FeedSVG'));
-    const uploadSVG = await element(by.id('UploadSVG'));
-
-    // const swiperView = await getElementRef('feed-safe-area-view');
-    await elementIsVisible(searchSVG);
-    await elementIsVisible(profileSVG);
     await elementIsVisible(feedSVG);
-    await elementIsVisible(uploadSVG);
-
-    await searchSVG.tap();
-    const logOut = await element(by.id('logout-button'));
-    await elementIsVisible(logOut);
-
-    await logOut.tap();
-    // await swiper.swipe('down');
-    // await swiper.swipe('up');
-    // await swiper.swipe('down', 'fast');
-    // await swiper.swipe('up', 'fast');
-    // elementIsVisible(swiper);
+    await feedSVG.tap();
+    const swiperView = await getElementRef('feed-safe-area');
+    await elementIsVisible(swiperView);
+    await swiperView.swipe('down');
+    await swiperView.swipe('up');
+    await swiperView.swipe('down', 'fast');
+    await swiperView.swipe('up', 'fast');
   });
 });
+describe('testing search', () => {
+  it('testing search where user exists', async () => {
+    const searchSVG = await element(by.id('SearchSVG'));
+    await elementIsVisible(searchSVG);
+    await searchSVG.tap();  
+    const searchBar = await element(by.id('search-bar'));  
+    await elementIsVisible(searchBar);
+    await searchBar.replaceText('');
+    await searchBar.typeText('bujarsefa9@gmail.com');
+    await searchBar.tapAtPoint({x:-2, y:3});    
+    await searchBar.tapReturnKey();
+    const friendFound = await element(by.id('friend-found'));
+    await elementIsVisible(friendFound);
+    const friendNotFound = await element(by.id('friend-not-found'));
+    await elementIsNotVisible(friendNotFound);
+
+  });
+  it('testing search where user does not exists', async () => {
+    const searchSVG = await element(by.id('SearchSVG'));
+    await elementIsVisible(searchSVG);
+    await searchSVG.tap();  
+    const searchBar = await element(by.id('search-bar'));  
+    await elementIsVisible(searchBar);
+    await searchBar.replaceText('');
+    await searchBar.typeText('bujarsefa10@gmail.com');
+    await searchBar.tapAtPoint({x:-2, y:3});    
+    await searchBar.tapReturnKey();
+    const friendNotFound = await element(by.id('friend-not-found'));
+    await elementIsVisible(friendNotFound);
+    const friendFound = await element(by.id('friend-found'));
+    await elementIsNotVisible(friendFound);
+
+  });
+
+});
+
+describe('testing logout', () => {
+  it('simulating logout', async () => {
+  const searchSVG = await element(by.id('SearchSVG'));
+  await elementIsVisible(searchSVG);
+  await searchSVG.tap();
+  const logOut = await element(by.id('logout-button'));
+  await elementIsVisible(logOut);
+  await logOut.tap();
+  });
+});
+
 
 // describe('testing fetchPosts listener', () => {
 //   beforeEach(async () => {

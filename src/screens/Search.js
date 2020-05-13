@@ -49,13 +49,15 @@ export default function SearchScreen() {
       console.log('friend initial', friend);
       return (
         <Title
-          style={{color: '#cf6679', alignSelf: 'center', marginVertical: 100}}>
+          style={{color: '#cf6679', alignSelf: 'center', marginVertical: 100}}
+          testID="friend-not-found">
           There are no results to your request
         </Title>
       );
     } else {
-      return (
+      return (       
         <Card
+          testID="friend-found"
           elevation={10}
           style={{marginVertical: 50, marginHorizontal: 10, borderWidth: 1}}>
           <Card.Cover
@@ -105,6 +107,7 @@ export default function SearchScreen() {
         value={searchText}
         onChangeText={text => setSearchText(text)}
         onIconPress={onSearch}
+        testID="search-bar"
       />
       {showResults()}
       <Button
