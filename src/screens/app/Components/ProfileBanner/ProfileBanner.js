@@ -1,12 +1,14 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import ProfileBannerAvatar from '../ProfileBannerAvatar/ProfileBannerAvatar';
 import ProfileUsername from '../ProfileUsername/ProfileUsername';
 import FollowerButton from '../FollowerButton/FollowerButton';
 import FollowingButton from '../FollowingButton/FollowingButton';
 import PostCountButton from '../PostCountButton/PostCountButton';
+import RequestFollowButton from '../RequestFollowButton/RequestFollowButton';
 import PropTypes from 'prop-types';
 import AirbnbPropTypes from 'airbnb-prop-types';
+import {Button} from 'react-native-paper';
 
 export default class ProfileBanner extends React.Component {
   constructor(props) {
@@ -21,6 +23,8 @@ export default class ProfileBanner extends React.Component {
       following_count,
       follower_count,
       posts_count,
+      isFollowing,
+      your_id,
     } = this.props;
 
     return (
@@ -54,6 +58,20 @@ export default class ProfileBanner extends React.Component {
           <View style={styles.rowContainer}>
             <PostCountButton username={username} posts_count={posts_count} />
           </View>
+          {your_id !== username ? (
+            <RequestFollowButton isFollowing={isFollowing} />
+          ) : (
+            /** NEED TO FIGURE OUT THE SIZING ISSUE. Since text is white, we can get away with just throwing in something random. */
+            <View style={styles.rowContainer}>
+              <Button
+                mode={'text'}
+                color={'white'}
+                style={styles.emptyButtonExtraStyling}>
+                {' '}
+                ...
+              </Button>
+            </View>
+          )}
         </View>
       </View>
     );
@@ -85,5 +103,9 @@ const styles = StyleSheet.create({
   },
   interactiveContentContainer: {
     flex: 1,
+  },
+  emptyButtonExtraStyling: {
+    width: '65%',
+    height: '90%',
   },
 });

@@ -11,7 +11,7 @@ export default class ProfileBannerAvatar extends React.Component {
   render() {
     const default_profile_image =
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80';
-    const profile_image_size = 100;
+    const profile_image_size = 120; /** NOTE, should probably make this a size relative to rest of stuff. */
     const username = this.props
       .username; /** Passing cause you never know...But we can probably delete. */
     let profile_image = this.props.profile_image;
