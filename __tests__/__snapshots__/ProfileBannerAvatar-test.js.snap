@@ -14,9 +14,9 @@ exports[`Profile Banner Avatar Snapshot Test 1`] = `
       Array [
         Object {
           "backgroundColor": "#6200ee",
-          "borderRadius": 50,
-          "height": 100,
-          "width": 100,
+          "borderRadius": 60,
+          "height": 120,
+          "width": 120,
         },
         undefined,
       ]
@@ -30,9 +30,9 @@ exports[`Profile Banner Avatar Snapshot Test 1`] = `
       }
       style={
         Object {
-          "borderRadius": 50,
-          "height": 100,
-          "width": 100,
+          "borderRadius": 60,
+          "height": 120,
+          "width": 120,
         }
       }
     />
