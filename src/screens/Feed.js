@@ -9,8 +9,6 @@ import {
   Alert,
 } from 'react-native';
 
-import SettingsButton from './app/Components/SettingsButton/SettingsButton';
-import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
 import { Divider } from 'react-native-paper';
@@ -92,6 +90,7 @@ export default class FeedScreen extends React.Component {
       hearts,
       image,
       key,
+      saves,
       uid,
       username,
     } = element;
@@ -99,26 +98,19 @@ export default class FeedScreen extends React.Component {
     // const isBookmarked = bookmarkers[uid] ? true : false;
 
     return (
-      <TouchableWithoutFeedback
-        key={key}
-        onPress={() => this.props.navigation.navigate('UserProfile')}>
-        <View>
-          <View style={styles.topBarViewStyles}>
-            <ProfileAvatar username={username} img={image} />
-            <SettingsButton icon="horizontal" />
-          </View>
-          <Post
-            img={image}
-            isLiked={true}
-            likes={hearts}
-            isBookmarked={true}
-            caption={caption}
-            username={username}
-            commentsLength={0}
-          />
-          <Divider />
-        </View>
-      </TouchableWithoutFeedback>
+      <View>
+        <Post
+          img={image}
+          isLiked={true}
+          likes={hearts}
+          isBookmarked={true}
+          caption={caption}
+          username={username}
+          commentsLength={0}
+          key={key}
+        />
+        <Divider />
+      </View>
     );
   };
 
@@ -126,7 +118,10 @@ export default class FeedScreen extends React.Component {
   render() {
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ backgroundColor: '#212121', flex: 1 }}>
+        <View style={styles.topLogoBar}>
+          <Text style={styles.logoText}>Sype</Text>
+        </View>
         <Swiper
           horizontal={false}
           showsPagination={false}
@@ -157,10 +152,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  topBarViewStyles: {
+  topLogoBar: {
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+    overflow: 'hidden',
     flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#6200ee',
+    marginBottom: '3%',
+  },
+  logoText: {
+    fontFamily: 'Georgia',
+    color: 'white',
+    padding: '3%',
+    fontSize: 22,
   },
 });

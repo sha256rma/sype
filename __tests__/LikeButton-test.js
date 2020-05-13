@@ -34,8 +34,8 @@ describe('testing handeLikeClick cases', () => {
 function testPropTypesWithoutErrors(isLiked) {
   const heart = 'heart';
   const heartOutline = 'heart-outline';
-  const colorRed = 'red';
-  const colorGrey = 'grey';
+  const colorCF6679 = '#cf6679';
+  const colorBlack = 'black';
   it(
     'testing icon button heart values (No errors) where isLiked is ' + isLiked,
     () => {
@@ -45,10 +45,10 @@ function testPropTypesWithoutErrors(isLiked) {
       const iconColorValue = iconButton.props().color;
       if (isLiked === true) {
         expect(iconHeartValue).toEqual(heart);
-        expect(iconColorValue).toEqual(colorRed);
+        expect(iconColorValue).toEqual(colorCF6679);
       } else if (isLiked === false) {
         expect(iconHeartValue).toEqual(heartOutline);
-        expect(iconColorValue).toEqual(colorGrey);
+        expect(iconColorValue).toEqual(colorBlack);
       }
     },
   );
