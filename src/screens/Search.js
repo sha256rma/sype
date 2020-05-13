@@ -79,7 +79,7 @@ export default function SearchScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Searchbar
-        placeholder="Find friends..."
+        placeholder="Search email of a friend..."
         value={searchText}
         onChangeText={text => setSearchText(text)}
         onIconPress={onSearch}
@@ -116,3 +116,5 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 });
+
+

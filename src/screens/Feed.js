@@ -13,7 +13,7 @@ import SettingsButton from './app/Components/SettingsButton/SettingsButton';
 import ProfileAvatar from './app/Components/ProfileAvatar/ProfileAvatar';
 import Post from './app/Components/Post/Post';
 import Swiper from 'react-native-swiper';
-import {Divider} from 'react-native-paper';
+import { Divider } from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 import * as ScreenshotDetector from 'react-native-screenshot-detect';
 
@@ -31,6 +31,7 @@ export default class FeedScreen extends React.Component {
     this.fetchPosts();
 
     this.eventEmitter = ScreenshotDetector.subscribe(() => {
+
       Alert.alert(
         'The post with caption',
         posts[this.state.swiperIndex].caption,
@@ -106,11 +107,11 @@ export default class FeedScreen extends React.Component {
   render() {
     console.log('Posts are:', this.state.posts);
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Swiper
           horizontal={false}
           showsPagination={false}
-          onIndexChanged={index => this.setState({swiperIndex: index})}
+          onIndexChanged={index => this.setState({ swiperIndex: index })}
           loop={false}>
           {this.state.posts.map(element => {
             return this.renderPosts(element);
