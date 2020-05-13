@@ -86,8 +86,6 @@ function testPropTypesWithErrors(isFollowing, errorMsg, testDescription) {
       'prop',
       RequestFollowButton.isFollowing,
     );
-    console.log(errorMsg);
-    console.log(result);
     assert(result === errorMsg);
   });
 }

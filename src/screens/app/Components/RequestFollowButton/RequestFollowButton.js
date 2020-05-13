@@ -1,7 +1,7 @@
 import {Button} from 'react-native-paper';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 /** This is the 'Follow Unfollow' button a user would see to follow or unfollow a user */
 
@@ -31,17 +31,12 @@ export default class RequestFollowButton extends React.Component {
 
   render() {
     return (
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.requestButtonContainer}>
         {this.state.isFollowing ? (
           <Button
             mode={'text'}
             color={'black'}
-            style={{backgroundColor: '#efe5ef', width: '65%', height: '90%'}}
+            style={styles.unfollowTextButton}
             onPress={() => this.removeFollower()}>
             Unfollow
           </Button>
@@ -50,7 +45,7 @@ export default class RequestFollowButton extends React.Component {
             mode={'text'}
             dark={true}
             color={'white'}
-            style={{backgroundColor: 'purple', width: '65%', height: '90%'}}
+            style={styles.followTextButton}
             onPress={() => this.addFollower()}>
             Follow
           </Button>
@@ -62,3 +57,21 @@ export default class RequestFollowButton extends React.Component {
 RequestFollowButton.propTypes = {
   isFollowing: PropTypes.bool.isRequired,
 };
+
+const styles = StyleSheet.create({
+  requestButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  unfollowTextButton: {
+    backgroundColor: '#efe5ef',
+    width: '65%',
+    height: '90%',
+  },
+  followTextButton: {
+    backgroundColor: 'purple',
+    width: '65%',
+    height: '90%',
+  },
+});

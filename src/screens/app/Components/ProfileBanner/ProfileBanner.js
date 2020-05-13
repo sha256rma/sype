@@ -61,12 +61,15 @@ export default class ProfileBanner extends React.Component {
           {your_id !== username ? (
             <RequestFollowButton isFollowing={isFollowing} />
           ) : (
+            /** NEED TO FIGURE OUT THE SIZING ISSUE. Since text is white, we can get away with just throwing in something random. */
             <View style={styles.rowContainer}>
               <Button
                 mode={'text'}
                 color={'white'}
-                style={{width: '65%', height: '90%'}}
-              />
+                style={styles.emptyButtonExtraStyling}>
+                {' '}
+                ...
+              </Button>
             </View>
           )}
         </View>
@@ -99,5 +102,9 @@ const styles = StyleSheet.create({
   },
   interactiveContentContainer: {
     flex: 1,
+  },
+  emptyButtonExtraStyling: {
+    width: '65%',
+    height: '90%',
   },
 });
