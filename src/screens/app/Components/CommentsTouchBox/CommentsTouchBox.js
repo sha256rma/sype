@@ -1,5 +1,6 @@
 import React from 'react';
 import {Caption} from 'react-native-paper';
+import AirbnbPropTypes from 'airbnb-prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
 export default class CommentsTouchBox extends React.Component {
@@ -25,3 +26,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+CommentsTouchBox.propTypes = {
+  commentsLength: AirbnbPropTypes.nonNegativeInteger.isRequired,
+};

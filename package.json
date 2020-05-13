@@ -41,6 +41,7 @@
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^0.0.7",
+    "airbnb-prop-types": "^2.15.0",
     "babel-jest": "^25.1.0",
     "check-prop-types": "^1.1.2",
     "enzyme": "^3.11.0",
@@ -59,6 +60,9 @@
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
-    }
+    },
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ]
   }
 }

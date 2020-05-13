@@ -304,7 +304,7 @@ describe('Profile Banner Avatar Unit Testing', () => {
       'prop',
       ProfileBannerAvatar,
     );
-    console.log(result);
+    // console.log(result);
     //result returns undefined when the values are true, as they should be.
     assert(result === undefined);
   });

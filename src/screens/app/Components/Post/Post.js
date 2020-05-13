@@ -5,6 +5,8 @@ import LikeButton from '../LikeButton/LikeButton';
 import BookmarkButton from '../BookmarkButton/BookmarkButton';
 import CommentsTouchBox from '../CommentsTouchBox/CommentsTouchBox';
 import UserCaption from '../UserCaption/UserCaption';
+import PropTypes from 'prop-types';
+import AirbnbPropTypes from 'airbnb-prop-types';
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -74,3 +76,11 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
   },
 });
+Post.propTypes = {
+  username: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool.isRequired,
+  isBookmarked: PropTypes.bool.isRequired,
+  caption: PropTypes.string.isRequired,
+  commentsLength: AirbnbPropTypes.nonNegativeInteger.isRequired,
+  likes: AirbnbPropTypes.nonNegativeInteger.isRequired,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Avatar, Title} from 'react-native-paper';
+import PropTypes from 'prop-types';
 export default class ProfileAvatar extends React.Component {
   constructor(props) {
     super(props);
@@ -26,3 +27,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+ProfileAvatar.propTypes = {
+  username: PropTypes.string.isRequired,
+};

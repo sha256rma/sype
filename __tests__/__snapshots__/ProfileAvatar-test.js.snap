@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`profile avarar snapshot test 1`] = `
+exports[`profile avatar snapshot test 1`] = `
 <View
   style={
     Object {
@@ -25,7 +25,7 @@ exports[`profile avarar snapshot test 1`] = `
     <Image
       source={
         Object {
-          "uri": undefined,
+          "uri": "https://images.app.goo.gl/HPsoQwfF6dpaqUqG8",
         }
       }
       style={
@@ -79,6 +79,8 @@ exports[`profile avarar snapshot test 1`] = `
         ],
       ]
     }
-  />
+  >
+    emanasia
+  </Text>
 </View>
 `;
