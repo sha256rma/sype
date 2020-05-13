@@ -380,9 +380,10 @@ exports[`like button snapshot test 1`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -391,52 +392,60 @@ exports[`like button snapshot test 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          0
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            0
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -823,9 +832,10 @@ exports[`like button snapshot test 2`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -834,52 +844,60 @@ exports[`like button snapshot test 2`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          0
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            0
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -1266,9 +1284,10 @@ exports[`like button snapshot test 3`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1277,52 +1296,60 @@ exports[`like button snapshot test 3`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          0
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            0
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -1709,9 +1736,10 @@ exports[`like button snapshot test 4`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1720,52 +1748,60 @@ exports[`like button snapshot test 4`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          0
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            0
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -2152,9 +2188,10 @@ exports[`like button snapshot test 5`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2163,52 +2200,60 @@ exports[`like button snapshot test 5`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          0
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            0
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -2595,9 +2640,10 @@ exports[`like button snapshot test 6`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2606,52 +2652,60 @@ exports[`like button snapshot test 6`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          0
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            0
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -3038,9 +3092,10 @@ exports[`like button snapshot test 7`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3049,52 +3104,60 @@ exports[`like button snapshot test 7`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          1
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            1
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -3481,9 +3544,10 @@ exports[`like button snapshot test 8`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3492,52 +3556,60 @@ exports[`like button snapshot test 8`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          1
-           Comment
-          
-        </Text>
+              ]
+            }
+          >
+            View All 
+            1
+             Comment
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -3924,9 +3996,10 @@ exports[`like button snapshot test 9`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3935,52 +4008,60 @@ exports[`like button snapshot test 9`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          2
-           Comment
-          s
-        </Text>
+              ]
+            }
+          >
+            View All 
+            2
+             Comment
+            s
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -4367,9 +4448,10 @@ exports[`like button snapshot test 10`] = `
             What times we live in now
           </Text>
         </Text>
-        <Text
+        <View
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4378,52 +4460,60 @@ exports[`like button snapshot test 10`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "textAlign": "left",
-              },
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "rgba(0, 0, 0, 0.54)",
+                  "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                   "textAlign": "left",
-                  "writingDirection": "ltr",
                 },
                 Array [
                   Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
                   },
-                  Object {
-                    "fontSize": 14,
-                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ],
                 ],
-                Array [
-                  Object {
-                    "fontSize": 12,
-                    "letterSpacing": 0.4,
-                    "lineHeight": 20,
-                    "marginVertical": 2,
-                  },
-                  Object {
-                    "fontSize": 14,
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          View All 
-          2
-           Comment
-          s
-        </Text>
+              ]
+            }
+          >
+            View All 
+            2
+             Comment
+            s
+          </Text>
+        </View>
       </View>
     </View>
   </View>
