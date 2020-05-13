@@ -11,7 +11,6 @@ import HomeSVG from '../svg/HomeSVG';
 import LikeSVG from '../svg/LikeSVG';
 import SearchSVG from '../svg/SearchSVG';
 import ProfileSVG from '../svg/ProfileSVG';
-
 const Tab = createBottomTabNavigator();
 
 const tabs: TabsConfigsType = {
@@ -82,10 +81,17 @@ const BubbleStyledScreen = () => {
         },
       }}
       tabBar={props => (
-        <AnimatedTabBar iconSize={20} duration={500} tabs={tabs} {...props} />
+        <AnimatedTabBar
+          testID="navigation-bar"
+          iconSize={20}
+          duration={500}
+          tabs={tabs}
+          {...props}
+        />
       )}>
       <Tab.Screen
         name="Feed"
+        testID="navigation-feed-button"
         initialParams={{
           backgroundColor: '#000',
         }}
@@ -93,6 +99,7 @@ const BubbleStyledScreen = () => {
       />
       <Tab.Screen
         name="Upload"
+        testID="navigation-upload-button"
         initialParams={{
           backgroundColor: '#000',
         }}
@@ -100,6 +107,7 @@ const BubbleStyledScreen = () => {
       />
       <Tab.Screen
         name="Search"
+        testID="navigation-search-button"
         initialParams={{
           backgroundColor: '#000',
         }}
@@ -107,6 +115,7 @@ const BubbleStyledScreen = () => {
       />
       <Tab.Screen
         name="Profile"
+        testID="navigation-profile-button"
         initialParams={{
           backgroundColor: '#000',
         }}
