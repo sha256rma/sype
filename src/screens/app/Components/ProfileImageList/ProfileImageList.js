@@ -47,7 +47,7 @@ export default class ProfileImageList extends React.Component {
           />
         </View>
 
-        {this.state.profile_view == 'grid' ? (
+        {this.state.profile_view === 'grid' ? (
           <FlatList
             key={this.state.profile_view}
             data={postList}

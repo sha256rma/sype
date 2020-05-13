@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {View, StyleSheet} from 'react-native';
+
 /**
 import Showcase from '@gorhom/showcase-template';
 import {version, description} from '../../package.json';
@@ -37,12 +38,14 @@ const ProfileScreen = () => {
   };
   */
 
+  /** NOTE, added your_id becasue that can different from the user that you are viewing! */
   this.state = {
-    username: 'bujarsefa',
+    username: 'bujarsfa',
     user_id: 'bujarsefa',
     following_count: 20000000,
     follower_count: 15000,
     posts_count: 673,
+    your_id: 'bujarsefa',
     profile_image:
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
     postList: [
