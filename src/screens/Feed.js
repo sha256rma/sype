@@ -108,6 +108,7 @@ export default class FeedScreen extends React.Component {
   //sample post data for ui testing purposes. We also have use react-native carousel for swiping posts.
   render() {
     console.log('Posts are:', this.state.posts);
+    console.disableYellowBox = true; 
     return (
       <SafeAreaView style={{flex: 1}} testID={'feed-safe-area'}>
         <Swiper

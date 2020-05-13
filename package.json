@@ -69,7 +69,11 @@
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
-    }
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/e2e"
+    ]
+  
   },
   "detox": {
     "configurations": {

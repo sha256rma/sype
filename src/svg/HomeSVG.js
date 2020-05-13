@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Animated from 'react-native-reanimated';
 import Svg, {Path} from 'react-native-svg';
+import {View} from 'react-native';
 import {SVGProps} from './types';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
@@ -10,6 +11,7 @@ Animated.addWhitelistedNativeProps({
 
 const HomeSVG = ({color, size}: SVGProps) => {
   return (
+    <View testID="FeedSVG">
     <Svg width={size} height={size} viewBox="0 0 20 22">
       <AnimatedPath
         d="M1 8l9-7 9 7v11a2 2 0 01-2 2H3a2 2 0 01-2-2V8z"
@@ -21,6 +23,8 @@ const HomeSVG = ({color, size}: SVGProps) => {
         strokeLinejoin="round"
       />
     </Svg>
+    </View>
+
   );
 };
 

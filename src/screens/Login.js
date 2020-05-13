@@ -46,6 +46,7 @@ export default class Login extends Component<Props> {
   };
 
   render() {
+    console.disableYellowBox = true; 
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
       <View style={{flex: 1}} testID="loginView">
@@ -254,7 +255,7 @@ const LoginComponent = () => {
       <View style={styles.formContainerStyle}>
         <TextInput
           label={'Email'}
-          autoCapitalize={false}
+          autoCapitalize={'none'}
           keyboardType="email-address"
           style={styles.textInputStyle}
           placeholder="Mail address"

@@ -108,6 +108,7 @@ describe('Log in flow', () => {
     const haveAccountButton = await getElementRef(
       'already-have-account-button',
     );
+    await elementIsVisible(haveAccountButton);
     await haveAccountButton.tap();
     await simulateLogIn(email, password);
     sleep(5000);
@@ -134,8 +135,22 @@ describe('Log in flow', () => {
 
 describe('testing swiping on feed page', () => {
   it('simulating swipes', async () => {
+    const searchSVG = await element(by.id('SearchSVG'));
+    const profileSVG = await element(by.id('ProfileSVG'));
+    const feedSVG = await element(by.id('FeedSVG'));
+    const uploadSVG = await element(by.id('UploadSVG'));
+
     // const swiperView = await getElementRef('feed-safe-area-view');
-    // elementIsVisible(swiperView);
+    await elementIsVisible(searchSVG);
+    await elementIsVisible(profileSVG);
+    await elementIsVisible(feedSVG);
+    await elementIsVisible(uploadSVG);
+
+    await(searchSVG).tap();
+    const logOut = await element(by.id('logout-button'));
+    await elementIsVisible(logOut);
+
+    await(logOut).tap();
     // await swiper.swipe('down');
     // await swiper.swipe('up');
     // await swiper.swipe('down', 'fast');

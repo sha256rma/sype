@@ -108,6 +108,7 @@ export default function SearchScreen() {
       />
       {showResults()}
       <Button
+      testID="logout-button"
         mode="contained"
         onPress={logOut}
         style={{
