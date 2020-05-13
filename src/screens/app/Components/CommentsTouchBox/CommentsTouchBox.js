@@ -1,6 +1,6 @@
 import React from 'react';
 import {Caption} from 'react-native-paper';
-import {StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import AirbnbPropTypes from 'airbnb-prop-types';
 
 export default class CommentsTouchBox extends React.Component {
@@ -12,13 +12,12 @@ export default class CommentsTouchBox extends React.Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback
-        onPress={() => console.log('go to view comments')}>
+      <TouchableOpacity onPress={() => console.log('go to view comments')}>
         <Caption style={styles.captionStyle}>
           View All {this.props.commentsLength} Comment
           {this.props.commentsLength <= 1 ? '' : 's'}
         </Caption>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     );
   }
 }
