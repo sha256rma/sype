@@ -7,15 +7,12 @@ import PropTypes from 'prop-types';
 import AirbnbPropTypes from 'airbnb-prop-types';
 
 export default class ProfileImageList extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       profile_view: 'grid',
-    }
+    };
   }
-
-  
 
   renderGrid = element => {
     return (
@@ -112,22 +109,41 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   profileGridCardImage: {
-    width: '100%', 
-    aspectRatio: 1
-  }
+    width: '100%',
+    aspectRatio: 1,
+  },
 });
 
 /** Will probably need to add conditions that check if we have 0 posts, well, then
  * we cannot have required children properities!
  */
+// ProfileImageList.propTypes = {
+//   postList: AirbnbPropTypes.and(
+//     [PropTypes.arrayOf(PropTypes.object).isRequired,
+//       AirbnbPropTypes.childrenHavePropXorChildren('username'),
+//       AirbnbPropTypes.childrenHavePropXorChildren('commentsLength'),
+//       AirbnbPropTypes.childrenHavePropXorChildren('caption'),
+//       AirbnbPropTypes.childrenHavePropXorChildren('likes'),
+//       AirbnbPropTypes.childrenHavePropXorChildren('isLiked'),
+//       AirbnbPropTypes.childrenHavePropXorChildren('isBookmarked'),
+//     ]).isRequired,
+// };
+
+/** If the input is [], it will NOT throw a warning, and just none of the buttons will work! (Which is what we want!)
+ * However, if we pass in [{}] it will throw a warning, becasue we have NOT met
+ * the object property requirements! (Also will throw an error when clicking buttons, because
+ * prop values are undefined.)
+ */
 ProfileImageList.propTypes = {
-  postList: AirbnbPropTypes.and(
-    [PropTypes.array, 
-      AirbnbPropTypes.childrenHavePropXorChildren('username'),
-      AirbnbPropTypes.childrenHavePropXorChildren('commentsLength'),
-      AirbnbPropTypes.childrenHavePropXorChildren('caption'),
-      AirbnbPropTypes.childrenHavePropXorChildren('likes'),
-      AirbnbPropTypes.childrenHavePropXorChildren('isLiked'),
-      AirbnbPropTypes.childrenHavePropXorChildren('isBookmarked'),
-    ]).isRequired,
+  postList: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      commentsLength: AirbnbPropTypes.nonNegativeIntegerisRequired,
+      caption: PropTypes.string.isRequired,
+      likes: AirbnbPropTypes.nonNegativeInteger.isRequired,
+      isLiked: PropTypes.bool.isRequired,
+      isBookmarked: PropTypes.bool.isRequired,
+      img: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };

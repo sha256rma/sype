@@ -38,7 +38,7 @@ const ProfileScreen = () => {
   */
 
   this.state = {
-    usernamee: 'bujarsefa',
+    username: 'bujarsefa',
     user_id: 'bujarsefa',
     following_count: 20000000,
     follower_count: 15000,
@@ -46,283 +46,258 @@ const ProfileScreen = () => {
     profile_image:
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
     postList: [
-        {
-          post_id: 1,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          saves: 0,
-          usernamee: 'bujarsefa',
-          likers: {
-            dennyliang: true,
-          },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+      {
+        post_id: 1,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        saves: 0,
+        username: 'bujarsefa',
+        likers: {
+          dennyliang: true,
         },
-        {
-          post_id: 2,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          saves: 0,
-          usernamee: 'bujarsefa',
-          likers: {
-            dennyliang: true,
-          },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        bookmarkers: {
+          dennyliang: true,
         },
-        {
-          post_id: 3,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          usernamee: 'bujarsefa',
-          saves: 0,
-          likers: {
-            dennyliang: true,
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
           },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              usernamee: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 2,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        saves: 0,
+        username: 'bujarsefa',
+        likers: {
+          dennyliang: true,
         },
-        {
-          post_id: 4,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          usernamee: 'bujarsefa',
-          saves: 0,
-          likers: {
-            dennyliang: true,
-          },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        bookmarkers: {
+          dennyliang: true,
         },
-        {
-          post_id: 5,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          usernamee: 'bujarsefa',
-          saves: 0,
-          likers: {
-            dennyliang: true,
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
           },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 3,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        username: 'bujarsefa',
+        saves: 0,
+        likers: {
+          dennyliang: true,
         },
-        {
-          post_id: 6,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          usernamee: 'bujarsefa',
-          saves: 0,
-          likers: {
-            dennyliang: true,
-          },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        bookmarkers: {
+          dennyliang: true,
         },
-        {
-          post_id: 7,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          usernamee: 'bujarsefa',
-          saves: 0,
-          likers: {
-            dennyliang: true,
+        comments: [
+          {
+            usernamee: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
           },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 4,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        username: 'bujarsefa',
+        saves: 0,
+        likers: {
+          dennyliang: true,
         },
-        {
-          post_id: 8,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          saves: 0,
-          usernamee: 'bujarsefa',
-          likers: {
-            dennyliang: true,
-          },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        bookmarkers: {
+          dennyliang: true,
         },
-        {
-          post_id: 9,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          saves: 0,
-          usernamee: 'bujarsefa',
-          likers: {
-            dennyliang: true,
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
           },
-          bookmarkers: {
-            dennyliang: true,
-          },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-          img:
-            'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
-          date_posted: '10-10-2019',
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 5,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        username: 'bujarsefa',
+        saves: 0,
+        likers: {
+          dennyliang: true,
         },
-        {
-          post_id: 10,
-          isLiked: false,
-          isBookmarked: false,
-          commentsLength: 1,
-          caption: 'Quarantine selfie #corona',
-          likes: 2,
-          saves: 0,
-          usernamee: 'bujarsefa',
-          likers: {
-            dennyliang: true,
+        bookmarkers: {
+          dennyliang: true,
+        },
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
           },
-          bookmarkers: {
-            dennyliang: true,
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 6,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        username: 'bujarsefa',
+        saves: 0,
+        likers: {
+          dennyliang: true,
+        },
+        bookmarkers: {
+          dennyliang: true,
+        },
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
           },
-          comments: [
-            {
-              userName: 'Model1234',
-              userImage:
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-              comment: 'Slay girllll!!!',
-            },
-          ],
-        }
-      ],
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 7,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        username: 'bujarsefa',
+        saves: 0,
+        likers: {
+          dennyliang: true,
+        },
+        bookmarkers: {
+          dennyliang: true,
+        },
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
+          },
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 8,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        saves: 0,
+        username: 'bujarsefa',
+        likers: {
+          dennyliang: true,
+        },
+        bookmarkers: {
+          dennyliang: true,
+        },
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
+          },
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+      {
+        post_id: 9,
+        isLiked: false,
+        isBookmarked: false,
+        commentsLength: 1,
+        caption: 'Quarantine selfie #corona',
+        likes: 2,
+        saves: 0,
+        username: 'bujarsefa',
+        likers: {
+          dennyliang: true,
+        },
+        bookmarkers: {
+          dennyliang: true,
+        },
+        comments: [
+          {
+            userName: 'Model1234',
+            userImage:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+            comment: 'Slay girllll!!!',
+          },
+        ],
+        img:
+          'https://www.familyandmedia.eu/wp-content/uploads/2018/10/529382-4386816-selfie-psicologia-725x545.jpg',
+        date_posted: '10-10-2019',
+      },
+    ],
   };
 
-  // renders
   return (
     <View style={styles.container}>
       {/** Passing in state for testing purposes, but we can/should switch this to individual props :) */}
       <ProfileBanner {...this.state} />
       {/** Adding this view just to show where images would  */}
-      <ProfileImageList {...this.state}/>
+      <ProfileImageList postList={this.state.postList} />
     </View>
   );
 };

@@ -218,3 +218,7 @@ exports[`Profile Image List snapshot test 1`] = `
   </RCTScrollView>
 </View>
 `;
+
+exports[`Profile Image List snapshot test 2`] = `[Function]`;
+
+exports[`Profile Image List snapshot test 3`] = `[Function]`;
