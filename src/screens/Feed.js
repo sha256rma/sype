@@ -84,7 +84,6 @@ export default class FeedScreen extends React.Component {
       <TouchableWithoutFeedback
         key={key}
         testID={'post-test-id-' + username + '-' + caption}
-
         onPress={() => Alert.alert('post-test-id-' + username + '-' + caption)}>
         <View>
           {/* <View style={styles.topBarViewStyles}>
@@ -111,7 +110,9 @@ export default class FeedScreen extends React.Component {
     console.log('Posts are:', this.state.posts);
     console.disableYellowBox = true;
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#212121'}} testID={'feed-safe-area'}>
+      <SafeAreaView
+        style={{flex: 1, backgroundColor: '#212121'}}
+        testID={'feed-safe-area'}>
         <View style={styles.topLogoBar}>
           <Text style={styles.logoText}>Sype</Text>
         </View>

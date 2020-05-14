@@ -55,7 +55,7 @@ export default function SearchScreen() {
         </Title>
       );
     } else {
-      return (       
+      return (
         <Card
           testID="friend-found"
           elevation={10}
