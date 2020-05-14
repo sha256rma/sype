@@ -141,6 +141,7 @@ describe('Failed Sign up attempts', () => {
   });
 });
 
+//cannot test both sign up and log in since log out doesn't work
 // describe('Successfull Sign Up attempt', () => {
 //   it('simulating valid sign up', async () => {
 //     randomEmail = generateRandomEmail(6);
@@ -240,28 +241,22 @@ describe('Successful Log in attempt', () => {
   });
 });
 
-// describe('testing swiping on feed page', () => {
-//   it('simulating swipes', async () => {
-//     const searchSVG = await element(by.id('SearchSVG'));
-//     const profileSVG = await element(by.id('ProfileSVG'));
-//     const feedSVG = await element(by.id('FeedSVG'));
-//     const uploadSVG = await element(by.id('UploadSVG'));
+describe('testing swiping on feed page', () => {
+  it('simulating swipes', async () => {
+    const searchSVG = await element(by.id('SearchSVG'));
+    const profileSVG = await element(by.id('ProfileSVG'));
+    const feedSVG = await element(by.id('FeedSVG'));
+    const uploadSVG = await element(by.id('UploadSVG'));
 
-//     // const swiperView = await getElementRef('feed-safe-area-view');
-//     await elementIsVisible(searchSVG);
-//     await elementIsVisible(profileSVG);
-//     await elementIsVisible(feedSVG);
-//     await elementIsVisible(uploadSVG);
+    await elementIsVisible(searchSVG);
+    await elementIsVisible(profileSVG);
+    await elementIsVisible(feedSVG);
+    await elementIsVisible(uploadSVG);
 
-//     await searchSVG.tap();
-//     const logOut = await element(by.id('logout-button'));
-//     await elementIsVisible(logOut);
+    await searchSVG.tap();
+    const logOut = await element(by.id('logout-button'));
+    await elementIsVisible(logOut);
 
-//     await logOut.tap();
-//     // await swiper.swipe('down');
-//     // await swiper.swipe('up');
-//     // await swiper.swipe('down', 'fast');
-//     // await swiper.swipe('up', 'fast');
-//     // elementIsVisible(swiper);
-//   });
-// });
+    await logOut.tap();
+  });
+});
