@@ -34,6 +34,7 @@ export default class RequestFollowButton extends React.Component {
       <View style={styles.requestButtonContainer}>
         {this.state.isFollowing ? (
           <Button
+            testID="request-unfollow-button"
             mode={'text'}
             color={'black'}
             style={styles.unfollowTextButton}
@@ -42,6 +43,7 @@ export default class RequestFollowButton extends React.Component {
           </Button>
         ) : (
           <Button
+            testID="request-follow-button"
             mode={'text'}
             dark={true}
             color={'white'}
