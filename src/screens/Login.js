@@ -216,6 +216,14 @@ const LoginComponent = () => {
       setError('Email required *');
       setValid(false);
       return;
+    } else if (!password || password === '') {
+      setError('Password Required *');
+      setValid(false);
+      return;
+    } else if (password.length < 6) {
+      setError('Password must be more than 5 characters');
+      setValid(false);
+      return;
     } else if (!password && password.trim() && password.length > 6) {
       setError('Weak password, minimum 5 characters');
       setValid(false);
@@ -235,7 +243,9 @@ const LoginComponent = () => {
 
   const __doSingIn = async (email, password) => {
     try {
-      let response = await auth().signInWithEmailAndPassword(email, password);
+      let response = await auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(error => {});
       if (response && response.user) {
         // Alert.alert('Success ✅', 'Logged successfully');
       }
@@ -316,6 +326,14 @@ const SigInComponent = () => {
       setError('Email required *');
       setValid(false);
       return;
+    } else if (!password || password === '') {
+      setError('Password Required *');
+      setValid(false);
+      return;
+    } else if (password.length < 6) {
+      setError('Password must be more than 5 characters');
+      setValid(false);
+      return;
     } else if (!password && password.trim() && password.length > 6) {
       setError('Weak password, minimum 5 chars');
       setValid(false);
@@ -331,10 +349,9 @@ const SigInComponent = () => {
 
   const __doCreateUser = async (email, password) => {
     try {
-      let response = await auth().createUserWithEmailAndPassword(
-        email,
-        password,
-      );
+      let response = await auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(error => {});
       if (response && response.user) {
         // add user to firestore
         let userData = {
@@ -349,7 +366,7 @@ const SigInComponent = () => {
           .doc(userData.uid)
           .set(userData);
 
-        Alert.alert('Success ✅', 'Account created successfully');
+        // Alert.alert('Success ✅', 'Account created successfully');
       }
     } catch (e) {
       console.error(e.message);

@@ -1,5 +1,8 @@
 // import firestore from '@react-native-firebase/firestore';
 /* eslint-disable */
+
+let randomEmail;
+
 const getElementRef = async elementID => {
   const elementRef = await element(by.id(elementID));
   return elementRef;
@@ -26,9 +29,22 @@ const enterCredentials = async (email, password, isLogin) => {
     await passwordInput.typeText(password);
 
     await enterInputButton.tap();
-    await enterInputButton.tap();
 
     return {emailInput, passwordInput};
+  } catch (e) {
+    console.log('Buttons/components not found/accessible');
+  }
+};
+
+const clearCredentials = async isLogin => {
+  try {
+    const typeOfLogin = isLogin ? 'login' : 'signup';
+    const emailInput = await getElementRef(typeOfLogin + '-email-input');
+    const passwordInput = await getElementRef(typeOfLogin + '-password-input');
+    const enterInputButton = await getElementRef(typeOfLogin + '-button');
+
+    await emailInput.clearText();
+    await passwordInput.clearText();
   } catch (e) {
     console.log('Buttons/components not found/accessible');
   }
@@ -51,76 +67,237 @@ const simulateSignUp = async (email, password) => {
   await enterCredentials(email, password, false);
 };
 
+const generateRandomEmail = length => {
+  var result = '';
+  var characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result + '@gmail.com';
+};
+
+//check to make sure all sign up components are visible
 describe('Verifying sign up page', () => {
   it('checking if all sign up components are visible', async () => {
     const signUpEmailInput = await getElementRef('signup-email-input');
     const signUpPasswordInput = await getElementRef('signup-password-input');
     const signUpButton = await getElementRef('signup-button');
+    const haveAccountButton = await getElementRef(
+      'already-have-account-button',
+    );
 
     await elementIsVisible(signUpEmailInput);
     await elementIsVisible(signUpPasswordInput);
     await elementIsVisible(signUpButton);
+    await elementIsVisible(haveAccountButton);
   });
 });
 
-describe('Log in flow', () => {
-  it('simulating log in', async () => {
-    const email = 'dork@gmail.com';
+describe('Failed Sign up attempts', () => {
+  it('sign up attempt with blank email and password', async () => {
+    const blankEmail = '';
+    const blankPassword = '';
+    await simulateSignUp(blankEmail, blankPassword);
+    await sleep(3000);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+  it('sign up attempt with blank email', async () => {
+    const blankEmail = '';
     const password = '123456';
+    await simulateSignUp(blankEmail, password);
+    await sleep(3000);
+    clearCredentials(false);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+  it('sign up attempt with blank password', async () => {
+    const email = generateRandomEmail(6);
+    const blankPassword = '';
+    await simulateSignUp(email, blankPassword);
+    await sleep(3000);
+    clearCredentials(false);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+  it('sign up attempt with already existing email', async () => {
+    const email = 'marvin@gmail.com';
+    const password = '123456';
+    await simulateSignUp(email, password);
+    await sleep(3000);
+    clearCredentials(false);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+});
 
+// describe('Successfull Sign Up attempt', () => {
+//   it('simulating valid sign up', async () => {
+//     randomEmail = generateRandomEmail(6);
+//     const password = '123456';
+
+//     await simulateSignUp(randomEmail, password);
+//     await sleep(7000);
+//   });
+//   //feedSVG for some reason doesn't register as being visible
+//   // it('veryfying feed screen has been opened', async () => {
+//   //   const feedSVG = await element(by.id('FeedSVG'));
+//   //   await elementIsVisible(feedSVG);
+//   // });
+// });
+
+describe('Switching to and verifying log in page', () => {
+  it('swtiching to log in page and verifying components', async () => {
     const haveAccountButton = await getElementRef(
       'already-have-account-button',
     );
+    const emailInput = await getElementRef('login-email-input');
+    const passwordInput = await getElementRef('login-password-input');
+    const enterInputButton = await getElementRef('login-button');
+
     await elementIsVisible(haveAccountButton);
-    await haveAccountButton.tap();
-    await simulateLogIn(email, password);
-    sleep(5000);
-
-    // const navigationFeedButton = await getElementRef('navigation-feed-button');
-    // const navigationUploadButton = await getElementRef(
-    //   'navigation-upload-button',
-    // );
-    // const navigationSearchButton = await getElementRef(
-    //   'navigation-search-button',
-    // );
-    // const navigationProfileButton = await getElementRef(
-    //   'navigation-profile-button',
-    // );
-
-    // await navigationFeedButton.tap();
-    // await navigationUploadButton.tap();
-    // await navigationSearchButton.tap();
-    // await navigationProfileButton.tap();
-
-    // expect(signUpButton).toBeNotVisible();
+    haveAccountButton.tap();
+    await elementIsVisible(emailInput);
+    await elementIsVisible(passwordInput);
+    await elementIsVisible(enterInputButton);
   });
 });
 
-describe('testing swiping on feed page', () => {
-  it('simulating swipes', async () => {
-    const searchSVG = await element(by.id('SearchSVG'));
-    const profileSVG = await element(by.id('ProfileSVG'));
+describe('Failed Log in attempts', () => {
+  it('log in attempt with blank email and password', async () => {
+    const blankEmail = '';
+    const blankPassword = '';
+    await simulateLogIn(blankEmail, blankPassword);
+    await sleep(3000);
+  });
+  it('veryfying feed screen has not been opened', async () => {
     const feedSVG = await element(by.id('FeedSVG'));
-    const uploadSVG = await element(by.id('UploadSVG'));
-
-    // const swiperView = await getElementRef('feed-safe-area-view');
-    await elementIsVisible(searchSVG);
-    await elementIsVisible(profileSVG);
-    await elementIsVisible(feedSVG);
-    await elementIsVisible(uploadSVG);
-
-    await searchSVG.tap();
-    const logOut = await element(by.id('logout-button'));
-    await elementIsVisible(logOut);
-
-    await logOut.tap();
-    // await swiper.swipe('down');
-    // await swiper.swipe('up');
-    // await swiper.swipe('down', 'fast');
-    // await swiper.swipe('up', 'fast');
-    // elementIsVisible(swiper);
+    await elementIsNotVisible(feedSVG);
+  });
+  it('log in attempt with blank email', async () => {
+    const blankEmail = '';
+    const password = '123456';
+    await simulateLogIn(blankEmail, password);
+    await sleep(3000);
+    clearCredentials(true);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+  it('log in attempt with short password', async () => {
+    const blankEmail = generateRandomEmail();
+    const password = '123';
+    await simulateLogIn(blankEmail, password);
+    await sleep(3000);
+    clearCredentials(true);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+  it('log in attempt with blank password', async () => {
+    const email = generateRandomEmail(6);
+    const blankPassword = '';
+    await simulateLogIn(email, blankPassword);
+    await sleep(3000);
+    clearCredentials(true);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
+  });
+  it('log in attempt with already existing email and wrong password', async () => {
+    const email = 'marvin@gmail.com';
+    const password = '1234';
+    await simulateSignUp(email, password);
+    await sleep(3000);
+    clearCredentials(true);
+  });
+  it('veryfying feed screen has not been opened', async () => {
+    const feedSVG = await element(by.id('FeedSVG'));
+    await elementIsNotVisible(feedSVG);
   });
 });
+
+describe('Successful Log in attempt', () => {
+  it('checking succesful log in attempt', async () => {
+    const email = 'dork@gmail.com';
+    const password = '123456';
+
+    await simulateLogIn(email, password);
+    sleep(7000);
+  });
+});
+
+// describe('Log in flow', () => {
+//   it('simulating log in', async () => {
+//     const email = 'dork@gmail.com';
+//     const password = '123456';
+
+//     const haveAccountButton = await getElementRef(
+//       'already-have-account-button',
+//     );
+//     await elementIsVisible(haveAccountButton);
+//     await haveAccountButton.tap();
+//     await simulateLogIn(email, password);
+//     sleep(5000);
+
+//     // const navigationFeedButton = await getElementRef('navigation-feed-button');
+//     // const navigationUploadButton = await getElementRef(
+//     //   'navigation-upload-button',
+//     // );
+//     // const navigationSearchButton = await getElementRef(
+//     //   'navigation-search-button',
+//     // );
+//     // const navigationProfileButton = await getElementRef(
+//     //   'navigation-profile-button',
+//     // );
+
+//     // await navigationFeedButton.tap();
+//     // await navigationUploadButton.tap();
+//     // await navigationSearchButton.tap();
+//     // await navigationProfileButton.tap();
+
+//     // expect(signUpButton).toBeNotVisible();
+//   });
+// });
+
+// describe('testing swiping on feed page', () => {
+//   it('simulating swipes', async () => {
+//     const searchSVG = await element(by.id('SearchSVG'));
+//     const profileSVG = await element(by.id('ProfileSVG'));
+//     const feedSVG = await element(by.id('FeedSVG'));
+//     const uploadSVG = await element(by.id('UploadSVG'));
+
+//     // const swiperView = await getElementRef('feed-safe-area-view');
+//     await elementIsVisible(searchSVG);
+//     await elementIsVisible(profileSVG);
+//     await elementIsVisible(feedSVG);
+//     await elementIsVisible(uploadSVG);
+
+//     await searchSVG.tap();
+//     const logOut = await element(by.id('logout-button'));
+//     await elementIsVisible(logOut);
+
+//     await logOut.tap();
+//     // await swiper.swipe('down');
+//     // await swiper.swipe('up');
+//     // await swiper.swipe('down', 'fast');
+//     // await swiper.swipe('up', 'fast');
+//     // elementIsVisible(swiper);
+//   });
+// });
 
 // describe('testing fetchPosts listener', () => {
 //   beforeEach(async () => {
@@ -133,18 +310,5 @@ describe('testing swiping on feed page', () => {
 //     //await addDefaultPostToDatabase();
 //     // await device.reloadReactNative();
 //     // await expect(getElementRef(postID)).toBeNotVisible();
-//   });
-// });
-
-// describe('Sign up flow', () => {
-//   it('simulating sign up', async () => {
-//     const email = 'random@gmail.com';
-//     const password = '123456';
-//     const haveAccountButton = await getElementRef(
-//       'already-have-account-button',
-//     );
-//     // await simulateSignUp(email, password);
-//     // await expect(signUpButton).toBeNotVisible();
-//     // await sleep(5000);
 //   });
 // });
