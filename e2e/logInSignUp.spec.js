@@ -240,39 +240,6 @@ describe('Successful Log in attempt', () => {
   });
 });
 
-// describe('Log in flow', () => {
-//   it('simulating log in', async () => {
-//     const email = 'dork@gmail.com';
-//     const password = '123456';
-
-//     const haveAccountButton = await getElementRef(
-//       'already-have-account-button',
-//     );
-//     await elementIsVisible(haveAccountButton);
-//     await haveAccountButton.tap();
-//     await simulateLogIn(email, password);
-//     sleep(5000);
-
-//     // const navigationFeedButton = await getElementRef('navigation-feed-button');
-//     // const navigationUploadButton = await getElementRef(
-//     //   'navigation-upload-button',
-//     // );
-//     // const navigationSearchButton = await getElementRef(
-//     //   'navigation-search-button',
-//     // );
-//     // const navigationProfileButton = await getElementRef(
-//     //   'navigation-profile-button',
-//     // );
-
-//     // await navigationFeedButton.tap();
-//     // await navigationUploadButton.tap();
-//     // await navigationSearchButton.tap();
-//     // await navigationProfileButton.tap();
-
-//     // expect(signUpButton).toBeNotVisible();
-//   });
-// });
-
 // describe('testing swiping on feed page', () => {
 //   it('simulating swipes', async () => {
 //     const searchSVG = await element(by.id('SearchSVG'));
@@ -296,19 +263,5 @@ describe('Successful Log in attempt', () => {
 //     // await swiper.swipe('down', 'fast');
 //     // await swiper.swipe('up', 'fast');
 //     // elementIsVisible(swiper);
-//   });
-// });
-
-// describe('testing fetchPosts listener', () => {
-//   beforeEach(async () => {
-//     await device.reloadReactNative();
-//   });
-
-//   it('adding post to database and checking if it', async () => {
-//     const postID = 'BzbzvqmiGK043HimiAPm';
-
-//     //await addDefaultPostToDatabase();
-//     // await device.reloadReactNative();
-//     // await expect(getElementRef(postID)).toBeNotVisible();
 //   });
 // });
