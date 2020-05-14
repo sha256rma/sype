@@ -82,9 +82,10 @@ export default class FeedScreen extends React.Component {
 
     return (
       <TouchableWithoutFeedback
-        testID={key}
         key={key}
-        onPress={() => this.props.navigation.navigate('UserProfile')}>
+        testID={'post-test-id-' + username + '-' + caption}
+
+        onPress={() => Alert.alert('post-test-id-' + username + '-' + caption)}>
         <View>
           {/* <View style={styles.topBarViewStyles}>
             <ProfileAvatar username={username} img={image} />
@@ -110,7 +111,11 @@ export default class FeedScreen extends React.Component {
     console.log('Posts are:', this.state.posts);
     console.disableYellowBox = true;
     return (
-      <SafeAreaView style={{flex: 1}} testID={'feed-safe-area'}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#212121'}} testID={'feed-safe-area'}>
+        <View style={styles.topLogoBar}>
+          <Text style={styles.logoText}>Sype</Text>
+        </View>
+
         <Swiper
           horizontal={false}
           showsPagination={false}

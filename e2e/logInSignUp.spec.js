@@ -116,7 +116,7 @@ describe('Log in flow', () => {
     await elementIsNotVisible(signUpButton);
   });
 });
-describe('testing svgs in bottom navigator extts', () => {
+describe('testing svgs in bottom navigator', () => {
   it('checking svgs', async () => {
     const haveAccountButton = await getElementRef(
       'already-have-account-button',
@@ -132,19 +132,27 @@ describe('testing svgs in bottom navigator extts', () => {
   await elementIsVisible(profileSVG);
   await elementIsVisible(feedSVG);
   await elementIsVisible(uploadSVG);
+  await searchSVG.tap();
+  await profileSVG.tap();
+  await uploadSVG.tap();
+  await feedSVG.tap();
   });
 });
 describe('testing swiping on feed page', () => {
-  it('simulating swipes', async () => {
+  it('simulating swipes and checking posts', async () => {
     const feedSVG = await element(by.id('FeedSVG'));
     await elementIsVisible(feedSVG);
     await feedSVG.tap();
     const swiperView = await getElementRef('feed-safe-area');
     await elementIsVisible(swiperView);
+    const postDenny = await element(by.id('post-test-id-denny15-These mai new shuus'));
+    await elementIsVisible(postDenny);
     await swiperView.swipe('down');
     await swiperView.swipe('up');
     await swiperView.swipe('down', 'fast');
     await swiperView.swipe('up', 'fast');
+    const postShouldNotExist = await element(by.id('post-test-id-30'));
+    await elementIsNotVisible(postShouldNotExist);
   });
 });
 describe('testing search', () => {
@@ -180,9 +188,39 @@ describe('testing search', () => {
     await elementIsNotVisible(friendFound);
 
   });
-
 });
-
+describe('test profile', () => {
+  it('test follow and unfollow button', async () => {
+    const ProfileSVG = await element(by.id('ProfileSVG'));
+    await elementIsVisible(ProfileSVG);
+    await ProfileSVG.tap();  
+    // const followButton = await element(by.id('request-follow-button'));
+    // await elementIsVisible(followButton);
+    // followButton.tap();
+    // followButton.tap();
+    // sleep(500);
+    // const unFollowButton = await element(by.id('request-unfollow-button'));
+    // await elementIsVisible(unFollowButton);
+    // unFollowButton.tap();
+  });
+});
+// describe('test upload', () => {
+//   it('testing photo pic', async () => {
+//     const uploadSVG = await element(by.id('UploadSVG'));
+//     await elementIsVisible(uploadSVG);
+//     await uploadSVG.tap();  
+//     await element(by.id('select_photo')).tap();
+//     // Choose from Library...
+//     await element(by.traits(['button']).and(by.type('_UIAlertControllerActionView'))).atIndex(1).tap();
+//     // select Cemara Roll, use index 0 for Moments
+//     // await element(by.label('Moments'));
+//     // await element(by.type('UITableViewCellContentView')).atIndex(0).tap();
+//     // select first image
+//     // await element(by.type('PUPhotoView')).atIndex(0).tap();
+  
+    
+//   });
+// });
 describe('testing logout', () => {
   it('simulating logout', async () => {
   const searchSVG = await element(by.id('SearchSVG'));

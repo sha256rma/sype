@@ -121,6 +121,7 @@ export default function SearchScreen() {
 
       <TouchableOpacity
         onPress={selectPhotoTapped}
+        testID="select_photo"
         style={[styles.avatar, styles.avatarContainer]}>
         {avatarSource === null ? (
           <Text>Select a Photo</Text>
@@ -131,6 +132,7 @@ export default function SearchScreen() {
 
       <View style={{flexDirection: 'row'}}>
         <TextInput
+          testID="upload-text-box"
           label="Caption"
           mode="outlined"
           value={caption}
@@ -146,6 +148,7 @@ export default function SearchScreen() {
       </View>
       <View style={{flexDirection: 'row'}}>
         <Button
+          testID="upload-post-button"
           mode="contained"
           onPress={onSubmit}
           style={{

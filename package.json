@@ -94,7 +94,7 @@
         "build": "xcodebuild -workspace ios/sype.xcworkspace -scheme sype -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "device": {
-          "type": "iPhone 8"
+          "type": "iPhone 11"
         }
       }
     },
