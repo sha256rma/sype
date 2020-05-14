@@ -25,9 +25,7 @@ exports[`user caption snapshot test 1`] = `
             "lineHeight": 24,
             "marginVertical": 2,
           },
-          Object {
-            "textAlignVertical": "center",
-          },
+          undefined,
         ],
         Array [
           Object {
@@ -36,9 +34,7 @@ exports[`user caption snapshot test 1`] = `
             "lineHeight": 24,
             "marginVertical": 2,
           },
-          Object {
-            "textAlignVertical": "center",
-          },
+          undefined,
         ],
       ],
     ]
@@ -47,18 +43,8 @@ exports[`user caption snapshot test 1`] = `
   <Text
     style={
       Object {
+        "color": "#3700b3",
         "fontWeight": "bold",
-      }
-    }
-  >
-    test
-  </Text>
-   
-  <Text
-    style={
-      Object {
-        "flexWrap": "wrap",
-        "textAlignVertical": "center",
       }
     }
   >

@@ -13,7 +13,7 @@ import {
   LayoutAnimation,
   Alert,
 } from 'react-native';
-
+import firestore from '@react-native-firebase/firestore';
 import auth, {firebase} from '@react-native-firebase/auth';
 if (
   Platform.OS === 'android' &&
@@ -46,12 +46,13 @@ export default class Login extends Component<Props> {
   };
 
   render() {
+    console.disableYellowBox = true;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1}} testID="loginView">
         {this.state.authenticated ? (
           <View style={styles.containerStyle}>
-            <Text style={{textAlign: 'center'}}>
+            <Text style={{textAlign: 'center', color: '#bb86fc'}}>
               email {firebase.auth().currentUser.email}{' '}
             </Text>
 
@@ -72,10 +73,11 @@ export default class Login extends Component<Props> {
             <View style={styles.loginButtonContainerStyle}>
               <TouchableOpacity
                 style={styles.loginButtonStyle}
+                testID="already-have-account-button"
                 onPress={() =>
                   this.setState(state => ({isLogin: !state.isLogin}))
                 }>
-                <Text style={styles.loginButtonTextStyle}>
+                <Text style={styles.bottomMessageStyle}>
                   {' '}
                   {this.state.isLogin
                     ? 'New? Create account.'
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitleStyle: {
-    color: blue,
+    color: '#bb86fc',
     fontSize: 30,
     fontWeight: 'bold',
   },
@@ -116,9 +118,10 @@ const styles = StyleSheet.create({
     marginVertical: baseMargin,
     borderRadius: 6,
     paddingHorizontal: doubleBaseMargin,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     borderColor: '#888',
     borderWidth: 1,
+    color: 'black',
   },
   signInButtonContainerStyle: {
     flex: 0.3,
@@ -133,15 +136,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 130 / 4,
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#000000',
   },
   signInButtonTextStyle: {
-    color: 'black',
     textAlign: 'center',
     alignSelf: 'center',
     fontSize: 14,
     fontWeight: 'bold',
     marginHorizontal: baseMargin,
+    color: '#3700bc',
   },
   signInWithGoogleButtonContainerStyle: {
     flex: 0.2,
@@ -170,7 +173,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   errorTextStyle: {
-    color: 'red',
+    color: '#b00020',
     textAlign: 'center',
   },
   loginButtonContainerStyle: {
@@ -184,6 +187,9 @@ const styles = StyleSheet.create({
   },
   loginButtonTextStyle: {
     color: blue,
+  },
+  bottomMessageStyle: {
+    color: '#03DAC6',
   },
 });
 
@@ -210,6 +216,14 @@ const LoginComponent = () => {
       setError('Email required *');
       setValid(false);
       return;
+    } else if (!password || password === '') {
+      setError('Password Required *');
+      setValid(false);
+      return;
+    } else if (password.length < 6) {
+      setError('Password must be more than 5 characters');
+      setValid(false);
+      return;
     } else if (!password && password.trim() && password.length > 6) {
       setError('Weak password, minimum 5 characters');
       setValid(false);
@@ -229,9 +243,11 @@ const LoginComponent = () => {
 
   const __doSingIn = async (email, password) => {
     try {
-      let response = await auth().signInWithEmailAndPassword(email, password);
+      let response = await auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(error => {});
       if (response && response.user) {
-        Alert.alert('Success ✅', 'Logged successfully');
+        // Alert.alert('Success ✅', 'Logged successfully');
       }
     } catch (e) {
       console.error(e.message);
@@ -249,10 +265,12 @@ const LoginComponent = () => {
       <View style={styles.formContainerStyle}>
         <TextInput
           label={'Email'}
-          autoCapitalize={false}
+          autoCapitalize={'none'}
           keyboardType="email-address"
           style={styles.textInputStyle}
           placeholder="Mail address"
+          testID="login-email-input"
+          loginButtonContainerStyle
           onChangeText={text => {
             // let isValid = this.state.isValid;
             // isValid["email"] = !this.__isValidEmail(text);
@@ -266,10 +284,10 @@ const LoginComponent = () => {
           secureTextEntry
           autoCapitalize={false}
           style={styles.textInputStyle}
-          selectionColor={blue}
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
+          testID="login-password-input"
         />
       </View>
       {error ? (
@@ -282,7 +300,8 @@ const LoginComponent = () => {
         <TouchableHighlight
           style={styles.signInButtonStyle}
           onPress={__doLogin}
-          underlayColor={blue}>
+          underlayColor={blue}
+          testID="login-button">
           <View
             style={{
               flexDirection: 'row',
@@ -307,6 +326,14 @@ const SigInComponent = () => {
       setError('Email required *');
       setValid(false);
       return;
+    } else if (!password || password === '') {
+      setError('Password Required *');
+      setValid(false);
+      return;
+    } else if (password.length < 6) {
+      setError('Password must be more than 5 characters');
+      setValid(false);
+      return;
     } else if (!password && password.trim() && password.length > 6) {
       setError('Weak password, minimum 5 chars');
       setValid(false);
@@ -322,12 +349,24 @@ const SigInComponent = () => {
 
   const __doCreateUser = async (email, password) => {
     try {
-      let response = await auth().createUserWithEmailAndPassword(
-        email,
-        password,
-      );
+      let response = await auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(error => {});
       if (response && response.user) {
-        Alert.alert('Success ✅', 'Account created successfully');
+        // add user to firestore
+        let userData = {
+          uid: response.user._user.uid,
+          email: response.user._user.email,
+          totalPosts: 0,
+          followers: 0,
+          following: 0,
+        };
+        await firestore()
+          .collection('users')
+          .doc(userData.uid)
+          .set(userData);
+
+        // Alert.alert('Success ✅', 'Account created successfully');
       }
     } catch (e) {
       console.error(e.message);
@@ -354,6 +393,7 @@ const SigInComponent = () => {
             setEmail(text);
           }}
           error={isValid}
+          testID="signup-email-input"
         />
 
         <TextInput
@@ -361,10 +401,10 @@ const SigInComponent = () => {
           secureTextEntry
           autoCapitalize={false}
           style={styles.textInputStyle}
-          selectionColor={blue}
           placeholder="Password"
           error={isValid}
           onChangeText={text => setPassword(text)}
+          testID="signup-password-input"
         />
       </View>
       {error ? (
@@ -376,7 +416,8 @@ const SigInComponent = () => {
         <TouchableHighlight
           style={styles.signInButtonStyle}
           onPress={__doSignUp}
-          underlayColor={blue}>
+          underlayColor={blue}
+          testID="signup-button">
           <View
             style={{
               flexDirection: 'row',

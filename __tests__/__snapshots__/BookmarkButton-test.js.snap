@@ -40,7 +40,9 @@ exports[`like button snapshot test 1`] = `
           "width": 37.5,
         },
         undefined,
-        undefined,
+        Object {
+          "margin": 0,
+        },
       ],
     ]
   }
@@ -56,7 +58,7 @@ exports[`like button snapshot test 1`] = `
       style={
         Array [
           Object {
-            "color": "black",
+            "color": "#018786",
             "fontSize": 25,
           },
           Array [
@@ -126,7 +128,9 @@ exports[`like button snapshot test 2`] = `
           "width": 37.5,
         },
         undefined,
-        undefined,
+        Object {
+          "margin": 0,
+        },
       ],
     ]
   }
@@ -142,7 +146,7 @@ exports[`like button snapshot test 2`] = `
       style={
         Array [
           Object {
-            "color": "grey",
+            "color": "black",
             "fontSize": 25,
           },
           Array [
